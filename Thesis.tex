@@ -21,7 +21,7 @@
 %---------------------------------------------------------------------------%
 %->> Document settings
 %---------------------------------------------------------------------------%
-\usepackage[authoryear,myhdr,list]{Style/artratex}% document settings
+\usepackage[numbers,myhdr,list]{Style/artratex}% document settings
 %- usage: \usepackage[option1,option2,...,optionN]{artratex}
 %- Multiple optional arguments:
 %- [bibtex|biber]% set bibliography processor and package
@@ -40,6 +40,10 @@
 %- [list]% provide enhanced list environments for algorithm and coding
 %- [math]% enable some extra math packages
 \usepackage{Style/artracom}% user defined commands
+\usepackage{xspace}
+\usepackage{multirow}
+\usepackage{cleveref}
+\usepackage{cancel}
 %---------------------------------------------------------------------------%
 %->> Document inclusion
 %---------------------------------------------------------------------------%
@@ -73,13 +77,14 @@
 %-
 \cleardoublepage%
 \appendix% initialize the environment
-\input{Tex/Appendix}% appendix content
+%\input{Tex/Appendix}% appendix content
 %-
 %-> Backmatter: bibliography, glossary, index
 %-
 \backmatter% initialize the environment
 \intotoc{\bibname}% add link to contents table and bookmark
-\bibliography{Biblio/ref}% bibliography
+%\bibliography{Biblio/ref}
+\bibliography{Biblio/ref,Biblio/HIGG-2016-24-PAPER}%,Biblio/PubNotes}% bibliography
 \input{Tex/Backmatter}% other information
 \end{document}
 %---------------------------------------------------------------------------%

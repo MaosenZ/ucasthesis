@@ -1,0 +1,29 @@
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c| c c r r}
+\hline
+\hline
+粒子     &\multicolumn{2}{c}{选择条件}    \\
+\hline
+         &Baseline     &Tight     \\
+\cline{2-3}
+\multirow{4}{*}{电子}  &\ET$>$ 10 GeV         &\texttt{TightLH} ID      \\
+        &\abseta $<$ 2.47，排除1.37$<$\abseta$<$1.52 区间    &\texttt{FixedCutTight} \\
+        &\texttt{LooseLH} ID, \texttt{Loose} isolation   &（$\et^{\text{cone}20}/\pt<$0.06, $\pt^{\text{varcone}20}/\pt<$0.06）          \\
+        &$|z_{0}\sin\theta| <$ 0.5~mm，$d_{0}/\sigma(d_{0}) <$ 5  &   \\
+\hline
+\multirow{4}{*}{$\mu$}  &\pt > 10 GeV         &\texttt{Tight} ID      \\
+        &\abseta $<$ 2.5                      &\texttt{FixedCutTightTrackOnly} \\
+        &\texttt{Loose} ID, \texttt{Loose} isolation   &（$\pt^{\text{varcone}20}/\pt<$0.06）\\
+        &$|z_{0}\sin\theta| <$ 0.5~mm，$d_{0}/\sigma(d_{0}) <$ 3  &   \\
+\hline
+\multirow{2}{*}{Jet}    &\multicolumn{2}{c}{\pt > 25 GeV, \abseta $<$ 2.5} \\
+                        &\multicolumn{2}{c}{ |JVT|<0.59 if \pt < 60 GeV and \abseta $<$ 2.4}  \\
+\hline
+MET    &\multicolumn{2}{c}{$E_{\text{T}}^{\text{miss,TRK}}$}     \\
+\hline
+\hline
+\end{tabular}
+\caption{4W物理分析粒子筛选条件总结}
+\label{tab:4w_obj_def}
+\end{table}

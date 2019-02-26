@@ -1,0 +1,347 @@
+\chapter{背景估计}\label{chap:bkg_estimation}
+4W物理分析背景分为可以贡献两个相同电荷的过程（promptSS），电荷误鉴别（QmisID）和“假”轻子过程（fakes）。
+promptSS主要来自$t\bar{t}V$, $VV$, $tV$以及$t\bar{t}H$过程，该背景可用MC估计。
+QmisID一般来自于$Z+jets$和$t\bar{t}$（轻子衰变过程）。
+fakes来自于$W+jets$，$t\bar{t}$（半轻子衰变）过程，其中一个jet被误判成轻子或者一个轻子来源于\bjet （non-prompt）。
+目前ATLAS MC不能很好地描述QmisID和fakes，如图~\ref{fig:nominal:datavspureMC}所示，如果所有背景均用MC模拟，可以看到，数据跟预期有非常大的偏差。
+所以，这表明data-driven的方法去估计QmisID和fakes是有必要的。在以下章节中，将分别讲述QmisID和fakes的估计方法。
+\begin{figure}[h]
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/numOfjet_ee.pdf}
+ \label{fig:nominal:numOfjet_ee.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/numOfjet_mumu.pdf}
+ \label{fig:nominal:numOfjet_mumu.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/numOfjet_emu.pdf}
+ \label{fig:nominal:numOfjet_emu.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/MET_ee.pdf}
+ \label{fig:nominal:MET_ee.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/MET_mumu.pdf}
+ \label{fig:nominal:MET_mumu.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/MET_emu.pdf}
+ \label{fig:nominal:MET_emu.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/pt_leadinglepton_ee.pdf}
+ \label{fig:nominal:pt_leadinglepton_ee.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/pt_leadinglepton_mumu.pdf}
+ \label{fig:nominal:pt_leadinglepton_mumu.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/pt_leadinglepton_emu.pdf}
+ \label{fig:nominal:pt_leadinglepton_emu.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/pt_j1_ee.pdf}
+ \label{fig:nominal:pt_j1_ee.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/pt_j1_mumu.pdf}
+ \label{fig:nominal:pt_j1_mumu.pdf}
+ \end{minipage}
+\begin{minipage}[t]{0.3\linewidth}
+ \centering
+ \includegraphics[width=1.0\textwidth,angle=-90]{fig/nominal/pt_j1_emu.pdf}
+ \label{fig:nominal:pt_j1_emu.pdf}
+ \end{minipage}
+\caption{The comparison between data and all MC backgrounds at pre-selection level. Left: $ee$, middle: $\mu\mu$, right:$e\mu$. The slashed pink bands are corresponding to statistical uncertainties. Each process is normalized to the luminosity of 36.1 fb$^{-1}$.}
+\label{fig:nominal:datavspureMC}
+\end{figure}
+\clearpage
+
+\section{QmisID估计}\label{sec:QmisID_estimation}
+双轻子为同电荷和同味道双轻子的$Z$ veto的选择条件，会极大地压低$t\bar{t}$和$Z+jets$背景，但如果一个电荷误判，即使很低的误判率，但考虑到这两种过程的极大截面，仍有相当一部分的QmisID会贡献到最终背景中。根据8 TeV的研究~\cite{MuonQmisIDnote}，
+$\mu$电荷误判率非常低（一般低于10$^{-5}$）
+\footnote{The rate of charge mis-identification for muons is only affected by the track curvature. Because of the long lever arm to the muon system and the fact that the charge is measured in both the inner detector and muon spectrometer the mis-identification rates of the muon charge are very low, making this background negligible compared to the other sources of background}，
+所以只考虑电子电荷误判背景。\\
+电子电荷误判有两种原因：
+\begin{itemize}
+  \item 当电子穿过探测器材料时，出射一个光子（韧致辐射）；而后这个光子转换成一对正负电子，然而在随后的径迹重建中，带相反电荷的电子被利用，从而导致电荷误判。
+韧致辐射依赖于探测器材料密度，而探测器材料密度随着\abseta 变化，所以电子的电荷误判率也依赖于\abseta。 
+  \item 第二种贡献相对来讲比较小，主要是因为测量精度不够，当电子径迹的曲率很小或者内部探测器径迹与量能器的簇射匹配错误时，得到完全相反曲率的
+径迹，从而导致电荷误判。所以，当电子具有高横动量时这个效应比较明显，那么误判率也依赖于\pt。
+\end{itemize}
+%\\
+\subsection{似然函数方法}
+一般假设电子电荷误判率不依赖于产生模式，因为$Z$玻色子产生截面大，而且其不变质量峰重建比较好，所以$Z$过程可以用来测量电子电荷误判率，采用似然函数技术~\cite{Likelihoodnote}，构建的似然函数如下：
+\begin{equation}
+\ln L(\varepsilon|N_{SS},N)=\sum_{i,j}\ln [N^{ij}(\varepsilon_i+\varepsilon_j-2\varepsilon_i \varepsilon_j)]N^{ij}_{SS}-N^{ij}(\varepsilon_i+\varepsilon_j-2\varepsilon_i \varepsilon_j)
+\end{equation}
+其中，$\varepsilon_i$和$\varepsilon_j$分别为$\eta-\pt$二维区间中第i个和第j个电子的误判率，$N_{SS}$和$N$是观察到的
+相同电荷事例数和总事例数。
+$\eta-\pt$区域总共分为28个小区域，其$\abseta$和$\pt$的分界线分别为[0., 0.60, 1.1, 1.37, 1.52, 1.70, 2.00, 2.47]和
+[10, 60, 90, 130, 1000] GeV。随后，为了得到电子电荷误判率，需按照以下过程进行：
+\begin{enumerate}
+ \item 按照$Z$玻色子过程筛选双轻子数据，其中轻子质量要求应与章节\ref{chap:evtsel}所述一致。
+ \item 在所选数据中通过高斯函数拟合$Z$不变质量谱，得到$Z$不变质量拟合值$\kappa$和标准偏差$\sigma$。而后分为如下三个区间，
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+\hline
+  A  &B  &C  \\
+($\kappa-8\sigma$, $\kappa - 4\sigma$)  & ($\kappa \pm 4\sigma$)  & ($\kappa+4\sigma$, $\kappa + 8\sigma$) \\
+\hline
+\end{tabular}
+\end{table}
+
+ \item 为了进一步提高$Z$玻色子纯度，剩余本底会被减去，即$N_Z=n_B-\frac{n_A+n_C}{2}$。
+ \item 所选数据根据电荷分为SS和OS，利用最大似然函数法得到各个$\abseta-\pt$区间的误判率。
+\end{enumerate}
+图\ref{fig:qmisid_rates}展示电子电荷误判率随着\abseta 增加而增大，因为在高\abseta 粒子会穿过更多探测器材料；误判率也随着\pt 增大而增大，这与前面的讨论一致。最后，利用公式~\ref{eq:qmisid_evts}计算出$ee$和$e\mu$道经过初步筛选后，在$N_{\text{jet}}\ge2$时（$N_{\text{jet}}\ge3$）的误判事例数分别为101.47$\pm$0.60 (35.60$\pm$0.38)和18.21$\pm$0.23 (8.38$\pm$0.16)。
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.70\textwidth]{fig/QmisID/Rates_tight.eps}
+\caption{The electron charge mis-identification rates as a function of ($|\eta|$, $p_T$) computed in data with the likelihood method.}
+\label{fig:qmisid_rates}
+\end{figure}
+
+\begin{equation}
+N_{ee}^{\text{QmisID}}=\frac{\varepsilon_i+\varepsilon_j-2\varepsilon_i \varepsilon_j}{1-\varepsilon_i-\varepsilon_j +2\varepsilon_i \varepsilon_j}N^{\text{OS}},
+N_{e\mu}^{\text{QmisID}}=\frac{\varepsilon}{1-\varepsilon}N^{\text{OS}}
+\label{eq:qmisid_evts}
+\end{equation}
+
+\subsection{系统误差}
+在QmisID估计中，考虑了三种系统误差：
+\begin{enumerate}
+ \item 每个$\abseta-\pt$ 小区域中的统计误差；
+ \item 为了证实似然函数方法的可靠性，可以利用$Z$ MC进行以上的误判率估计，因为在MC中，电子误判率是已知的，从而比较似然函数
+估计值与真实值就可判断该方法的可信程度（closure test）。图~\ref{fig:QmisID_TMLik}比较了真实值与似然函数估计值，总体上
+是一致的。该项差距将作为QmisID的系统误差之一。
+\begin{figure}[h]
+\centering
+ \includegraphics[width=0.70\textwidth]{fig/QmisID/TMLik_tight.eps}
+ \caption{The comparison between the charge mis-identification rates of electrons measured in simulated $Z\rightarrow e^{+}e^{-}$ events with the truth-matching method and the 2D likelihood method.}
+\label{fig:QmisID_TMLik}
+\end{figure}
+
+ \item $Z$峰区间的变动会影响QmisID的估计，所以，如果偏移$Z$峰1 $\sigma$，其QmisID 率的相对变化考虑成系统误差。
+\end{enumerate}
+图~\ref{fig:QmisID_syst}总结了几种系统误差在不同$\abseta-\pt$的相对大小，随着$\pt$的增加统计误差越来越大，因为
+大部分电子是低动量的，其次是似然函数误差在低动量区更显著。
+\begin{figure}[h]
+\centering
+  \includegraphics[width=0.45\textwidth]{fig/QmisID/Syst1_tight.eps}
+  \includegraphics[width=0.45\textwidth]{fig/QmisID/Syst2_tight.eps}
+  \includegraphics[width=0.45\textwidth]{fig/QmisID/Syst3_tight.eps}
+  \includegraphics[width=0.45\textwidth]{fig/QmisID/Syst4_tight.eps}
+\caption{The systematic uncertainty on the charge mis-identification rate, for different bins in $p_T$ and $|\eta|$.}
+\label{fig:QmisID_syst}
+\end{figure}
+
+\section{Fakes估计}
+误鉴别粒子是一项非常重要的本底，因为对其形成机制理解不够准确，MC并不能很好地描述，所以有必要使用data-driven的方法
+去估计该项本底。在该分析中，我们使用fake factor的方法。
+
+\subsection{Fake factor方法}
+在4W分析中，Fake factor方法的假设是fake factor不依赖于jet数，其定义是具有两个\texttt{tight} SS轻子的事例数与具有
+一个\texttt{tight}和一个\texttt{anti-tight}的轻子的事例数比例，如等式~\ref{eq:fake_factor_def}所示。
+\begin{equation}
+\theta_{\ell}=\frac{N_{\ell \ell}}{N_{\ell \cancel{\ell}}}
+\label{eq:fake_factor_def}
+\end{equation}
+其中，$\ell$为\texttt{tight}电子或者$\mu$子，$\cancel{\ell}$是\texttt{anti-tight}的轻子。通常，分母的选择是fake 
+factor中最困难的部分：分母的选择应当使得真实轻子极大地压低，而尽量增大误鉴别轻子的比例。如果分母选择条件越严格，
+与外延相关的系统误差越小，但是另一方面，事例越少，相应的统计误差越大。所以，为了优化整体的系统误差，必须考虑到这
+些相反的影响。一般来讲，利用ID和isolation条件可以很好地压低误鉴别的电子，而isolation和碰撞参数可以用来压低误鉴别
+$\mu$子~\cite{Alison2015}。
+在本分析中，$\ell$和$\cancel{\ell}$的定义如表~\ref{tab:tight_ele_def}和表~\ref{tab:tight_mu_def}所示。
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{c|cccccc}
+\hline
+  &tight electron    &anti-tight electron  \\
+\hline
+ID  &TightLH  &fail TightLH \\
+isolation &isolationFixedCutTight  &- \\
+QmisID          &ChargeIDBDTTight$>$0.067  &ChargeIDBDTTight$>$0.067 \\
+\hline
+\end{tabular}
+\caption{definitions of tight electrons and anti-tight electrons. In addition to the inverted ID requirement, anti-tight
+electrons are required to pass the loose selection criteria.}
+\label{tab:tight_ele_def}
+\end{center}
+\end{table}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{c|cccccc}
+\hline
+  &tight muon    &anti-tight muon  \\
+\hline
+ID  &Tight  &- \\
+isolation &isolationFixedCutTightTrackOnly  &fail isolationFixedCutTightTrackOnly \\
+\hline
+\end{tabular}
+\caption{definitions of tight muons and anti-tight muons. In addition to the inverted isolation requirement,
+anti-tight muons are required to pass the loose selection criteria.}
+\label{tab:tight_mu_def}
+\end{center}
+\end{table}
+值得指出的是，因为在本分析中，有两个$N_{\text{jet}}$类别，所以对于低质量点，计算fake factor时要求一个jet；对于高质
+量点，要求1到2个jet。总结如表~\ref{tab:summary_CRs_ff}所示。
+\begin{table}[!ht]
+\begin{center}
+\scriptsize
+\begin{tabular}{cc|c|c}
+\hline
+\multicolumn{2}{c|}{Region}  &Fake factor CR (low jet multilicity region) &SR (high jet multiplicity region)  \\
+\hline
+\multirow{2}{*}{Low mass} &$hh$: $m_X$=260, 300 GeV  &$N_{\text{jet}}$=1    &$N_{\text{jet}} \geq$2 \\
+                          &$SS$: Fixing $m_S$=135 GeV, $m_X$=280, 300, 320 GeV  &  & \\
+\hline
+\multirow{2}{*}{High mass} &$hh$: $m_X$=400, 500 GeV, no-resonant  &$1\leq N_{\text{jet}} \leq 2$    &$N_{\text{jet}} \geq$3 \\
+                          &$SS$: Fixing $m_X$=340 GeV, $m_S$=135, 145, 155 and 165 GeV  &  & \\
+
+\hline
+\end{tabular}
+\caption{Summary of different regions used to estimate fakes for low mass and high mass searches.}
+\label{tab:summary_CRs_ff}
+\end{center}
+\end{table}
+接下来，作为例子，我们将只展示高质量点的fakes的计算方式。之前提过，本底包括fakes, QmisID, $V\gamma$和promptSS，
+为了不重复考虑这些本底，实际计算fake factor时应当减去这些本底，如公式~\ref{eq:fake_factor_cal}所示。
+\begin{equation}
+\theta_{e}(1\leq N_{\text{jet}}\leq 2)=\frac{N_{ee}^{\text{data}}-N_{ee}^{\text{promptSS}}-N_{ee}^{V\gamma}-N_{ee}^{\text{QmisID}}}{N_{e\cancel{e}}^{\text{data}}-N_{e\cancel{e}}^{\text{promptSS}}-N_{e\cancel{e}}^{V\gamma}-N_{e\cancel{e}}^{\text{QmisID MC}}}(1\leq N_{\text{jet}}\leq 2)
+\end{equation}
+\begin{equation}
+\theta_{\mu}(1\leq N_{\text{jet}}\leq 2)=\frac{N_{\mu\mu}^{\text{data}}-N_{\mu\mu}^{\text{promptSS}}-N_{\mu\mu}^{V\gamma}}{N_{\mu\cancel{\mu}}^{\text{data}}-N_{\mu\cancel{\mu}}^{\text{promptSS}}-N_{\mu\cancel{\mu}}^{V\gamma}}(1\leq N_{\text{jet}}\leq 2)
+\label{eq:fake_factor_cal}
+\end{equation}
+可以看到，promptSS，QmisID和$V\gamma$在分子分母中均被减去。
+promptSS用MC估计，并且要求其中一个轻子能够匹配到真实轻子（truth-matching）。$V\gamma$也利用MC估计，但是并不要求
+truth-matching，因为其中一个轻子很可能来自于$\gamma$。对于QmisID，分子中的$N_{ee}^{\text{QmisID}}$计算如章节~\ref{sec:QmisID_estimation}所述，而$N_{e\cancel{e}}^{\text{QmisID MC}}$直接利用MC估计，其中要求电子truth-matching。表
+~\ref{tab:ff_ele_CR_1jets}到表~\ref{tab:ff_mu_CR_2jets}总结在不同$N_{\text{jet}}$类别下，用来计算fake factor各个成分的值。
+\input{tables/ff_CR_1jet_yields.tex}
+\input{tables/ff_CR_2jet_yields.tex}
+最终，根据公式~\ref{eq:fake_factor_cal}，得到各种类别的fake factor，总结在表~\ref{tab:summary_fake_factor}。
+\input{tables/ff_values.tex}
+接下来，就可以计算在信号区，即高$N_{text{jet}}$区，的fakes估计值。计算方法如下：
+\begin{equation}
+N_{ee}^{\text{fakes}}(N_{\text{jet}}\geq 3)=(N_{e\cancel{e}}^{\text{data}}-N_{e\cancel{e}}^{\text{promptSS}}-N_{e\cancel{e}}^{V\gamma}-N_{e\cancel{e}}^{\text{QmisID MC}})(N_{\text{jet}}\geq 3)\times \theta_{e}
+\end{equation}
+\begin{equation}
+N_{\mu\mu}^{\text{fakes}}(N_{\text{jet}}\geq 3)=(N_{\mu\cancel{\mu}}^{\text{data}}-N_{\mu\cancel{\mu}}^{\text{promptSS}}-N_{\mu\cancel{\mu}}^{V\gamma})(N_{\text{jet}}\geq 3)\times \theta_{\mu}
+\end{equation}
+\begin{equation}
+\begin{split}
+N_{e\mu}^{\text{fakes}}(N_{\text{jet}}\geq 3)=(N_{e\cancel{\mu}}-N_{e\cancel{\mu}}^{\text{promptSS}}-N_{e\cancel{\mu}}^{V\gamma}-N_{e\cancel{\mu}}^{\text{QmisID}})(N_{\text{jet}}\geq 3)\times \theta_{\mu} \\ +
+       (N_{\cancel{e}\mu}-N_{\cancel{e}\mu}^{\text{promptSS}}-N_{\cancel{e}\mu}^{V\gamma}-N_{\cancel{e}\mu}^{\text{QmisID MC}})(N_{\text{jet}}\geq 3)\times \theta_{e}
+\end{split}
+\end{equation}
+各个成分的选择同样遵循计算fake factor时要求，表~\ref{tab:low_Njet_CR_eventyield}（表~\ref{tab:high_Njet_CR_eventyield}）总结各种成分在$N_{text{jet}}\ge2$（$N_{text{jet}}\ge3$）时的数值。
+\input{tables/CR_2jets_yields.tex}
+\input{tables/CR_3jets_yields.tex}
+最后，计算得到信号区的fakes结果如表~\ref{tab:summary_jet_fakes}所示。其中，只考虑了统计误差，其计算方式为$\theta_{\ell}\times \sqrt{N_{\ell\cancel{\ell}}^{\geq \text{2jet(3jet)}}}$~\cite{Alison2015}。
+\input{tables/fakes_stat.tex}
+
+\subsection{系统误差}
+计算fake factor时有如下系统误差：
+\begin{enumerate}
+  \item \textbf{统计误差}，低$N_{\text{jet}}$区的统计误差会传递到fake factor;
+  \item \textbf{QmisID}，QmisID的贡献在$ee$道是比较大的，其系统误差也会传递到$\theta_{\ell}$的计算。
+  \item \textbf{Closure test}，此分析中fake factor的假设是其值不依赖于jet数，但此假设本身是有误差的，所以为了
+考虑此项误差，可以利用MC（semi-leptonic $t\bar{t}$）重复一遍fake factor方法，将真实的fakes与预测值作为系统误差。具体流程如下：
+  \begin{itemize}
+   \item 要求$1\leq N_{\text{jet}}\leq2$，其中为了增大统计量，去除$b-$veto，$Z$ veto和轻子\pt 选择条件。
+   \item 选择$ee$（$e\cancel{e}$）和$\mu\mu$（$\mu\cancel{\mu}$）事例，计算fake factor ($\frac{N_{\ell\ell}}{N_{\ell\cancel{\ell}}}$)：\\
+   $\theta_{e}=0.32\pm0.12$, $\theta_{\mu}=0.12\pm0.04$;
+   \item 预测高$N_{text{jet}}$区的fakes数（$\theta \times N_{\ell\cancel{\ell}}$）。
+  \end{itemize}
+表~\ref{tab:nonclosure_ttbar}的总结了在$t\bar{t}$ MC中真实fakes，预测值以及它们之间的相对差别，其中$e\mu$道最大
+的相对差别会作为fake factor closure系统误差。
+\begin{table}[h]
+\centering
+\begin{tabular}{c|ccc}
+   &Predicted  &Real   &Relative difference  \\
+\hline
+$ee$   &24.69$\pm$9.47  &26.92$\pm$2.06 &9.03\% \\
+$\mu\mu$ &30.44$\pm$10.00 &34.88$\pm$2.35 &14.59\% \\
+$e\mu$   &40.80$\pm$11.31  &56.63$\pm$3.01  &38.80\% \\
+\hline
+\end{tabular}
+\caption{Non-closure uncertainty on $\theta_{e}$ and $\theta_{\mu}$. To reduce the statistical error, SS, $p_T(\ell)$ and $M(\ell\ell)>$15 GeV requirements are dropped in pre-selections.}
+\label{tab:nonclosure_ttbar}
+\end{table}
+
+  \item \textbf{样本成分}，低$N_{\text{jet}}$与高$N_{\text{jet}}$区的一个显著区别是背景成分，以表~\ref{tab:fractions_ttbarOverWjets}作为例证，
+可以看到，随着jet数的增加，$t\bar{t}$的比例相应增大。
+不同味道的jet具有不同的误鉴别率，从而不同本底会有不同的fake factor。在此估计中，fake factor是在低$N_{\text{jet}}$区
+估计的，而后应用在高$N_{\text{jet}}$，那么从表~\ref{tab:fractions_ttbarOverWjets}推论出，$t\bar{t}$本底被低估了。为了补偿此项偏差，可以重复
+以上fake factor方法，加上至少一个\bjet 的条件。最后，把他们之间的差别作为系统误差，结果如表~\ref{tab:ff_syst_sample_composition}所示。
+\input{tables/fractions_ttbarOverWjets.tex}
+\input{tables/ff_wo_bveto.tex}
+
+  \item \textbf{prompt SS产生截面}，在fake factor计算中，prompt SS作为减去项，那么它们的截面理论值也会影响fake
+factor的结果，它们的理论误差会传递到fake factor的误差中，其中低于1\%影响的过程被忽略。
+\end{enumerate}
+  Fake factor的所有系统误差总结在表~\ref{tab:syst_ff_ele}和表Table~\ref{tab:syst_ff_mu}中。可以发现，最显著的
+误差是Non-closure和样本成分；对于$\mu$而言，$WZ$的产生截面也有30\%到40\%的影响，而对于electron fake factor，QmisID
+误差大小约为30\%；其次是统计误差最小，只有不到10\%的影响，说明轻子选择条件是比较合理的，没有引入较大统计误差；
+虽然在各个$N_{\text{jet}}$类别，电子fake factor误差略高于$\mu$子的，但它们总误差都在60\%到72\%之间。
+\input{tables/ff_sys.tex}
+
+\subsection{总预期本底估计}
+表~\ref{tab:event_yield_low_Njet_CR}和表~\ref{tab:event_yield_high_Njet_CR}分别总结在
+$N_{\text{jet}}\geq2$和$N_{\text{jet}}\geq3$时，经过初步筛选之后，的各项本底的估计值与观测数据数；表内的误差考虑了fakes的统计误差和fake factor的系统误差，
+假设它们相互独立，总的误差为$\sqrt{({\theta_{\ell}^{\text{sys.}}\times N^{\text{median}}_{\text{jet fakes}}})^2+\theta_{\ell}\times N^{\text{median}}_{\text{jet fakes}}}$，其中$\theta_{\ell}^{\text{sys.}}$是fake factor系统误差值，
+$N^{\text{median}}_{\text{jet fakes}}$是fakes预期值。在三个轻子道中，fakes都占有比较大的比例，都高于
+30\%，尤其在$ee$中，fakes作为最大的本底成分，高达44\%。
+图~\ref{fig:dataMC_low_Njet_CR:numOfjet}和图~\ref{fig:dataMC_high_Njet_CR:numOfjet}是$N_{\text{jet}}$的分布，分别对应$N_{\text{jet}}\geq2$和$N_{\text{jet}}\geq3$。
+，相比图~\ref{fig:nominal:datavspureMC}，
+数据与预期本底吻合度得到极大地提升，其偏差基本控制在2个标准偏差之内。
+\input{tables/preselection_yields.tex}
+\begin{figure}[h]
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/numOfjet_ee.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/numOfjet_mumu.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/numOfjet_emu.pdf}
+\end{minipage}
+ \caption{The comparisons between data and backgrounds at pre-selection level, corresponding to $N_{\text{jet}}\geq2$. Left: $ee$, middle: $\mu\mu$, right: $e\mu$. The uncertainties, represented by slashed bands, include all systematics on fakes and statistical uncertainties on the other background components. PromptSS and $V+\gamma$ are normalized to the luminosity of 36.1 fb$^{-1}$.}
+\label{fig:dataMC_low_Njet_CR:numOfjet}
+\end{figure}
+
+\begin{figure}[h]
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/numOfjet_ee.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/numOfjet_mumu.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/numOfjet_emu.pdf}
+\end{minipage} \caption{The comparisons between data and backgrounds at pre-selection level, corresponding to $N_{\text{jet}}\geq3$. Left: $ee$, middle: $\mu\mu$, right: $e\mu$. The uncertainties, represented by slashed bands, include all systematics on fakes and statistical uncertainties on the other background components. PromptSS and $V+\gamma$ are normalized to the luminosity of 36.1 fb$^{-1}$.}
+\label{fig:dataMC_high_Njet_CR:numOfjet}
+\end{figure}

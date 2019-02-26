@@ -70,6 +70,7 @@
 \newif\ifartx@super \artx@superfalse
 \newif\ifartx@authoryear \artx@authoryearfalse
 \newif\ifartx@alpha \artx@alphafalse
+\newif\ifartx@misc \artx@misctrue
 \DeclareOption{numbers}{%
     \artx@numberstrue
     \artx@superfalse
@@ -284,6 +285,9 @@
     \ifartx@alpha% enable alpha citation style
         \RequirePackage[square,comma,numbers]{natbib}% square bracket
         \bibliographystyle{alpha}% alpha scheme
+    \fi
+    \ifartx@misc %
+        \RequirePackage{Style/atlasmisc}
     \fi
     \providecommand*{\citetns}[2][]{% text embedded \citet in superscripted mode
         \begingroup%
