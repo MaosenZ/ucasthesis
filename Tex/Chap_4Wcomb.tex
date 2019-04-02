@@ -1,4 +1,4 @@
-\chapter{4W联合统计结果}\label{chap:4w_combination}
+\section{4W联合统计结果}\label{sec:4w_combination}
 
 为了最大化4W分析道的灵敏度，
 对3个现有衰变分析道进行统计组合，包括2LSS，3Lep和4Lep。
@@ -8,14 +8,14 @@
 值得注意的是，影响多个分析道的系统误差应当使用相同的冗余参数，这样子系统误差对整个实验
 的影响才能有效一致的传递。
 检验统计量使用参考文献~\cite{Cowan:2010js}中定义的profile似然比$\Lambda(\mu)$。
-最终应用渐近逼近式修改的频率方法CL$_s$~\cite{CLs_2002}在95\%置信度下提取上限。
+最终应用渐近逼近式修改的频率方法在95\% CL$_s$~\cite{CLs_2002}置信度下提取上限。
 
-\section{系统误差相关性}
+\subsection{系统误差关联性}
 影响多个衰变分析道的系统误差关联考虑，具体关联情况见表~\ref{comb:SysCorr}。
 \begin{table}
-\tiny
 \centering
-\begin{tabular}{|c|c|c|}
+\scriptsize\scalebox{0.8}{
+\begin{tabular}{c|c|c}
 \hline
    Sys source   &number of NP   &correlation strategy\\
 \hline
@@ -39,25 +39,26 @@
 \hline
    Fake factor uncertainty&6(2L)+2(3L)+1(4L)     & {\color{red}{not correlated}}\\
 \hline
-\end{tabular}
+\end{tabular}}
+\caption{4W分析中各种系统误差关联策略。}
 \label{comb:SysCorr}
 \end{table}
-亮度，$\mu$ 子，轻子，光子，味道鉴别，pile-up和MET相关的系统误差是相互关联的，而fakes相关的误差没有关联，fakes是在不同的区域估计的。
-JES uncertainty is not correlated because the knowledge of the source is removed when the simplification of nuisance parameter scheme is done？
-The uncertainty on the electron efficiency is only correlated between 2L and 3L channels, since 4L uses a different correlation scheme.？
+亮度，$\mu$ 子，轻子，光子，味道鉴别，pile-up和MET相关的系统误差是相互关联的，而fakes相关的误差没有关联，因为fakes是在不同的区域估计的。
+%JES uncertainty is not correlated because the knowledge of the source is removed when the simplification of nuisance parameter scheme is done？
+%The uncertainty on the electron efficiency is only correlated between 2L and 3L channels, since 4L uses a different correlation scheme.？
 
-\section{统计模型检查}
-本章检查在建立的统计模型中的系统误差的拟合结果（pull），相关性以及影响排序。为了使得图像更清晰，所有的pull图分为两张，其中红点是4Lep中的$ZZ$归一因子，因为它并不是
-高斯函数所模拟，所以其中心值为1，在联合拟合中的误差大约为5\%。\\
-图~\ref{fig:pull-exp-comb-260}到图~\ref{fig:pull-exp-comb-500_mu1}展示在$m_X$=260 GeV和$m_X$=500 GeV两个质量点搜寻中系统误差在不同假设下的拟合结果。在无信号假设和信号+预期背景的假设下，pull的表现是非常合理的。
+\subsection{统计模型检查}
+本节检查建立的统计模型中的NP在数据影响下的偏移(pull)，NP相关性以及影响排序。为了使得图像更清晰，所有的pull图分为两张，其中红点是4Lep中的$ZZ$归一因子，因为它并不是高斯函数所模拟，所以其中心值为1，在联合拟合中的误差大约为5\%。
+
+图~\ref{fig:pull-exp-comb-260}到图~\ref{fig:pull-exp-comb-500_mu1}展示在$m_X$=260 GeV和$m_X$=500 GeV两个质量点搜寻中系统误差在不同假设下的拟合结果。在无信号假设和S+B的假设下，pull的表现是非常合理的。
 而在实际观测数据的拟合中，因为数据的涨落，2L的fakes误差偏移较大。在图~\ref{fig:corr-comb-260}和图~\ref{fig:corr-comb-500}还可以看到，系统误差之间没有较大相关性。
-图~\ref{fig:rank-comb-260}和图~\ref{fig:rank-comb-500}是系统误差影响的排序，虚线阴影区表示截面上限随冗余参数向上或向下变化一个标准偏差时的变化，并分别展示在拟合前和拟合后的变化
-情况。
+图~\ref{fig:rank-comb-260}和图~\ref{fig:rank-comb-500}是系统误差影响的排序，虚线阴影区表示截面上限随NP向上或向下变化一个标准偏差时的变化，并分别展示拟合前和拟合后的变化情况。
 fake factor的系统误差对最终结果影响最大。在$m_X$=500 GeV的S+B asimov拟合和观测值拟合中，\texttt{JET Pileup OffsetMu}对3L只有单边的影响，这是源于其对信号和本底
-的影响是单边的，见表~\ref{tab:Variation_Pileup_OffsetMu}。\begin{table}
-\tiny
+的影响是单边的，见表\ref{tab:Variation_Pileup_OffsetMu}。
+\begin{table}
+\scriptsize\scalebox{0.7}{
 \centering
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{c|c|c|c|c|c}
 \hline
 alpha\_ATLAS\_JET\_21NP\_JET\_Pileup\_OffsetMu  &\multicolumn{2}{c}{background}    &\multicolumn{2}{c}{signal}&observed \\
 \hline
@@ -65,94 +66,114 @@ ThreeLep\_SFOS0\_m500   &0.000(+1$\sigma$)/-0.004(-1$\sigma$)(in percentage)    
 \hline
 ThreeLep\_SFOS12\_m500  &0.000(+1$\sigma$)/0.000(-1$\sigma$)(in percentage)      &0.00/0.00(yield)       &-0.485(+1$\sigma$)/0.006(-1$\sigma$)    &-0.43/0.01(yield)&1\\
 \hline
-\end{tabular}
-\caption{Systematic variation on signal and total background yield. The variation is asymmetric on signal yield.}
+\end{tabular}}
+\caption{系统误差\texttt{JET\_Pileup\_OffsetMu}对信号本底的相对影响，其正反变化不对称。}
+%\caption{Systematic variation on signal and total background yield. The variation is asymmetric on signal yield.}
 \label{tab:Variation_Pileup_OffsetMu}
 \end{table}
 
 \begin{figure}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH260_1.pdf}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH260_2.pdf}
-\caption{pull check on B-only asimovData of $m_{H}=260 GeV$}
+\centering
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH260_1.pdf}
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH260_2.pdf}
+%\caption{pull check on B-only asimovData of $m_{H}=260 GeV$}
+\caption{无信号Asimov数据给出的$m_X$=260 GeV pull图。}
 \label{fig:pull-exp-comb-260}
 \end{figure}
 
 
 \begin{figure}
-\includegraphics[width=.45\textwidth, angle=-90]{fig/Statistical/combination/pull-obs-combined-mH260_1.pdf}
-\includegraphics[width=.45\textwidth, angle=-90]{fig/Statistical/combination/pull-obs-combined-mH260_2.pdf}
-\caption{pull check on obsData of $m_{H}=260 GeV$}
+\centering
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-obs-combined-mH260_1.pdf}
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-obs-combined-mH260_2.pdf}
+%\caption{pull check on obsData of $m_{H}=260 GeV$}
+\caption{观测数据给出的$m_X$=260 GeV pull图。}
 \label{fig:pull-obs-comb-260}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH260_1_mu1.pdf}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH260_2_mu1.pdf}
-\caption{pull check on S+B asimovData of $m_{H}=260 GeV$}
+\centering
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH260_1_mu1.pdf}
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH260_2_mu1.pdf}
+\caption{S+B Asimov数据给出的$m_X$=260 GeV pull图。}
 \label{fig:pull-exp-comb-260_mu1}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH500_1.pdf}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH500_2.pdf}
-\caption{pull check on B-only asimovData of $m_{H}=500 GeV$}
+\centering
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH500_1.pdf}
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH500_2.pdf}
+%\caption{pull check on B-only asimovData of $m_{H}=500 GeV$}
+\caption{无信号Asimov数据给出的$m_X$=500 GeV pull图。}
 \label{fig:pull-exp-comb-500}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=.45\textwidth, angle=-90]{fig/Statistical/combination/pull-obs-combined-mH500_1.pdf}
-\includegraphics[width=.45\textwidth, angle=-90]{fig/Statistical/combination/pull-obs-combined-mH500_2.pdf}
-\caption{pull check on obsData of $m_{H}=500 GeV$}
+\centering
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-obs-combined-mH500_1.pdf}
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-obs-combined-mH500_2.pdf}
+%\caption{pull check on obsData of $m_{H}=500 GeV$}
+\caption{观测数据给出的$m_X$=500 GeV pull图。}
 \label{fig:pull-obs-comb-500}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH500_1_mu1.pdf}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH500_2_mu1.pdf}
-\caption{pull check on S+B asimovData of $m_{H}=500 GeV$}
+\centering
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH500_1_mu1.pdf}
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/pull-exp-combined-mH500_2_mu1.pdf}
+%\caption{pull check on S+B asimovData of $m_{H}=500 GeV$}
+\caption{S+B Asimov数据给出的$m_X$=500 GeV pull图。}
 \label{fig:pull-exp-comb-500_mu1}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/corr-exp-combined-mH260.pdf}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/corr-obs-combined-mH260.pdf}\\
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/corr-exp-combined-mH260_mu1.pdf}
-\caption{correlation check on B-only asimovData, obsData and S+B asimovData of $m_{H}=260 GeV$}
+\centering
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/corr-exp-combined-mH260.pdf}
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/corr-obs-combined-mH260.pdf}\\
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/corr-exp-combined-mH260_mu1.pdf}
+%\caption{correlation check on B-only asimovData, obsData and S+B asimovData of $m_{H}=260 GeV$}
+\caption{$m_X$=260 GeV分析NP相关性检查，分别对应无信号Asimov数据，观测数据和S+B Asimov数据。}
 \label{fig:corr-comb-260}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/corr-exp-combined-mH500.pdf}
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/corr-obs-combined-mH500.pdf}\\
-\includegraphics[width=.4\textwidth, angle=-90]{fig/Statistical/combination/corr-exp-combined-mH500_mu1.pdf}
-\caption{correlation check on B-only asimovData, obsData and S+B asimovData of $m_{H}=500 GeV$}
+\centering
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/corr-exp-combined-mH500.pdf}
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/corr-obs-combined-mH500.pdf}\\
+\includegraphics[width=.35\textwidth, angle=-90]{fig/Statistical/combination/corr-exp-combined-mH500_mu1.pdf}
+%\caption{correlation check on B-only asimovData, obsData and S+B asimovData of $m_{H}=500 GeV$}
+\caption{$m_X$=500 GeV分析NP相关性检查，分别对应无信号Asimov数据，观测数据和S+B Asimov数据。}
 \label{fig:corr-comb-500}
 \end{figure}
 
 \begin{figure}
+\centering
 \includegraphics[width=.3\textwidth]{fig/Statistical/combination/rank-exp-combined-mH260.pdf}
 \includegraphics[width=.3\textwidth]{fig/Statistical/combination/rank-obs-combined-mH260.pdf}
 \includegraphics[width=.3\textwidth]{fig/Statistical/combination/rank-exp-combined-mH260_mu1.pdf}
-\caption{NP ranking check on B-only asimovData, obsData and S+B asimovData of $m_{H}=260 GeV$}
+%\caption{NP ranking check on B-only asimovData, obsData and S+B asimovData of $m_{H}=260 GeV$}
+\caption{$m_X$=260 GeV分析NP影响排名，分别对应无信号Asimov数据，观测数据和S+B Asimov数据。}
 \label{fig:rank-comb-260}
 \end{figure}
 
 \begin{figure}
+\centering
 \includegraphics[width=.3\textwidth]{fig/Statistical/combination/rank-exp-combined-mH500.pdf}
 \includegraphics[width=.3\textwidth]{fig/Statistical/combination/rank-obs-combined-mH500.pdf}
 \includegraphics[width=.3\textwidth]{fig/Statistical/combination/rank-exp-combined-mH500_mu1.pdf}
-\caption{NP ranking check on B-only asimovData, obsData and S+B asimovData of $m_{H}=500 GeV$}
+%\caption{NP ranking check on B-only asimovData, obsData and S+B asimovData of $m_{H}=500 GeV$}
+\caption{$m_X$=500 GeV分析NP影响排名，分别对应无信号Asimov数据，观测数据和S+B Asimov数据。}
 \label{fig:rank-comb-500}
 \end{figure}
-Another check is to fix specific uncertainty to nominal value and quantify the variation of upper limit compared with full systematics uncertainties. Table~\ref{tab:limit_withoutSys_hh}, \ref{tab:limit_withoutSys_SS_mH} and \ref{tab:limit_withoutSys_SS_mS} summarize the varition of upper limit after switching off certain uncertainty. The upper limit is sensitive to fake uncertainty.
-\input{tex/limit_Sys}
+%Another check is to fix specific uncertainty to nominal value and quantify the variation of upper limit compared with full systematics uncertainties. Table~\ref{tab:limit_withoutSys_hh}, \ref{tab:limit_withoutSys_SS_mH} and \ref{tab:limit_withoutSys_SS_mS} summarize the varition of upper limit after switching off certain uncertainty. The upper limit is sensitive to fake uncertainty.
+%\input{tex/limit_Sys}
 
 另一个重要检查是在拟合中固定住单个或者多个系统误差，观察结果变化。表~\ref{tab:limit_withoutSys_hh}，表~\ref{tab:limit_withoutSys_SS_mH}和表~\ref{tab:limit_withoutSys_SS_mS}总结
 在固定住某些系统误差后，拟合截面上限的变化，得出结论拟合结果对fakes的误差最敏感，与前述的影响排序是一致的。
 \input{Tex/limit_Sys}
 \clearpage
 
-\section{联合统计结果}
+\subsection{联合统计结果}
 最终提取出的$hh$95\% CL$_s$的截面上限如表~\ref{tab:limit-comb}和图~\ref{fig:limit-comb}所示。标准模型希格斯对
 的观测（期望）截面上限值（$pp\rightarrow hh$）为159倍（111倍）标准模型预测值，观测值在期望值的两个标准偏差以内；对共振态搜寻（$pp\rightarrow X\rightarrow hh$）而言，
 观测值均在一个标准偏差以内，
@@ -163,14 +184,15 @@ Another check is to fix specific uncertainty to nominal value and quantify the v
 其中在低质量区4L同样地具有最高的显著性，而在高质量区三个分析道显著性非常接近。
 \begin{figure}[!h!tpb]
   \centering
- \includegraphics[width=0.75\textwidth,angle=-90]{fig/Statistical/combination/limit-comb-hh-AllSys.pdf}
- \caption{The 95\% CL upper limits in $WWWW$ channels with all systematic.}
+ \includegraphics[width=0.65\textwidth,angle=-90]{fig/Statistical/combination/limit-comb-hh-AllSys.pdf}
+ %\caption{The 95\% CL upper limits in $WWWW$ channels with all systematic.}
+\caption{通过4W分析给出的$X\rightarrow hh$截面上限值(pb)随$m_X$分布，包括各个衰变道的期望值和联合结果。}
  \label{fig:limit-comb}
 \end{figure}
-\begin{table}
+\begin{table}[h]
 \scriptsize
   \centering
-  \begin{tabular}{|c|c|c|c|c|c|}
+  \begin{tabular}{c|c|c|c|c|c}
   \hline
 Upper Limit(pb) &non-resonant   &$m_{X}$ = 260 GeV        &$m_{X}$ = 300 GeV        &$m_{X}$ = 400 GeV        &$m_{X}$ = 500 GeV\\
 \hline
@@ -194,19 +216,22 @@ observed        &159.29 &9.09   &8.23   &5.19   &2.56   \\
 \hline
 \hline
   \end{tabular}
-  \caption{This table summarizes the expected in each channel and combined channel and the combined observed limit. For non-resonant, the limit is on the ratio over SM Higgs pair prediction.}
+%  \caption{This table summarizes the expected in each channel and combined channel and the combined observed limit. For non-resonant, the limit is on the ratio over SM Higgs pair prediction.}
+\caption{通过4W分析给出的$X\rightarrow hh$截面上限值，包括各个衰变道的期望值和联合结果。non-resonant的结果
+对应$\sigma/\sigma_{\text{SM}}$}，其余对应截面(pb)。
   \label{tab:limit-comb}
 \end{table}
 \begin{figure}
   \centering
-  \includegraphics[width=.75\textwidth,angle=-90]{fig/Statistical/combination/limit-comb-SS-AllSys-mS.pdf}
-  \caption{The expected and observed limit with all systematic uncertainty is shown as the function of $m_{S}$}
+  \includegraphics[width=.65\textwidth,angle=-90]{fig/Statistical/combination/limit-comb-SS-AllSys-mS.pdf}
+  %\caption{The expected and observed limit with all systematic uncertainty is shown as the function of $m_{S}$}
+  \caption{通过4W分析给出的$X\rightarrow SS$截面上限值(pb)随$m_S$分布，包括各个衰变道的期望值和联合结果。}
   \label{fig:limit-comb-SS-mS}
 \end{figure}
 \begin{table}
 \scriptsize
   \centering
-  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \begin{tabular}{c|c|c|c|c|c|c|c}
   \hline
                 &H280\_S135     &H300\_S135     &H320\_S135     &H340\_S135     &H340\_S145     &H340\_S155     &H340\_S165\\
 \hline
@@ -229,7 +254,8 @@ observed        &1.74   &2.15   &2.34   &2.45   &0.65   &0.35   &0.17   \\
 -2$\sigma$     &1.13    &1.24   &1.34   &1.17   &0.43   &0.20   &0.09   \\
 \hline
   \end{tabular}
-  \caption{This table shows the expected limit in each channel and the observed limit in $pp\rightarrow SS$ model.}
+%  \caption{This table shows the expected limit in each channel and the observed limit in $pp\rightarrow SS$ model.}
+ \caption{通过4W分析给出的$X\rightarrow SS$截面上限值(pb)，包括各个衰变道的期望值和联合结果。}
   \label{tab:limit-comb-SS}
 \end{table}
 

@@ -1,18 +1,21 @@
-\chapter{统计结果}\label{chap:statistics}
-在此搜寻中，并没有发现明显信号，所以构建以下似然函数比作为假设检验量。
-\[ \tilde q_\mu = \left\{
-  \begin{array}{l l}
-    -2 \ln \frac{\mathcal{L}(\mu,\hat{\hat{\theta}}(\mu))}{\mathcal{L}(0,\hat{\hat{\theta}}(0))} & \quad \text{if $\hat\mu < 0$}\\
-    -2 \ln \frac{\mathcal{L}(\mu,\hat{\hat{\theta}}(\mu))}{\mathcal{L}(\hat{\mu},\hat{\theta})} & \quad \text{if $0 \leq \hat\mu \leq \mu$}\\
-    0 & \quad \text{if $\hat\mu > \mu$}
-  \end{array} \right.\]
-\noindent 其中$\hat{\theta}$ 表示无条件拟合，$\hat{\hat{\theta}}$ 表示有条件拟合 （即$\mu$ 为固定值）. 利用此假设检验量，在渐近近似分布~\cite{Cowan:2010js}下基于
-CL$_s$方法~\cite{Read:2002hq}即可得到产生截面上限。
-\begin{itemize}
-  \item 在95\% CL$_s$置信度下，标准模型希格斯对($pp\rightarrow hh$)观测（期望）产生截面上限为5.6 pb（4.8 pb），即168倍（145倍）标准模型预测值。
-  \item 在95\% CL$_s$置信度下，共振态希格斯对（$pp\rightarrow X \rightarrow hh$）的产生截面上限如表~\ref{tab:upper_limits_2lss}所示，对应图~\ref{fig:limit_plots_2lss}。
-  \item 在95\% CL$_s$置信度下，$SS$（$pp\rightarrow X\rightarrow SS$）随$m_S$或$m_X$变化的产生截面上限如表~\ref{tab:limits_HSS_combined}和图~\ref{fig:limit_HSS}所示。
-\end{itemize}
+\section{统计结果}\label{sec:statistics}
+在此搜寻中，没有发现明显超出，所以依据章节\ref{sec:bkg_estimation}所述模型，利用CL$_s$方法~\cite{Read:2002hq}设置产生截面上限。
+%\[ \tilde q_\mu = \left\{
+%  \begin{array}{l l}
+%    -2 \ln \frac{\mathcal{L}(\mu,\hat{\hat{\theta}}(\mu))}{\mathcal{L}(0,\hat{\hat{\theta}}(0))} & \quad \text{if $\hat\mu < 0$}\\
+%    -2 \ln \frac{\mathcal{L}(\mu,\hat{\hat{\theta}}(\mu))}{\mathcal{L}(\hat{\mu},\hat{\theta})} & \quad \text{if $0 \leq \hat\mu \leq \mu$}\\
+%    0 & \quad \text{if $\hat\mu > \mu$}
+%  \end{array} \right.\]
+%\noindent 其中$\hat{\theta}$ 表示无条件拟合，$\hat{\hat{\theta}}$ 表示有条件拟合 （即$\mu$ 为固定值）. 利用此假设检验量，
+%在渐近近似分布~\cite{Cowan:2010js}下基于CL$_s$方法~\cite{Read:2002hq}即可得到产生截面上限。
+  在95\%置信度下，标准模型希格斯对($pp\rightarrow hh$)观测（期望）产生截面上限为5.6 pb（4.8 pb），即168倍（145倍）标准模型预测值。
+
+  在95\%置信度下，共振态希格斯对（$pp\rightarrow X \rightarrow hh$）的产生截面上限如表\ref{tab:upper_limits_2lss}所示，对应图\ref{fig:limit_plots_2lss}。$X\rightarrow hh$的产生截面上限
+  随着$m_X$增加而减小，观测（期望）值从32 pb (37 pb)到3.0 pb (3.4 pb)。
+
+  在95\%置信度下，$SS$（$pp\rightarrow X\rightarrow SS$）随$m_S$或$m_X$变化的产生截面上限如表\ref{tab:limits_HSS_combined}和图\ref{fig:limit_HSS}所示。其上限值基本随着质量增加而减小，
+  对于$m_S=$135 GeV (280 GeV$\leq m_X \leq 320$ GeV), 观测（期望）值在4.6 pb (5.7 pb)与4.9 pb (6.1 pb)之间；
+ 对于$m_X=$340 GeV (135 GeV$\leq m_S \leq 165$ GeV), 观测（期望）值在5.0 pb (4.9 pb)与0.38 pb (0.37 pb)之间。  
 
 \begin{table}[!ht]
 \scriptsize
@@ -32,7 +35,8 @@ $-2\sigma$ &77.80 &19.84 &16.14 &6.49 &1.81 \\
 \hline
 \hline
 \end{tabular}
-\caption{The combined exclusion limits at the 95$\%$ $CL$ for the production cross section of a gluon fusion produced X boson times its branching ratio to hh.}
+\caption{95\%置信度下$X\rightarrow hh$产生截面上限，SM $hh$列对应$\sigma/\sigma_{SM}$，其余列对应$\sigma$(pb)。}
+%\caption{The combined exclusion limits at the 95$\%$ $CL$ for the production cross section of a gluon fusion produced X boson times its branching ratio to hh.}
 \label{tab:upper_limits_2lss}
 \end{center}
 \end{table}
@@ -40,7 +44,8 @@ $-2\sigma$ &77.80 &19.84 &16.14 &6.49 &1.81 \\
 \begin{figure}[!h!tpb]
   \centering
   \includegraphics[width=0.55\textwidth, angle=-90]{fig/Statistical/limitAllSys.pdf}
-  \caption{  The expected limits for $pp\rightarrow X \rightarrow hh$, as a function of mX.}
+  \caption{$pp\rightarrow X \rightarrow hh$产生截面上限随$m_X$分布。}
+  %\caption{  The expected limits for $pp\rightarrow X \rightarrow hh$, as a function of mX.}
 \label{fig:limit_plots_2lss}
 \end{figure}
 
@@ -62,7 +67,8 @@ $-2\sigma$ &3.26 &3.05 &3.17 &2.60 &0.80 &0.37 &0.20 \\
 \hline
 \hline
 \end{tabular}
-\caption{The combined exclusion limits at the 95$\%$ $CL$ for the production cross section of a gluon fusion produced X boson times its branching ratio to SS.}
+\caption{95\%置信度下$X\rightarrow SS$产生截面上限，所有列单位为 pb。}
+%\caption{The combined exclusion limits at the 95$\%$ $CL$ for the production cross section of a gluon fusion produced X boson times its branching ratio to SS.}
 \label{tab:limits_HSS_combined}
 \end{center}
 \end{table}
@@ -70,6 +76,7 @@ $-2\sigma$ &3.26 &3.05 &3.17 &2.60 &0.80 &0.37 &0.20 \\
   \centering
   \includegraphics[width=0.35\textwidth, angle=-90]{fig/Statistical/limit_HSS_S135_AllSys.pdf}
   \includegraphics[width=0.35\textwidth, angle=-90]{fig/Statistical/limit_HSS_H340_AllSys.pdf}
-  \caption{The expected limits for $pp\rightarrow X \rightarrow SS$ production. Left: fixing $m_S$=135~GeV; right: fixing $m_X$=340~GeV.}
+  \caption{$pp\rightarrow X \rightarrow hh$产生截面上限，左图对应fixing $m_S$=135~GeV，右图对应fixing $m_X$=340~GeV。}
+  %\caption{The expected limits for $pp\rightarrow X \rightarrow SS$ production. Left: fixing $m_S$=135~GeV; right: fixing $m_X$=340~GeV.}
 \label{fig:limit_HSS}
 \end{figure}

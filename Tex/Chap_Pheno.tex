@@ -1,5 +1,4 @@
-\chapter{希格斯唯象学}\label{chap:pheno}
-\section{希格斯场}
+\section{希格斯物理}
 标准模型引入了一个具有非零真空期望值的复标量Higgs场，$\varphi$，其场势能项为：
 \begin{equation}
  V(\varphi)=-v^2\lambda\varphi^{\dagger}\varphi+\lambda(\varphi^{\dagger}\varphi)^2
@@ -20,7 +19,7 @@
 Higgs质量模型并未预言，需要实验确定，当Higgs粒子质量确定之后，Higgs自耦合参数$\lambda_{hhh}$也随之确定，$\lambda_{hhh}$的测量是$hh$搜寻的首要目标。
 还可以发现，Higgs与其他粒子的耦合强度依赖于粒子质量。
 
-\section{单希格斯粒子产生模式}
+\subsection{单希格斯粒子产生模式}
 在LHC单希格斯粒子可以有以下产生模式：
 \begin{itemize}
  \item 胶子融合（ggF）$gg\rightarrow h$；
@@ -62,7 +61,7 @@ $VBF$具有第二大的产生截面，其LO的费曼图如图\ref{fig:diagram_VB
 \label{fig:ggF_VBF}
 \end{figure}
 $Vh$过程的显著特征是末态中只有一个$W$或$Z$玻色子和Higgs，其LO阶费曼图如图\ref{fig:diagram_VH}所示。它可以通过玻色子的轻子化衰变产物去寻找，从而极大地压低QCD本底。
-$Vh$是发现$h\rightarrow b\bar{b}$的黄金过程，并已于2018年正式发现\cite{}。
+$Vh$是发现$h\rightarrow b\bar{b}$的黄金过程，并已于2018年正式发现\cite{Aaboud:2018zhk,Sirunyan:2018kst}。
 通过$Vh$过程，我们还可以测量$\lambda_{hVV}$参数。另外，$ggZh$的产生截面很小，一般在的Higgs性质测量中，没有考虑。\\
 \begin{figure}[h]
 \centering
@@ -88,7 +87,7 @@ $Vh$是发现$h\rightarrow b\bar{b}$的黄金过程，并已于2018年正式发�
 相比于$ggF$和$VBF$，$b\bar{b}h$和$t\bar{t}h$产生截面很小。对于$b\bar{b}h$，其挑战在于一般$b$夸克动量很低，不能有效地标记。而对于$t\bar{t}h$，得益于顶夸克的质量，
 其衰变产物，如$b$喷注，具有较高的动量，可以有效标记，最终可以标记到此过程的相空间。通过$t\bar{t}h$的研究可以测量Higgs与最重粒子，$t$，的Yukawa耦合参数。
 在ATLAS，$t\bar{t}h$是近几年的研究热点，已开展$t\bar{t}h(\rightarrow\gamma\gamma)$，$t\bar{t}h(\rightarrow b\bar{b})$以及$t\bar{t}h(\rightarrow \ell/\tau)$（一般称为tthML），
-其中tthML研究将在本文讲述。$t\bar{t}h$的LO费曼图见图\ref{diagram_tth}。\\
+其中tthML研究将在本文讲述。$t\bar{t}h$的LO费曼图见图\ref{fig:diagram_tth}。\\
 \begin{figure}[h]
 \centering
  \begin{subfigure}[b]{0.33\textwidth}
@@ -137,29 +136,30 @@ $th$过程，具有最小的产生截面，其LO阶费曼图如图\ref{fig:diagr
 表\ref{tab:xs_single_higgss_prod}总结这些产生过程在$\sqrt{s}=13~$TeV时的截面，其计算QCD阶数和QED阶数也列出。
 \begin{table}[h]
 \centering
+\scalebox{0.75}{
 \begin{tabular}{ccc}
 \hline
 \hline
 Production porcess   &Cross section [pb]    &Order of calculation \\
 \hline
-$ggF$   &   &  \\
-$VBF$   &   &   \\
-$Wh$   &   &   \\
-$Zh$   &    &  \\
-$ggZh$    &    &  \\
-$t\bar{t}h$  &    &  \\
-$th$  &    &  \\
-$b\bar{b}h$  &   &  \\
+$ggF$   &48.61+$(\text{theory})^{+4.27\%}_{-6.49\%}(\text{PDF})^{+1.85\%}_{-1.85\%}(\alpha_s)^{+2.59\%}_{-2.62\%}$   &N$^3$LO QCD + NLO EW  \cite{XSWG13TeV_2019,Cepeda:2019klc}\\
+$VBF$   &3.766+$(\text{scale})^{+0.43\%}_{-0.33\%}(\text{PDF}+\alpha_s)^{+2.1\%}_{-2.1\%}$   &NNLO QCD +  NLO EW \cite{XSWG13TeV_2019,Cepeda:2019klc} \\
+$Wh$   &1.358+$(\text{scale})^{+0.51\%}_{-0.51\%}(\text{PDF}+\alpha_s)^{+1.35\%}_{-1.35\%}$   &NNLO QCD + NLO EW \cite{XSWG13TeV_2019,Cepeda:2019klc}  \\
+$Zh$   &0.880+$(\text{scale})^{+3.50\%}_{-2.68\%}(\text{PDF}+\alpha_s)^{+1.65\%}_{-1.65\%}$    &NNLO QCD + NLO EW \cite{XSWG13TeV_2019,Cepeda:2019klc} \\
+%$ggZh $    &    &  \\
+$t\bar{t}h$  &0.507+$(\text{scale})^{+5.8\%}_{-9.2\%}(\text{PDF}+\alpha_s)^{+3.6\%}_{-3.6\%}$    &NLO QCD + NLO EW \cite{XSWG13TeV} \\
+%$th$  &    &NLO QCD  \\
+$b\bar{b}h$  &0.486+$(\text{scale}+\text{PDF}+\alpha_s)^{+20.1\%}_{-23.9\%}$   &5FS NNLO + 4FS NLO \cite{XSWG13TeV} \\
+%\hline
+%Total    &    &  \\ 
 \hline
-Total    &    &  \\ 
 \hline
-\hline
-\end{tabular}
-\caption{Standard Model predictions for the Higgs boson production cross sections at 13 TeV. The value of the Higgs boson mass is assumed to be mH = 125.09 GeV. The uncertainties on the cross sections are evaluated as the sum in quadrature of the uncertainties resulting from variations of the QCD scales, parton distribution functions, and αs. The order of the theoretical calculations is also indicated. In the case of the bbH production, the values are given for the mixture of five-flavor (5FS) and four-flavor (4FS) schemes.}
+\end{tabular}}
+\caption{13 TeV质心系能量下标准模型希格斯玻色子（假设$m_h$= 125.09 GeV）产生截面理论预测值(pb)，其中误差包括来自QCD scales, PDF以及$\alpha_s$的不确定度。}
 \label{tab:xs_single_higgss_prod}
 \end{table}
 
-\section{标准模型希格斯对产生}
+\subsection{标准模型希格斯对产生}
 标注模型还预言了希格斯对产生，与单Higgs产生类似，其主要来源是胶子融合过程。在LHC LO阶的产生过程如图\ref{fig:diagram_SMhh_ggF}所示，分为箱图（\ref{fig:diagram_SMhh_box}）和能够测量$\lambda_{hhh}$的三角图（\ref{fig:diagram_SMhh_triangle}）。
 在三角图中，中间态的Higgs作为一个传播子，质量不在壳，而末态的双Higgs均在壳；而中间态Higgs在壳，末态Higgs不在壳的情况被极大地压低\cite{Patrignani:2016xqp}\textbf{引用存疑}。
 而且需要指出的是，箱图和三角图过程具有抵消干涉项，导致标准模型希格斯对总产生截面很小。
@@ -205,7 +205,7 @@ Total    &    &  \\
  \item 胶子融合产生三Higgs：
 \end{itemize}
 
-\section{超出标准模型希格斯对产生}
+\subsection{超出标准模型希格斯对产生}
 虽然目前Higgs的测量结果越来越符合标准模型预期，但125 GeV的质量会有精细调节问题\cite{}，如果有TeV量级的新粒子，不自然的问题就解决了。
 在许多超出标准模型中，$hh$产生截面既可以通过非共振态也可以通过共振态模式增强。
 对于非共振态模式中，可以通过修改$\lambda_{h\bar{t}t}$顶点\cite{Grober:2010yv,Contino:2012xk}或者一个新的带色荷标量粒子\cite{Kribs:2012kz}；
@@ -242,7 +242,8 @@ $\kappa$的确认可以通过测量希格斯对产生截面得到，这是$hh$�
 \begin{figure}[h]
 \centering
  \includegraphics[width=0.85\textwidth]{fig/HH_xs_kappa_14TeV.jpg}
-  \caption{Total cross sections (y-axis) at the LO and NLO in QCD for di-Higgs production channels, at the LHC 14 TeV as a function of the self-interaction coupling λ (x-axis) . The dashed (solid) lines and light-(dark-) color bands correspond to the LO (NLO) results and to the scale and PDF uncertainties added linearly. The SM values of the cross sections are obtained at $\kappa$ = 1, indicated by the red vertical line. H refers to the SM Higgs}
+  \caption{14 TeV质心系能量下希格斯粒子对QCD（次）领头阶的产生截面随自耦合系数的变化情况，其中浅色虚线（深色实线）对应 领头阶 (次领头阶) 结果，其线宽代表来自scales和PDF的系统误差。 
+  $kappa$=1表示标准模型希格斯对产生。}
   \label{fig:HH_xs_kappa_14TeV}
 \end{figure}
 
@@ -250,7 +251,7 @@ $\kappa$的确认可以通过测量希格斯对产生截面得到，这是$hh$�
 从而有5个希格斯玻色子，分别是$h$（轻标量Higgs，一般看作发现的标准模型Higgs），$X$（重标量Higgs），$A$（重赝标量Higgs），$H^{\pm}$（两个带电Higgs）。
 为了避免树图阶味道改变中性流，2HDM应用分立对称性使得带电费米子只与一个希格斯二重态耦合。
 
-\section{希格斯对衰变}
+\subsection{希格斯对衰变}
 希格斯粒子的寿命只有$1.56\times10^{-22}~$s，在对撞顶点即衰变，表\ref{fig:HH_br}总结了$hh$的主要衰变道的分支比。在\RunOne ，ATLAS研究过$b\bar{b}b\bar{b}$\cite{Aad:2015uka}，
 $b\bar{b}\gamma\gamma$~\cite{Aad:2014yja}，$b\bar{b}\tau^{+}\tau^{-}$和$WW^{*}\gamma\gamma$，均没有观测到数据与预期的明显偏差。
 对于非共振态模式，其截面上限为0.69 pb，对应$\kappa<$70。
@@ -258,14 +259,14 @@ $b\bar{b}\gamma\gamma$~\cite{Aad:2014yja}，$b\bar{b}\tau^{+}\tau^{-}$和$WW^{*}
 \begin{figure}[h]
 \centering
  \includegraphics[width=0.75\textwidth]{fig/HH_br.png}
-  \caption{$hh$主要衰变道分支比，其中$m_h$=125 GeV。}
+  \caption{$hh$主要衰变道分支比，计算时假设$m_h$=125 GeV。}
   \label{fig:HH_br}
 \end{figure}
 
 \begin{figure}[h]
 \centering
  \includegraphics[width=0.85\textwidth]{fig/HH_run1_combined.png}
-\caption{The observed and expected 95\% CL upper limits of σ(gg → H) × BR(H → hh) at s = 8TeV as functions of the heavy Higgs boson mass, mH , combining resonant searches in Higgs boson pair to bbτ+τ− , W+W−γγ , b ̄bγγ , and b ̄bb ̄b final states. The expected limits from individual searches are also shown. The green and yellow bands represent±1σand±2σ uncertainty ranges of the expected combined limits.The improvement above mH =500GeV reflects the sensitivity of the b ̄bb ̄b analysis. The results beyond 1TeV are from the b ̄bb ̄b final state alone}
+\caption{在8 TeV质心系能量时$\sigma(gg\rightarrow H)\times\text{BR}(H\rightarrow hh)$的95\%置信度下的观测上限值与期望上限值，结果联合拟合了$b\bar{b}\tau\tau$, $WW^*\gamma\gamma$, $b\bar{b}\gamma\gamma$以及$b\bar{b}b\bar{b}$分析道。绿色和黄色区分别表示期望上限值的$\pm 1\sigma$和$\pm 2\sigma$，500 GeV以上的提升得益于$b\bar{b}b\bar{b}$的加入。}
 \label{fig:HH_run1_combined}
 \end{figure}
 

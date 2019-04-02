@@ -1,9 +1,9 @@
-\chapter{信号优化}\label{chap:signal_optimization}
+\section{信号优化}\label{sec:signal_optimization}
 在初步筛选之后，为了进一步加强信号显著性，利用动力学性质进行信号优化是有必要的。因为每个信号质量点的动力学性质差别
 较大，所以，每个质量点都会进行信号优化过程，而后通过各自
 动力学选择条件之后的区域才作为每个质量点的最终信号区。
 
-\section{优化策略}
+\subsection{优化策略}
 MVA方法用于确定不同运动学变量的分离能力，并考虑所有变量之间的相关性。最终，前五个运动学变量用于形成优化选择，分别是$M(\ell\ell)$，$\Delta R_{min}(\ell_{2}, j)$，$\Delta R_{min}(\ell_{1}, j)$ ，$ M_{\ell_{1} jj}$和$M(all)$，它们具有很强的分离能力，而且相互之间的相关性很低(图~\ref{fig:correlation_check})。通常，$M(\ell\ell)$和$ M_{\ell_{1} jj} $对低质量点敏感，而其余对高质量和非共振信号敏感。
 基于这些知识，$\Delta R_{min}(\ell_{1}, j)$，$M(\ell\ell)$，$ M_{\ell_{1}jj}$和$M(all)$用于在低质量搜索中形成优化削减，而$\Delta R_{min}(\ell_{2}, j)$，$\Delta R_{min}(\ell_{1}, j)$，$M(\ell\ell)$和$M_{\ell_{1}jj}$用于高质量搜索中。它们的相应分布分别见图~\ref{fig:SigOpt_low_kine}和图~\ref{fig:SigOpt_high_kine}。\\
 TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有背景：promptSS，$V\gamma$，QmisID和fakes都包含在训练中。
@@ -16,133 +16,138 @@ TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有�
 最终考虑从低到高（和非共振）质量点筛选值的单调性，一定的选择调整被执行。最终的选择总结在表~\ref{optimization_cuts_lowmass}，表~\ref {optimization_cuts_highmass}和表~\ref{optimization_cuts_HSS}中，分别对应于$hh$低质量，$hh$高质量和$SS$信号寻找。
 
 \begin{figure}[h]
-\begin{center}
+\centering
 \includegraphics[width = 0.4\textwidth,angle=-90]{fig/SigOpt/correlation_signal.pdf}
 \includegraphics[width = 0.4\textwidth,angle=-90]{fig/SigOpt/correlation_bkg.pdf}
-\caption{Correlation check of input training variables.} \label{fig:correlation_check}
-\end{center}
+\caption{训练变量之间的相关性。}
+%\caption{Correlation check of input training variables.} \label{fig:correlation_check}
+\label{fig:correlation_check}
 \end{figure}
 
 \begin{figure}[h]
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/mindR_l1j_ee.pdf}\label{fig:dataMC_low_Njet_CR:mindRl1j_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/mindR_l1j_ee.pdf}\label{fig:dataMC_low_Njet_CR:mindRl1j_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/mindR_l1j_mumu.pdf}\label{fig:dataMC_low_Njet_CR:mindRl1j_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/mindR_l1j_mumu.pdf}\label{fig:dataMC_low_Njet_CR:mindRl1j_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/mindR_l1j_emu.pdf}\label{fig:dataMC_low_Njet_CR:mindRl1j_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/mindR_l1j_emu.pdf}\label{fig:dataMC_low_Njet_CR:mindRl1j_emu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_ll_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_ll_ee.pdf}
  \label{fig:dataMC_low_Njet_CR:m_ll_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_ll_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_ll_mumu.pdf}
  \label{fig:dataMC_low_Njet_CR:m_ll_mumu.pdf}
  \end{minipage}
   \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_ll_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_ll_emu.pdf}
  \label{fig:dataMC_low_Njet_CR:m_ll_emu.pdf}
  \end{minipage}
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_l1jj_ee.pdf}\label{fig:dataMC_low_Njet_CR:m_l1jj_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_l1jj_ee.pdf}\label{fig:dataMC_low_Njet_CR:m_l1jj_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_l1jj_mumu.pdf}\label{fig:dataMC_low_Njet_CR:m_l1jj_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_l1jj_mumu.pdf}\label{fig:dataMC_low_Njet_CR:m_l1jj_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_l1jj_emu.pdf}\label{fig:dataMC_low_Njet_CR:m_l1jj_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_l1jj_emu.pdf}\label{fig:dataMC_low_Njet_CR:m_l1jj_emu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_all_ee.pdf}\label{fig:dataMC_low_Njet_CR:m_all_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_all_ee.pdf}\label{fig:dataMC_low_Njet_CR:m_all_ee.pdf}
  \end{minipage}
   \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_all_mumu.pdf}\label{fig:dataMC_low_Njet_CR:m_all_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_all_mumu.pdf}\label{fig:dataMC_low_Njet_CR:m_all_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_all_emu.pdf}\label{fig:dataMC_low_Njet_CR:m_all_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_all_emu.pdf}\label{fig:dataMC_low_Njet_CR:m_all_emu.pdf}
  \end{minipage}
- \caption{The distributions of kinematic variables that are used to form optimization selections at pre-selection level, corresponding to $N_{\text{jet}}\geq2$. Left: $ee$, middle: $\mu\mu$, right: $e\mu$. PromptSS and $V+\gamma$ are normalized to the luminosity of 36.1 fb$^{-1}$.}
+ \caption{用于低质量信号优化的运动学变量分布，对应$N_{\text{jet}}\geq2$。}
+ %\caption{The distributions of kinematic variables that are used to form optimization selections at pre-selection level, corresponding to $N_{\text{jet}}\geq2$. Left: $ee$, middle: $\mu\mu$, right: $e\mu$. PromptSS and $V+\gamma$ are normalized to the luminosity of 36.1 fb$^{-1}$.}
 \label{fig:SigOpt_low_kine}
 \end{figure}
 
 \begin{figure}[h]
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l2j_ee.pdf}\label{fig:dataMC_high_Njet_CR:mindRl2j_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l2j_ee.pdf}\label{fig:dataMC_high_Njet_CR:mindRl2j_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l2j_mumu.pdf}\label{fig:dataMC_high_Njet_CR:mindRl2j_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l2j_mumu.pdf}\label{fig:dataMC_high_Njet_CR:mindRl2j_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l2j_emu.pdf}\label{fig:dataMC_high_Njet_CR:mindRl2j_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l2j_emu.pdf}\label{fig:dataMC_high_Njet_CR:mindRl2j_emu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l1j_ee.pdf}\label{fig:dataMC_high_Njet_CR:mindRl1j_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l1j_ee.pdf}\label{fig:dataMC_high_Njet_CR:mindRl1j_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l1j_mumu.pdf}\label{fig:dataMC_high_Njet_CR:mindRl1j_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l1j_mumu.pdf}\label{fig:dataMC_high_Njet_CR:mindRl1j_mumu.pdf}
  \end{minipage}
   \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l1j_emu.pdf}\label{fig:dataMC_high_Njet_CR:mindRl1j_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/mindR_l1j_emu.pdf}\label{fig:dataMC_high_Njet_CR:mindRl1j_emu.pdf}
  \end{minipage}
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_ll_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_ll_ee.pdf}
  \label{fig:dataMC_high_Njet_CR:m_ll_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_ll_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_ll_mumu.pdf}
  \label{fig:dataMC_high_Njet_CR:m_ll_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_ll_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_ll_emu.pdf}
  \label{fig:dataMC_high_Njet_CR:m_ll_emu.pdf}
  \end{minipage}
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_l1jj_ee.pdf}\label{fig:dataMC_high_Njet_CR:m_l1jj_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_l1jj_ee.pdf}\label{fig:dataMC_high_Njet_CR:m_l1jj_ee.pdf}
  \end{minipage}
   \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_l1jj_mumu.pdf}\label{fig:dataMC_high_Njet_CR:m_l1jj_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_l1jj_mumu.pdf}\label{fig:dataMC_high_Njet_CR:m_l1jj_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_l1jj_emu.pdf}\label{fig:dataMC_high_Njet_CR:m_l1jj_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_l1jj_emu.pdf}\label{fig:dataMC_high_Njet_CR:m_l1jj_emu.pdf}
  \end{minipage}
- \caption{The distributions of kinematic variables that are used to form optimization selections at pre-selection level, corresponding to $N_{\text{jet}}\geq3$. Left: $ee$, middle: $\mu\mu$, right: $e\mu$. PromptSS and $V+\gamma$ are normalized to the luminosity of 36.1 fb$^{-1}$.}
+ \caption{用于低质量信号优化的运动学变量分布，对应$N_{\text{jet}}\geq3$。}
+ %\caption{The distributions of kinematic variables that are used to form optimization selections at pre-selection level, corresponding to $N_{\text{jet}}\geq3$. Left: $ee$, middle: $\mu\mu$, right: $e\mu$. PromptSS and $V+\gamma$ are normalized to the luminosity of 36.1 fb$^{-1}$.}
 \label{fig:SigOpt_high_kine}
 \end{figure}
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width = 0.4\textwidth,angle=-90]{fig/SigOpt/nonres/Efficiency_mumu.pdf}
-\includegraphics[width = 0.4\textwidth,angle=-90]{fig/SigOpt/nonres/mindR_l2j_mumu.pdf}
-\includegraphics[width = 0.4\textwidth,angle=-90]{fig/SigOpt/nonres/mindR_l1j_mumu.pdf}
-\includegraphics[width = 0.4\textwidth,angle=-90]{fig/SigOpt/nonres/m_ll_mumu.pdf}
-\includegraphics[width = 0.4\textwidth,angle=-90]{fig/SigOpt/nonres/m_l1jj_mumu.pdf}
-\includegraphics[width = 0.4\textwidth,angle=-90]{fig/SigOpt/nonres/SOverRootB_mumu.pdf}
-\caption{The significance scan as a function of efficiency for $\mu\mu$ in non-resonant signal search. Statistical uncertainties on the background and the signal are considered. The 0.72 working point is chosen for $\mu\mu$ channel in the non-resonant signal optimizations.}
+\includegraphics[width = 0.3\textwidth,angle=-90]{fig/SigOpt/nonres/Efficiency_mumu.pdf}
+\includegraphics[width = 0.3\textwidth,angle=-90]{fig/SigOpt/nonres/mindR_l2j_mumu.pdf}
+\includegraphics[width = 0.3\textwidth,angle=-90]{fig/SigOpt/nonres/mindR_l1j_mumu.pdf}
+\includegraphics[width = 0.3\textwidth,angle=-90]{fig/SigOpt/nonres/m_ll_mumu.pdf}
+\includegraphics[width = 0.3\textwidth,angle=-90]{fig/SigOpt/nonres/m_l1jj_mumu.pdf}
+\includegraphics[width = 0.3\textwidth,angle=-90]{fig/SigOpt/nonres/SOverRootB_mumu.pdf}
+\caption{利用CutsSA方法优化SM $hh$~$\mu\mu$信号时显著性随给定效率分布情况。信号与本地均考虑了统计误差，0.72选作SM $hh$~$\mu\mu$的最佳工作点，其相应的运动学变量筛选值则
+用作最终信号优化条件（会进行一定的平滑性选择）。}
+%\caption{The significance scan as a function of efficiency for $\mu\mu$ in non-resonant signal search. Statistical uncertainties on the background and the signal are considered. The 0.72 working point is chosen for $\mu\mu$ channel in the non-resonant signal optimizations.}
 \label{fig:nonres:SigOpt_mumu}
 \end{center}
 \end{figure}
@@ -188,7 +193,8 @@ TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有�
 \hline
 \end{tabular}
 \end{center}
-\caption{Summary of optimization selections for the search of $X \rightarrow hh$ ($m_{X}$=260, 300 GeV). All mass cuts are in GeV.}
+\caption{基于运动学变量$X \rightarrow hh$信号优化总结，对应$m_{X}$=260, 300 GeV，所有不变质量单位为GeV。}
+%\caption{Summary of optimization selections for the search of $X \rightarrow hh$ ($m_{X}$=260, 300 GeV). All mass cuts are in GeV.}
 \label{optimization_cuts_lowmass}
 \end{table}
 
@@ -250,261 +256,294 @@ TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有�
 \hline
 \end{tabular}
 \end{center}
-\caption{Summary of optimization selections for the search of $X \rightarrow hh$($m_{X}$=400, 500 GeV and non-resonant). All mass cuts are in GeV.}
+\caption{基于运动学变量$X \rightarrow hh$信号优化总结，对应$m_{X}$=400, 500 GeV以及SM $hh$，所有不变质量单位为GeV。}
+%\caption{Summary of optimization selections for the search of $X \rightarrow hh$($m_{X}$=400, 500 GeV and non-resonant). All mass cuts are in GeV.}
 \label{optimization_cuts_highmass}
 \end{table}
  
- \input{tables/SigOpt_HSS.tex}
+\input{tables/SigOpt_HSS.tex}
  
-\section{优化效率检查}
+\clearpage
+\subsection{优化效率检查}
 为了防止过度优化或者欠优化的情况，可以检查每个信号MC经过以上选择条件之后的效率。
 图~\ref {fig:eff_sigopt_hh}和图~\ref {fig:eff_sigopt_SS}分别表示$hh$和$SS$信号相对于经过初步筛选条件之后的选择效率。 总体上大多数质量点的选择效率相当接近，
  但是由于优化时每两个变量一组，它们之间的相关性在三个分析道中略有不同，并且各个分析道具有不同的背景组成，导致不同质量点不同分析道具有不同效率的趋势。
  \begin{figure}[h]
 \begin{center}
-\includegraphics[width = 0.60\textwidth,angle=-90]{fig/SigOpt/eff_sigopt_hh.pdf}
-\caption{Signal efficiency with respect to pre-selections in $ee$, $\mu\mu$ and $e\mu$ channel after applying all of the optimisation selections
-for the non-resonant and resonant $hh$ signal.}
+\includegraphics[width = 0.45\textwidth,angle=-90]{fig/SigOpt/eff_sigopt_hh.pdf}
+\caption{$hh$信号优化效率（相比于初步筛选）。}
+%\caption{Signal efficiency with respect to pre-selections in $ee$, $\mu\mu$ and $e\mu$ channel after applying all of the optimisation selections
+%for the non-resonant and resonant $hh$ signal.}
 \label{fig:eff_sigopt_hh}
 \end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width = 0.60\textwidth,angle=-90]{fig/SigOpt/eff_sigopt_SS.pdf}
-\caption{Signal efficiency with respect to pre-selections in $ee$, $\mu\mu$ and $e\mu$ channel after applying all of the optimisation selections
-for the resonant $SS$ signal.}
+\includegraphics[width = 0.50\textwidth,angle=-90]{fig/SigOpt/eff_sigopt_SS.pdf}
+\caption{$SS$信号优化效率（相比于初步筛选）。}
+%\caption{Signal efficiency with respect to pre-selections in $ee$, $\mu\mu$ and $e\mu$ channel after applying all of the optimisation selections
+%for the resonant $SS$ signal.}
 \label{fig:eff_sigopt_SS}
 \end{center}
 \end{figure}
 
-\section{信号及背景筛选结果}
+\clearpage
+\subsection{优化结果}
 \label{sec:unblind_results}
 经过所有筛选条件之后，表~\ref{cutflow_ee_nonres}到表~\ref{cutflow_emu_HSS_highmass}展示各个质量点不同分析道中的各种背景，预期信号以及观测事例数的结果。总预期本底的误差包括了所有
 的系统误差，并考虑了非fakes本底的系统误差（syst1）与fakes本底的系统误差(syst2)的反相关性质。对于每个质量点的每个分析道，一个运动学变量的分布也被展示，
 从图~\ref{fig:SigOpt:nonres_m_l1jj.pdf}到图~\ref{fig:SigOpt:H340_S165_m_l1jj.pdf}。
-\subsection{$hh$搜寻筛选结果}
+\subsubsection{$hh$搜寻筛选结果}
 \input{tables/cutflow_SigOpt_ee_nonres.tex}
-\caption{The unblinded results of non-resonant search in $ee$ channel. }
+\caption{SM $hh$ $ee$类别的优化结果。 }
 \label{cutflow_ee_nonres}
 \end{table}
 
 \input{tables/cutflow_SigOpt_mumu_nonres.tex}
-\caption{The unblinded results of non-resonant search in $\mu\mu$ channel. }
+\caption{SM $hh$ $\mu\mu$类别的优化结果。}
+%\caption{The unblinded results of non-resonant search in $\mu\mu$ channel. }
 \label{cutflow_mumu_nonres}
 \end{table}
 
 \input{tables/cutflow_SigOpt_emu_nonres.tex}
-\caption{The unblinded results of non-resonant search in $e\mu$ channel. }
+\caption{SM $hh$ $e\mu$类别的优化结果。}
+%\caption{The unblinded results of non-resonant search in $e\mu$ channel. }
 \label{cutflow_emu_nonres}
 \end{table}
 
 \begin{figure}[h]
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/nonres_m_l1jj_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/nonres_m_l1jj_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/nonres_m_l1jj_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/nonres_m_l1jj_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/nonres_m_l1jj_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/nonres_m_l1jj_emu.pdf}
  \end{minipage}
-\caption{The unblinded $M(\ell_{1}jj)$ distribution after all optimization selections, corresponding to non-resonance search.}
+ \caption{SM hh质量点经过优化筛选之后$M(\ell_{1}jj)$分布。}
+%\caption{The unblinded $M(\ell_{1}jj)$ distribution after all optimization selections, corresponding to non-resonance search.}
 \label{fig:SigOpt:nonres_m_l1jj.pdf}
 \end{figure}
 
 \input{tables/cutflow_SigOpt_ee_mH260.tex}
-\caption{The unblinded results of $m_X$=260~GeV search in $ee$ channel. }
+\caption{$m_X$=260~GeV $ee$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=260~GeV search in $ee$ channel. }
 \label{cutflow_ee_mX260}
 \end{table}
 
 \input{tables/cutflow_SigOpt_mumu_mH260.tex}
-\caption{The unblinded results of $m_X$=260~GeV search in $\mu\mu$ channel. }
+\caption{$m_X$=260~GeV $\mu\mu$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=260~GeV search in $\mu\mu$ channel. }
 \label{cutflow_mumu_mX260}
 \end{table}
 
 \input{tables/cutflow_SigOpt_emu_mH260.tex}
-\caption{The unblinded results of $m_X$=260~GeV search in $e\mu$ channel. }
+\caption{$m_X$=260~GeV $e\mu$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=260~GeV search in $e\mu$ channel. }
 \label{cutflow_emu_mX260}
 \end{table}
 
 \begin{figure}[h]
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH260_m_all_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH260_m_all_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH260_m_all_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH260_m_all_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH260_m_all_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH260_m_all_emu.pdf}
  \end{minipage}
-\caption{The unblinded $M(all)$ distribution after all optimization selections, corresponding to resonance ($m_X$=260 GeV) search.}
+ \caption{$m_X$=260 GeV质量点经过优化筛选之后$M(all)$分布。}
+%\caption{The unblinded $M(all)$ distribution after all optimization selections, corresponding to resonance ($m_X$=260 GeV) search.}
 \label{fig:SigOpt:mH260_m_l1jj.pdf}
 \end{figure}
 
 \input{tables/cutflow_SigOpt_ee_mH300.tex}
-\caption{The unblinded results of $m_X$=300~GeV search in $ee$ channel. }
+\caption{$m_X$=300~GeV $ee$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=300~GeV search in $ee$ channel. }
 \label{cutflow_ee_mX300}
 \end{table}
 
 \input{tables/cutflow_SigOpt_mumu_mH300.tex}
-\caption{The unblinded results of $m_X$=300~GeV search in $\mu\mu$ channel. }
+\caption{$m_X$=300~GeV $\mu\mu$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=300~GeV search in $\mu\mu$ channel. }
 \label{cutflow_mumu_mX300}
 \end{table}
 
 \input{tables/cutflow_SigOpt_emu_mH300.tex}
-\caption{The unblinded results of $m_X$=300~GeV search in $e\mu$ channel. }
+\caption{$m_X$=300~GeV $e\mu$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=300~GeV search in $e\mu$ channel. }
 \label{cutflow_emu_mX300}
 \end{table}
 
 \begin{figure}[h]
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH300_m_all_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH300_m_all_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH300_m_all_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH300_m_all_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH300_m_all_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH300_m_all_emu.pdf}
  \end{minipage}
-\caption{The unblinded $M(all)$ distribution after all optimization selections, corresponding to resonance ($m_X$=300 GeV) search.}
+ \caption{$m_X$=300 GeV质量点经过优化筛选之后$M(all)$分布。}
+%\caption{The unblinded $M(all)$ distribution after all optimization selections, corresponding to resonance ($m_X$=300 GeV) search.}
 \label{fig:SigOpt:mH300_m_l1jj.pdf}
 \end{figure}
 
 \input{tables/cutflow_SigOpt_ee_mH400.tex}
-\caption{The unblinded results of $m_X$=400~GeV search in $ee$ channel. }
+\caption{$m_X$=400~GeV $ee$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=400~GeV search in $ee$ channel. }
 \label{cutflow_ee_mX400}
 \end{table}
 
 \input{tables/cutflow_SigOpt_mumu_mH400.tex}
-\caption{The unblinded results of $m_X$=400~GeV search in $\mu\mu$ channel. }
+\caption{$m_X$=400~GeV $\mu\mu$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=400~GeV search in $\mu\mu$ channel. }
 \label{cutflow_mumu_mX400}
 \end{table}
 
 \input{tables/cutflow_SigOpt_emu_mH400.tex}
-\caption{The unblinded results of $m_X$=400~GeV search in $e\mu$ channel. }
+\caption{$m_X$=400~GeV $e\mu$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=400~GeV search in $e\mu$ channel. }
 \label{cutflow_emu_mX400}
 \end{table}
 
 \begin{figure}[h]
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH400_m_l1jj_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH400_m_l1jj_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH400_m_l1jj_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH400_m_l1jj_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH400_m_l1jj_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH400_m_l1jj_emu.pdf}
  \end{minipage}
-\caption{The unblinded $M(\ell_{1}jj)$ distribution after all optimization selections, corresponding to resonance ($m_X$=400 GeV) search.}
+ \caption{$m_X$=400 GeV质量点经过优化筛选之后$M(\ell_{1}jj)$分布。}
+%\caption{The unblinded $M(\ell_{1}jj)$ distribution after all optimization selections, corresponding to resonance ($m_X$=400 GeV) search.}
 \label{fig:SigOpt:mH400_m_l1jj.pdf}
 \end{figure}
 
 \input{tables/cutflow_SigOpt_ee_mH500.tex}
-\caption{The unblinded results of $m_X$=500~GeV search in $ee$ channel. }
+\caption{$m_X$=500~GeV $ee$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=500~GeV search in $ee$ channel. }
 \label{cutflow_ee_mX500}
 \end{table}
 
 \input{tables/cutflow_SigOpt_mumu_mH500.tex}
-\caption{The unblinded results of $m_X$=500~GeV search in $\mu\mu$ channel. }
+\caption{$m_X$=500~GeV $\mu\mu$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=500~GeV search in $\mu\mu$ channel. }
 \label{cutflow_mumu_mX500}
 \end{table}
 
 \input{tables/cutflow_SigOpt_emu_mH500.tex}
-\caption{The unblinded results of $m_X$=500~GeV search in $e\mu$ channel. }
+\caption{$m_X$=500~GeV $e\mu$类别的优化结果。}
+%\caption{The unblinded results of $m_X$=500~GeV search in $e\mu$ channel. }
 \label{cutflow_emu_mX500}
 \end{table}
 
 \begin{figure}[h]
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH500_m_l1jj_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH500_m_l1jj_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH500_m_l1jj_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH500_m_l1jj_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/mH500_m_l1jj_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/mH500_m_l1jj_emu.pdf}
  \end{minipage}
-\caption{The unblinded $M(\ell_{1}jj)$ distribution after all optimization selections, corresponding to resonance ($m_X$=500 GeV) search.}
+ \caption{$m_X$=500 GeV质量点经过优化筛选之后$M(\ell_{1}jj)$分布。}
+%\caption{The unblinded $M(\ell_{1}jj)$ distribution after all optimization selections, corresponding to resonance ($m_X$=500 GeV) search.}
 \label{fig:SigOpt:mH500_m_l1jj.pdf}
 \end{figure}
 
-\subsection{$SS$搜寻筛选结果}
+\clearpage
+\subsubsection{$SS$搜寻筛选结果}
 \input{tables/cutflow_SigOpt_ee_HSS_lowmass.tex}
-\caption{The unblinded results of the searches for $m_X$=280 GeV, $m_X$=300 GeV and $m_X$=320 GeV(fixing $m_S$=135 GeV) in $ee$ channel.}
+\caption{$m_X$=280 GeV, $m_X$=300 GeV and $m_X$=320 GeV(fixing $m_S$=135 GeV) $ee$类别的优化结果。}
+%\caption{The unblinded results of the searches for $m_X$=280 GeV, $m_X$=300 GeV and $m_X$=320 GeV(fixing $m_S$=135 GeV) in $ee$ channel.}
 \label{cutflow_ee_HSS_lowmass}
 \end{table}
 
 \input{tables/cutflow_SigOpt_mumu_HSS_lowmass.tex}
-\caption{The unblinded results of the searches for $m_X$=280 GeV, $m_X$=300 GeV and $m_X$=320 GeV(fixing $m_S$=135 GeV) in $\mu\mu$ channel.}
+\caption{$m_X$=280 GeV, $m_X$=300 GeV and $m_X$=320 GeV(fixing $m_S$=135 GeV) $\mu\mu$类别的优化结果。}
+%\caption{The unblinded results of the searches for $m_X$=280 GeV, $m_X$=300 GeV and $m_X$=320 GeV(fixing $m_S$=135 GeV) in $\mu\mu$ channel.}
 \label{cutflow_mumu_HSS_lowmass}
 \end{table}
 
 \input{tables/cutflow_SigOpt_emu_HSS_lowmass.tex}
-\caption{The unblinded results of the searches for $m_X$=280 GeV, $m_X$=300 GeV and $m_X$=320 GeV(fixing $m_S$=135 GeV) in $e\mu$ channel.}
+\caption{$m_X$=280 GeV, $m_X$=300 GeV and $m_X$=320 GeV(fixing $m_S$=135 GeV) $e\mu$类别的优化结果。}
+%\caption{The unblinded results of the searches for $m_X$=280 GeV, $m_X$=300 GeV and $m_X$=320 GeV(fixing $m_S$=135 GeV) in $e\mu$ channel.}
 \label{cutflow_emu_HSS_lowmass}
 \end{table}
 
 \begin{figure}[h]
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/H300_S135_m_l1jj_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/H300_S135_m_l1jj_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/H300_S135_m_l1jj_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/H300_S135_m_l1jj_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/H300_S135_m_l1jj_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/H300_S135_m_l1jj_emu.pdf}
  \end{minipage}
-\caption{The unblinded $M(\ell_{1}jj)$ distribution after all optimization selections, corresponding to $SS$ low mass search. The signal shown here is $m_X$=300 GeV, $m_S$=135 GeV.}
+ \caption{经过$SS$低质量点优化筛选条件的$M(\ell_{1}jj)$分布，图中展示的信号是$m_X$=300 GeV, $m_S$=135 GeV。}
+%\caption{The unblinded $M(\ell_{1}jj)$ distribution after all optimization selections, corresponding to $SS$ low mass search. The signal shown here is $m_X$=300 GeV, $m_S$=135 GeV.}
 \label{fig:SigOpt:H300_S135_m_l1jj.pdf}
 \end{figure}
 
 \input{tables/cutflow_SigOpt_ee_HSS_highmass.tex}
-\caption{The unblinded results of the searches for $m_S$=135 GeV, $m_S$=145 GeV, $m_S$=155 GeV and $m_S$=165 GeV(fixing $m_X$=340 GeV) in $ee$ channel.}
+\caption{$m_S$=135 GeV, $m_S$=145 GeV, $m_S$=155 GeV and $m_S$=165 GeV(fixing $m_X$=340 GeV) $ee$类别的优化结果。}
+%\caption{The unblinded results of the searches for $m_S$=135 GeV, $m_S$=145 GeV, $m_S$=155 GeV and $m_S$=165 GeV(fixing $m_X$=340 GeV) in $ee$ channel.}
 \label{cutflow_ee_HSS_highmass}
 \end{table}
 
 \input{tables/cutflow_SigOpt_mumu_HSS_highmass.tex}
-\caption{The unblinded results of the searches for $m_S$=135 GeV, $m_S$=145 GeV, $m_S$=155 GeV and $m_S$=165 GeV(fixing $m_X$=340 GeV) in $\mu\mu$ channel.}
+\caption{$m_S$=135 GeV, $m_S$=145 GeV, $m_S$=155 GeV and $m_S$=165 GeV(fixing $m_X$=340 GeV) $\mu\mu$类别的优化结果。}
+%\caption{The unblinded results of the searches for $m_S$=135 GeV, $m_S$=145 GeV, $m_S$=155 GeV and $m_S$=165 GeV(fixing $m_X$=340 GeV) in $\mu\mu$ channel.}
 \label{cutflow_mumu_HSS_highmass}
 \end{table}
 
 \input{tables/cutflow_SigOpt_emu_HSS_highmass.tex}
-\caption{The unblinded results of the searches for $m_S$=135 GeV, $m_S$=145 GeV, $m_S$=155 GeV and $m_S$=165 GeV(fixing $m_X$=340 GeV) in $e\mu$ channel.}
+\caption{$m_S$=135 GeV, $m_S$=145 GeV, $m_S$=155 GeV and $m_S$=165 GeV(fixing $m_X$=340 GeV) $e\mu$类别的优化结果。}
+%\caption{The unblinded results of the searches for $m_S$=135 GeV, $m_S$=145 GeV, $m_S$=155 GeV and $m_S$=165 GeV(fixing $m_X$=340 GeV) in $e\mu$ channel.}
 \label{cutflow_emu_HSS_highmass}
 \end{table}
 
 \begin{figure}[h]
 \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/H340_S145_m_l1jj_ee.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/H340_S145_m_l1jj_ee.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/H340_S145_m_l1jj_mumu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/H340_S145_m_l1jj_mumu.pdf}
  \end{minipage}
  \begin{minipage}[t]{0.33\linewidth}
  \centering
- \includegraphics[width=1.0\textwidth,angle=-90]{fig/SigOpt/H340_S145_m_l1jj_emu.pdf}
+ \includegraphics[width=0.9\textwidth,angle=-90]{fig/SigOpt/H340_S145_m_l1jj_emu.pdf}
  \end{minipage}
-\caption{The unblinded $M(\ell_{1}jj)$ distribution after all optimization selections, corresponding to $SS$ high mass search. The signal shown here is $m_X$=340 GeV, $m_S$=145 GeV.}
+  \caption{经过$SS$高质量点优化筛选条件的$M(\ell_{1}jj)$分布，图中展示的信号是$m_X$=340 GeV, $m_S$=145 GeV。}
+%\caption{The unblinded $M(\ell_{1}jj)$ distribution after all optimization selections, corresponding to $SS$ high mass search. The signal shown here is $m_X$=340 GeV, $m_S$=145 GeV.}
 \label{fig:SigOpt:H340_S165_m_l1jj.pdf}
 \end{figure}

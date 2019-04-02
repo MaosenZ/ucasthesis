@@ -1,4 +1,4 @@
-\chapter{ATLAS探测器} \label{chap:ATLAS}
+\section{ATLAS探测器} \label{sec:ATLAS}
 ATLAS探测器座落在LHC储存环的Point I，它有25米高，44米长，总重大约7000吨。ATLAS探测器内层是内部径迹探测器（ID），其被直径为2.3米的超导螺线管包围，该超导线圈提供平行于
 束流方向，大小为2 T的磁场；紧挨着ID是量能器系统（EM），EM分为电磁量能器和强子量能器；最外层是$\mu$子探测器（MS）。本章将论述图~\ref{fig:ATLAS_schematic}所示的各个部分。
 
@@ -9,12 +9,12 @@ ATLAS探测器座落在LHC储存环的Point I，它有25米高，44米长，总�
 \end{center}
 \end{figure}
 
-\section{坐标系统}
+\subsection{坐标系统}
 ATLAS使用右手坐标系，其定义IP为原点，z轴为束流方向，正x轴指向环中心，正y轴则向上。在极角坐标系中，定义方位角$\phi$在（x, y）平面，大小从$-\pi$到$\pi$，极角$\theta$
 从0到$\pi$，$\theta=0$时与正z轴同向。\\
 赝快度定义为$\eta = -ln\tan(\theta/2)$($m\ll E$)，更大的$|\eta|$意味着粒子更靠近束流方向，在ATLAS一般称为更前向。那么可以定义两个粒子的角距离$\Delta R=\sqrt{(\Delta\eta)^2+(\Delta\phi)^2}$。
 
-\section{内部径迹探测器}
+\subsection{内部径迹探测器}
 ATLAS内部径迹探测器主要用来精确寻迹（\pt > 0.1 GeV）,可覆盖$|\eta|<2.5$。它包括三个子探测器，离束流中心距离从3.3 cm到101.6 cm，图~\ref{fig:ATLAS_ID_sideview}展示ID的
 各个部分的分布。ID沉浸在通过铌钛超导螺线管产生的2 T轴向磁场中，线圈通过液氦冷却，温度为4.5 K。ID的强磁场可偏转带电粒子，通过测量径迹曲率可推出粒子动量。
 \begin{figure}[h]
@@ -39,7 +39,7 @@ ID可为粒子径迹重建提供36个着火点。联合这三个子探测器的�
  \frac{\sigma_{\pt}}{\pt}=0.05\%\pt\oplus1\%
 \end{equation}
 
-\section{量能器}
+\subsection{量能器}
 ATLAS量能系统~\cite{ATLAS_Collaboration_2008}包括几个具有不同技术和粒度的组件，涵盖非常大的范围（\abseta <4.9）。 所有组件都是采样量能计，带有被动非活性材料，可以产生电磁/强子簇射，这些簇射被连接到活性材料层，以检测一小部分进入的粒子能量。 能量通过测试束流~\cite{4436305,Davidek_2009}进行校准，并在碰撞数据中验证。 ATLAS量能器的布局如图~\ref{ig:Calorimeter_d3}所示。
 \begin{figure}[h]
 \begin{center}
@@ -60,8 +60,8 @@ EM厚度在桶部大于22个辐射长度（X0），在端盖区域中大于24倍
 \end{equation}
 最后，3层前向热量计（FCal）覆盖$3.1<\abseta<4.9$以测量缺失的横向能量和前向喷注。 它利用LAr技术，分别用铜和钨作为第一层和最后两层的吸收材料。
 
-\section{$\mu$子光谱仪}
-$\mu$子光谱仪（MS）环绕着量能器，是ATLAS最外层的子探测系统，用于测量穿过ID和量能器的$\mu$子动量和位置。 MS系统有大约100万个电子学读出道，从半径5米延伸到10米，在\abseta =0处因为服务电缆有一个小间隙。
+\subsection{$\mu$子谱仪}
+$\mu$子谱仪（MS）环绕着量能器，是ATLAS最外层的子探测系统，用于测量穿过ID和量能器的$\mu$子动量和位置。 MS系统有大约100万个电子学读出道，从半径5米延伸到10米，在\abseta =0处因为服务电缆有一个小间隙。
 MS桶区由3个同心圆柱体组成，设计用于测量动量高于5 GeV的$\mu$子，其分辨率在100 GeV时为3\%。 端盖区有四个轮状部分，覆盖到$\abseta<2.7$。与ID类似，MS也可测量$\mu$子动量，
 其磁场由大型空心环形磁体系统提供，大小在0.5~T和1~T之间。\\
 $\mu$子室有两组系统：一组用于$\mu$子轨道的精确测量，第二组用于$\mu$子触发。精密腔室包括监测漂移管（MDT）\cite{Bauer:2016gyg}和阴极条带室（CSC）\cite{Argyropoulos:2009zz}。MDT涵盖$\abseta<2.7$的大部分区域，
@@ -84,11 +84,11 @@ RPC由平行电极板组成，它们相距2mm并填充有$\text{C}_{2}\text{H}_{
       \caption{}
       \label{fig:muon_rz}
   \end{subfigure}
-\caption{(a) Cross-section of the barrel muon system perpendicular to the beam axis (non-bending plane), showing three concentric cylindrical layers of eight large and eight small chambers. The outer diameter is about 20m. (b) Cross-section of the muon system in a plane containing the beam axis (bending plane). Infinite-momentum muons would propagate along straight trajectories which are illustrated by the dashed lines and typically traverse three muon stations.} \label{fig:muon_overview}
+\caption{(a) 与束流垂直方向($x-y$平面)的$\mu$子谱仪布局，它有三层同心圆柱，每层包含8个大室和8个小室，最外层半径大约为20米。(b) $y-z$平面的$\mu$子谱仪布局，Cross-section of the muon system in a plane containing the beam axis (bending plane). Infinite-momentum muons would propagate along straight trajectories which are illustrated by the dashed lines and typically traverse three muon stations.} \label{fig:muon_overview}
 \end{center}
 \end{figure}
 
-\section{触发和数据采集系统}
+\subsection{触发和数据采集系统}
 %由于数据存储容量和速率的限制，LHC每秒产生大量的事例必须经过实时筛选和在线触发\cite{Artz_2015}，最终只有一小部分被记录。
 %当前的ATLAS触发系统包括基于硬件使用来自量能器和$\mu$子系统粗略测量的触发（L1），以及基于软件的高级触发（HLT）。L1将事件发生率（这指bunch-crossing）从40 MHz降低到100 kHz，HLT进一步将其降低到1 kHz的平均记录速率\cite{Artz_2015}。ATLAS数据采集（TDAQ）系统的示意图如图\ref{fig:ATLAS_TDAQ}所示。
 %L1触发系统执行初始事件选择并接受100 kHz速率的事件。它经过优化，可以快速做出决策。它联合量能器和MS的信息搜索高能量轻子，光子和喷注。电子和光子触发基于EM量能器中的能量沉积，这
@@ -105,7 +105,7 @@ HLT接受的事件最终存储在磁盘上，并导出到CERN计算中心进行�
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.75\textwidth]{fig/content_tdaq_figures_tdaq-run2-schematic.png}
-\caption{The ATLAS TDAQ system in \RunTwo with emphasis on the components relevant for triggering. L1Topo and FTK were being commissioned during 2015 and not used for the results shown here.~\cite{Aaboud2017}} \label{fig:ATLAS_TDAQ}
+\caption{ATLAS TDAQ系统\cite{Aaboud2017}，图中着重标注触发相关部分。L1Topo and FTK正在研究，并未包括本文的结果中。} \label{fig:ATLAS_TDAQ}
 \end{center}
 \end{figure}
 L1和HLT步骤的触发决策是对物理对象和筛选算法的一系列要求的结果，而这些定义了所谓的触发菜单。菜单中的主要触发器涵盖了各种ATLAS物理搜索所需的所有信号，包括电子，$\mu$子，光子，$\tau$轻子，喷注和丢失能量（MET）。
@@ -114,16 +114,16 @@ L1和HLT步骤的触发决策是对物理对象和筛选算法的一系列要求
 \begin{center}
 \begin{subfigure}[b]{\textwidth}
 \centering
-      \includegraphics[width=\textwidth]{fig/content_menu_figures_Time_L1GroupRate_Stack.png}
-     \caption{}
-      \label{fig:L1_menu_rates}
+   \includegraphics[width=0.75\textwidth]{fig/content_menu_figures_Time_L1GroupRate_Stack.png}
+   \caption{}
+  \label{fig:L1_menu_rates}
   \end{subfigure}
  \begin{subfigure}[b]{\textwidth}
  \centering
-      \includegraphics[width=\textwidth]{fig/content_menu_figures_Time_HLTGroupRate_Stack.png}
-      \caption{}
-      \label{fig:HLT_menu_rates}
+  \includegraphics[width=0.75\textwidth]{fig/content_menu_figures_Time_HLTGroupRate_Stack.png}
+   \caption{}
+   \label{fig:HLT_menu_rates}
   \end{subfigure}
-\caption{(a) L1 and (b) HLT trigger rates grouped by trigger signature during an LHC fill in October 2015 with a peak luminosity of $4.5\times10^{33}\text{cm}^{-2}\text{s}^{-1}$. Due to overlaps the sum of the individual groups is higher than the (a) L1 total rate and (b) Main physics stream rate, which are shown as black lines. Multi-object triggers are included in the b-jets and tau groups. The rate increase around luminosity block 400 is due to the removal of prescaling of the B-physics triggers. The combined group includes multiple triggers combining different trigger signatures such as electrons with muons, taus, jets or MET.~\cite{Aaboud2017}} \label{fig:Trigger_singlelepton}
+\caption{2015年LHC一次注入(fill)时的L1（a）和HLT（b）的各种信号组的触发率，此次注入最高亮度为$4.5\times10^{33}\text{cm}^{-2}\text{s}^{-1}$。因为各种信号类别之间有重叠，所以他们的触发率之和高于总的触发率（黑色实线），Multi-object触发项包含在b-jets与tau信号组中。亮度区间400之后的触发率增长是因为移除了B-physics prescaling。Combined触发组包含不同的触发信号，比如电子与$\mu$子, $\tau$, jets或者MET。\cite{Aaboud2017}} \label{fig:Trigger_singlelepton}
 \end{center}
 \end{figure}

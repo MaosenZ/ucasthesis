@@ -1,10 +1,10 @@
-\chapter{系统误差}\label{chap:4w_systematics}
+\section{系统误差}\label{sec:4w_systematics}
 
-\section{对撞亮度}
+\subsection{对撞亮度}
 2015年和2016年的联合亮度的不确定性为2.1\%，将应用到信号样本和promptSS本底上。亮度误差估计利用与文献~\cite{DAPR-2013-01}类似的方法得出，
 来自于2015年8月和2016年5月进行的xy束流分离扫描对亮度的初步校准结果。
 
-\section{信号样本理论误差}
+\subsection{信号模型}
 \begin{itemize}
  \item 标准模型希格斯对的信号样本的理论误差依据推荐~\cite{LHCdiHiggsXsec}是\\ 
  $^{+4.3}_{-6.0}\text{(scale)} ^{+5.0}_{-5.0}\text{(Th.)}  ^{+2.1}_{-2.1}\text{(PDF)} ^{+2.3}_{-2.3} (\alpha_S)$\%。
@@ -25,16 +25,16 @@ w_{i}=\frac{x_1f_{1i}(x_1;Q) x_2f_{2i}(x_2;Q)}{x_1f_{10}(x_1;Q) x_2f_{20}(x_2;Q}
 \input{tables/sig_theory_hh.tex}
 \input{tables/sig_theory_SS.tex}
 
-\section{data-driven本底估计系统误差}
-QmisID和fakes本底的误差如章节~\ref{chap:bkg_estimation}所示，值得指出的是，QmisID的系统误差对其本身和fakes上具有相反的影响。
+\subsection{data-driven本底}
+QmisID和fakes本底的误差如章节~\ref{sec:bkg_estimation}所示，值得指出的是，QmisID的系统误差对其本身和fakes上具有相反的影响。
 
-\section{本底预期截面误差}
+\subsection{MC本底预期截面}
 promptSS和$V\gamma$本底利用MC估计，其中主要部分是$WZ$（70\%），根据三轻子分析道的估计，$WZ$的截面误差为25\%。$W^{\pm}W^{\pm}$本底在promptSS占据大约10\%，其误差
 假设为50\%。剩下的$V\gamma$，$tV$，$t\bar{t}V$和$t\bar{t}H$的预期截面误差均假设为50\%，为了支持50\%是一个足够保守的估计，可参见标准模型截面测量实验，$tZ$和$ttW$（$ttZ$）的
 截面测量误差分别为15\%~\cite{xsection_WZ}和53.3\%（33\%）~\cite{xsection_ttV}。
 
-\section{探测器误差}
-探测器误差主要来源于粒子重建及鉴别，校准等。
+\subsection{实验相关}
+实验相关误差主要有以下几项：
 \begin{itemize}
   \item 影响信号运动学分布的系统误差
    \begin{itemize}
@@ -42,7 +42,7 @@ promptSS和$V\gamma$本底利用MC估计，其中主要部分是$WZ$（70\%）�
      \item 受低动量径迹影响的\met 重建误差
      \item Jet能量测量及分辨误差
    \end{itemize}
-   \item 末态重建及选择带来的效率修正误差
+   \item 末态粒子重建及选择带来的效率修正误差
     \begin{itemize}
       \item 轻子重建，鉴别以及孤立效率
       \item Pile-up reweighting
@@ -50,7 +50,7 @@ promptSS和$V\gamma$本底利用MC估计，其中主要部分是$WZ$（70\%）�
       \item \btag 效率
     \end{itemize}
 \end{itemize}
-信号，promptSS和$V\gamma$同时考虑了这些误差，但在实际操作中，每个分析道每个信号区各自舍弃掉整体影响低于0.5\%的系统误差。表~\ref{tab:summary_syst_ee_nonres}总结了在$hh$搜寻中$e\mu$分析道的系统误差大小。
+信号MC，promptSS和$V\gamma$同时考虑了这些误差，但在实际操作中，每个分析道每个信号区各自舍弃掉整体影响低于0.5\%的系统误差。表~\ref{tab:summary_syst_ee_nonres}总结了在$hh$搜寻中$e\mu$分析道的系统误差大小。
 \begin{table}[h]
 \begin{center}
 %\scriptsize
@@ -84,7 +84,8 @@ MET &$\pm$0.8 &$\pm$1.24 & &\\
 QmisID &  &  &  &$\mp$16.1 &$\pm$30\\
 \hline
 \end{tabular}
-\caption{The summary of systematic uncertainty for the search of non-resonant $hh$ in $e\mu$ channel. All numbers are in \%. It should be noted that the non-closure, sample composition and stat. uncertainties are not shown for fakes.}
+\caption{对应non-resonant $hh$ $e\mu$搜寻的系统误差(\%)总结。}
+%\caption{The summary of systematic uncertainty for the search of non-resonant $hh$ in $e\mu$ channel. All numbers are in \%. It should be noted that the non-closure, sample composition and stat. uncertainties are not shown for fakes.}
 \label{tab:summary_syst_ee_nonres}
 \end{center}
 \end{table}

@@ -1,0 +1,126 @@
+\section{统计模型}\label{sec:stat_theory}
+观测数据，预期信号和本底以及系统误差必须通过合理的统计模型处理之后得到信号强度$\mu_{tth}=\sigma/\sigma_{SM}$。对于tthML分析，使用\texttt{TRExFitter}\cite{TRExFitter}软件包进行统计处理，
+该软件包基于利用\texttt{RooFit/RooStat}开发的\texttt{HistFactory}\cite{Cranmer:1456844}。下面几小节简要建设本文涉及的统计模型，详情可参见\cite{asym}。
+
+\subsection{似然函数}
+考虑事例中的测量变量$x$(比如BDT)，则N个事例会构建一个直方图$\boldsymbol{n}=(n_1,...,n_N)$，对于每个bin有：
+\begin{equation}
+\begin{aligned}
+ E[n_i]=\lambda=\mu s_i+B_i=\mu s_i+\sum_{b\in {\{bkgs\}}}b_i \\
+ s_i=n_s\int f_s(x, \boldsymbol{\theta}_s)dx  \\
+ b_i=n_b\int f_b(x, \boldsymbol{\theta}_b)dx \\
+\end{aligned}
+\end{equation}
+\begin{itemize}
+  \item $E[n_i]$为期望值，$s_i$与$B_i$分别为信号与本底均值，且$B_i$有多个本底成分。
+  \item $\mu$为信号强度，$\mu$=0表示background-only假设，$\mu$=1表示S+B假设。
+  \item $n_s$与$n_b$分别为信号与本底事例数，即归一化因子，$n_s$为常数，由信号模型决定。
+  \item $f_s$与$f_b$分别为信号与本底概率分布函数($pdf$)，它们由参数$\boldsymbol{\theta}$决定。
+ % 以下使用$\boldsymbol{\theta}=(\boldsymbol{\theta}_s,\boldsymbol{\theta}_b,n_b)$代表所有冗余参数(nuisance parameters)\footnote{本文将使用NP代表冗余参数。}，所有误差影响将通过它表达。
+\end{itemize}
+$\mu$在构建的模型中是一个自由参数，是我们感兴趣的参数(Parameter of Interest, 简称PoI)。而$\boldsymbol{\theta}=(\boldsymbol{\theta}_s,\boldsymbol{\theta}_b,n_b)$为所谓的冗余参数(nuisance parameters\footnote{本文使用PoI代表感兴趣的参数，NP代表冗余参数。})，它代表所有影响$pdf$形状或者归一化的不确定性。NP也会被附属测量或理论预期限制，
+比如章节\ref{sec:1l2tau_sys}所述的各种误差($\boldsymbol{\theta_0}$)。每个NP可以影响$s_i$和$B_i$中一项或者多项，也就是所谓的系统误差关联性处理(correlation)。
+
+每个bin的观测事例数一般假设为泊松分布，则有：
+\begin{equation}
+ \begin{aligned}
+ %\lambda=\mu s_i+(1+\delta_{\text{shape}}\sigma_\text{shape})b_i^{\text{fake}}+\sum_{b\in {\{bkgs\}}}b_i
+ \text{Pois}(n,\lambda)=\frac{\lambda^{n}}{{n}!}e^{-\lambda}\\
+ \lambda=\mu s(\boldsymbol{\theta_0})+b(\boldsymbol{\theta_0})
+ \end{aligned}
+\end{equation}
+
+相应地，每项NP有各自的概率分布函数，一般形状相关的NP可以有正的影响，也可以有负的影响，这种NP一般假设为高斯分布：
+\begin{equation}
+ \text{Gaus}(\theta;\theta_0,\sigma_{\theta_0})=\frac{1}{\sqrt{2\pi}\sigma_{\theta_0}}\text{exp}(-\frac{(\theta-\theta_0)^2}{2{\sigma^2_{\theta_0}}})
+\end{equation}
+$\theta_0$为中心值（一般假设为0），$\sigma_{\theta_0}$为误差大小。
+%除去直方图$\boldsymbol{n}$，附属测量(subsidiary measurements)可以帮助限制NP。比如，在主要本底构成的控制区域构建测量变量$m$，则有直方图$\boldsymbol{m}=(m_1,...,m_M)$，相应的每个bin
+%期望值为$E[m_i]$=$\mu_i(\boldsymbol{\theta})$，通过这个测量也许可以限制$n_b$或者其他NP。
+
+亮度，效率，截面等这类影响归一化的NP一般假设为对数正态分布，以避免不合理的对事例数的负影响：
+\begin{equation}
+\begin{aligned}
+ \text{LogN}(\theta;\theta_0,\kappa_0)=\frac{1}{\sqrt{2\pi}\text{ln}(\kappa_0)}\frac{1}{\theta}\text{exp}(-\frac{{\text{ln}^2(\theta/\theta_0)}}{{2\text{ln}^2(\kappa_0)}})\\
+ \kappa_0=\text{exp}(2\theta_0+{\sigma^2_{\theta_0}})[\text{exp}({\sigma^2_{\theta_0}})-1]
+\end{aligned}
+\end{equation}
+
+与MC大小和data-driven本底大小相关的NP假设服从伽玛分布：
+\begin{equation}
+ \text{Gamma}(\gamma;\gamma_0)=\frac{1}{\Gamma(\gamma_0+1)}\gamma^{\gamma_0}e^{-\gamma}
+\end{equation}
+
+那么似然函数则构造为这些函数的乘积:
+\begin{equation}
+\begin{aligned}
+ L(n_{obs},\boldsymbol{\theta_0}|\mu,\boldsymbol{\theta})=L_{evt}(n_{obs}|\mu)\times L_{sub}(\boldsymbol{\theta_0}|\boldsymbol{\theta})=\\
+ \prod_i^N\text{Pois}(n_i|\lambda_i(\boldsymbol{\theta}))\times \\
+ \prod_{j\in\{\text{shape NPs}\}}\text{Gaus}(\theta_0j,\sigma_{\theta_{0j}}|\theta_j)\times \\
+ \prod_{k\in\{\text{norm. NPs}\}}\text{LogN}(\theta_{0k},\kappa_{0k}|\theta_k)\times \\
+ \prod_l^N\text{Gamma}(\gamma_{0l}|\gamma_l)
+\end{aligned}
+\end{equation}
+给定观测值$n_{obs}$和误差大小$\boldsymbol{\theta_0}$，对似然函数取极大值则可得到$\mu$和$\boldsymbol{\theta}$的最大似然估计值(MLE) $\hat{\mu}$和$\hat{\boldsymbol{\theta}}$。
+在实际操作中，首先会对以上似然函数取对数，以简化计算。
+
+\subsection{假设检验量}
+假设检验量为似然函数比(profile likelihood ratio):
+\begin{equation}
+\label{eq:test_statistic}
+ q_\mu = -2\text{ln}\Lambda(\mu)=
+  \begin{cases}
+    -2 \ln \frac{L(\mu,\hat{\hat{\boldsymbol{\theta}}}(\mu))}{L(0,\hat{\hat{\boldsymbol{\theta}}}(0))} & \quad \text{if $\hat\mu < 0$}\\
+    -2 \ln \frac{L(\mu,\hat{\hat{\boldsymbol{\theta}}}(\mu))}{L(\hat{\mu},\hat{\boldsymbol{\theta}})} & \quad \text{if $\hat\mu \geq 0$}\\
+   % 0 & \quad \text{if $\hat\mu > \mu$}
+  \end{cases}
+ \end{equation}
+ \noindent 其中$\hat{\boldsymbol{\theta}}$表示无条件拟合(conditional fit)，$\hat{\hat{\boldsymbol{\theta}}}$表示有条件拟合(unconditional fit, 即固定$\mu$)。$q_ \mu$越大，观测数据与具有信号强度$\mu$的假设越不吻合。
+ 
+ 不吻合度的定量表述为:
+ \begin{equation}
+  p_ \mu=\int_{q_{\mu, obs}}^{\infty}f(q_ \mu|\mu)dq_ \mu
+ \end{equation}
+ $q_{\mu, obs}$为假设检验量的观测值，$f(q_ \mu|\mu)$为具有信号强度$\mu$的假设的概率分布函数。
+ 
+ 当定量表述发现时，比如$t\bar{t}h$信号，需要检验的假设是background-only，即$\mu$=0, 那么式\ref{eq:test_statistic}变为:
+\begin{equation}
+ q_0=
+ \begin{cases}
+  -2\text{ln}\Lambda(0) & \text{if $\hat{\mu} \geq 0$} \\
+  0  & \text{if $\hat{\mu} <$0}
+ \end{cases}
+\end{equation}
+相应的$p$值为$p_0=\int_{q_{0,obs}}^\infty f(q_0|0)dq_0$，$p$值可以转换成显著性(significance)$Z$:
+\begin{equation}
+ Z=\Phi^{-1}(1-p)
+\end{equation}
+$\Phi^{-1}$为标准高斯函数的反函数。在粒子物理实验中，如果$Z \geq 5$时，则代表发现(discovery)，对应的$p$值为$p \leq 2.87\times 10^{-7}$，这就是著名的宣称发现新现象的5$\sigma$；
+如果$Z \geq 3$，则宣称证据(evidence)。
+
+为了计算$Z$，我们需要知道$f(q_0|0)$的实际分布。一般情况下，可以产生大量伪实验(pseudo-experiments)，这需要大量的计算资源。
+然而，对于基于似然比和它的$pdf$的假设检验量，它可以在渐近大样本极限下得到独立于NP的解析函数，渐近有限性已被证明适用于$\mathcal{O}(10)$的数据中。
+那么式\ref{eq:test_statistic}仅依赖于$\hat{\mu}$和它的方差，方差可以使用所谓的Asimov数据估计。Asimov数据是一种人造数据，所有的观测值等于期望值，统计涨落也被压低。$q_0$则变为：
+\begin{equation}
+ q_0=
+ \begin{cases}
+   {\hat{\mu}}^2/\sigma^2 & \text{if $\hat{\mu} \geq 0$} \\
+   0  & \text{if $\hat{\mu}< 0$}
+ \end{cases}
+\end{equation}
+ $\hat{\mu}$服从均值为$\mu{\prime}$，方差为$\sigma ^2$的高斯分布。对于发现实验，$\mu{\prime}$=0，可以推出：
+ \begin{equation}
+  Z_0=\Phi^{-1}(1-p_0)=\sqrt{q_0}
+ \end{equation}
+ Asimov数据可用来描述期望显著性，即在特定$\mu\prime$信号假设下排除本底的中间$p$值(median $p-$value)，在tthML分析中，为了检验信号存在，则$\mu{\prime}=$1.
+ 
+ 除了发现实验，往往还需要为新信号设置上限，这种情况下，式\ref{eq:test_statistic}则变为：
+ \begin{equation}
+ q_ \mu=
+ \begin{cases}
+  -2\text{ln}\Lambda(\mu) & \text{if $\hat{\mu} \leq \mu$} \\
+  0  & \text{if $\hat{\mu} > \mu$}
+ \end{cases}
+\end{equation}
+在随后的$hh$搜寻中通过此式为产生截面设置上限。
+
