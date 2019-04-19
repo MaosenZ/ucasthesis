@@ -5,7 +5,7 @@
 
 \subsection{优化策略}
 MVA方法用于确定不同运动学变量的分离能力，并考虑所有变量之间的相关性。最终，前五个运动学变量用于形成优化选择，分别是$M(\ell\ell)$，$\Delta R_{min}(\ell_{2}, j)$，$\Delta R_{min}(\ell_{1}, j)$ ，$ M_{\ell_{1} jj}$和$M(all)$，它们具有很强的分离能力，而且相互之间的相关性很低(图~\ref{fig:correlation_check})。通常，$M(\ell\ell)$和$ M_{\ell_{1} jj} $对低质量点敏感，而其余对高质量和非共振信号敏感。
-基于这些知识，$\Delta R_{min}(\ell_{1}, j)$，$M(\ell\ell)$，$ M_{\ell_{1}jj}$和$M(all)$用于在低质量搜索中形成优化削减，而$\Delta R_{min}(\ell_{2}, j)$，$\Delta R_{min}(\ell_{1}, j)$，$M(\ell\ell)$和$M_{\ell_{1}jj}$用于高质量搜索中。它们的相应分布分别见图~\ref{fig:SigOpt_low_kine}和图~\ref{fig:SigOpt_high_kine}。\\
+基于这些知识，$\Delta R_{min}(\ell_{1}, j)$，$M(\ell\ell)$，$ M_{\ell_{1}jj}$和$M(all)$用于在低质量搜索中，而$\Delta R_{min}(\ell_{2}, j)$，$\Delta R_{min}(\ell_{1}, j)$，$M(\ell\ell)$和$M_{\ell_{1}jj}$用于高质量搜索中。它们的相应分布分别见图~\ref{fig:SigOpt_low_kine}和图~\ref{fig:SigOpt_high_kine}。\\
 TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有背景：promptSS，$V\gamma$，QmisID和fakes都包含在训练中。
 为了减少对变量筛选顺序的依赖，每次仅训练2个变量。
 在每个信号效率工作点（WP），在测试样本中对每个事例应用对应的选择条件，
@@ -76,7 +76,7 @@ TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有�
  \centering
  \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_low_Njet_CR/m_all_emu.pdf}\label{fig:dataMC_low_Njet_CR:m_all_emu.pdf}
  \end{minipage}
- \caption{用于低质量信号优化的运动学变量分布，对应$N_{\text{jet}}\geq2$。}
+ \caption{用于低质量信号优化的运动学变量分布，对应$N_{\text{jet}}\geq2$。左: $ee$，中: $\mu\mu$，右: $e\mu$。}
  %\caption{The distributions of kinematic variables that are used to form optimization selections at pre-selection level, corresponding to $N_{\text{jet}}\geq2$. Left: $ee$, middle: $\mu\mu$, right: $e\mu$. PromptSS and $V+\gamma$ are normalized to the luminosity of 36.1 fb$^{-1}$.}
 \label{fig:SigOpt_low_kine}
 \end{figure}
@@ -133,7 +133,7 @@ TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有�
  \centering
  \includegraphics[width=0.9\textwidth,angle=-90]{fig/dataMC_high_Njet_CR/m_l1jj_emu.pdf}\label{fig:dataMC_high_Njet_CR:m_l1jj_emu.pdf}
  \end{minipage}
- \caption{用于低质量信号优化的运动学变量分布，对应$N_{\text{jet}}\geq3$。}
+ \caption{用于低质量信号优化的运动学变量分布，对应$N_{\text{jet}}\geq3$。左: $ee$，中: $\mu\mu$，右: $e\mu$。}
  %\caption{The distributions of kinematic variables that are used to form optimization selections at pre-selection level, corresponding to $N_{\text{jet}}\geq3$. Left: $ee$, middle: $\mu\mu$, right: $e\mu$. PromptSS and $V+\gamma$ are normalized to the luminosity of 36.1 fb$^{-1}$.}
 \label{fig:SigOpt_high_kine}
 \end{figure}
@@ -292,8 +292,9 @@ TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有�
 \subsection{优化结果}
 \label{sec:unblind_results}
 经过所有筛选条件之后，表~\ref{cutflow_ee_nonres}到表~\ref{cutflow_emu_HSS_highmass}展示各个质量点不同分析道中的各种背景，预期信号以及观测事例数的结果。总预期本底的误差包括了所有
-的系统误差，并考虑了非fakes本底的系统误差（syst1）与fakes本底的系统误差(syst2)的反相关性质。对于每个质量点的每个分析道，一个运动学变量的分布也被展示，
-从图~\ref{fig:SigOpt:nonres_m_l1jj.pdf}到图~\ref{fig:SigOpt:H340_S165_m_l1jj.pdf}。
+的系统误差，并考虑了非fakes本底的系统误差（syst1）与fakes本底的系统误差(syst2)的反相关性质。
+图~\ref{fig:SigOpt:nonres_m_l1jj.pdf}到图~\ref{fig:SigOpt:H340_S165_m_l1jj.pdf}展示对应的子类的运动学分布。
+总体而言，所有子类中没有发现明显超出。
 \subsubsection{$hh$搜寻筛选结果}
 \input{tables/cutflow_SigOpt_ee_nonres.tex}
 \caption{SM $hh$ $ee$类别的优化结果。 }

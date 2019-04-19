@@ -22,7 +22,7 @@
 %\subsection{蒙特卡罗样本}
 
 \subsection{信号样本}
-信号样本包含两种模型，分别为希格斯粒子对（$pp\rightarrow (X) \rightarrow hh$）和类希格斯粒子对($gg \rightarrow X \rightarrow SS$)。
+信号样本包含两种模型，分别为希格斯粒子对（$pp\rightarrow (X) \rightarrow hh$）和类希格斯粒子对($gg \rightarrow X \rightarrow SS$)\cite{ExoticHiggsTheory}。
 %\subsubsection{$gg\rightarrow (X) \rightarrow hh$}
 \begin{enumerate}
     \item SM 信号（非共振态模式）目前只考虑胶子融合过程，即$gg\rightarrow hh$，利用包含NLO修正的双希格斯粒子模型~\cite{Frederix:2014hta}，
@@ -31,6 +31,7 @@
     \item 共振态模式（$gg\rightarrow X\rightarrow  hh$）利用包含NLO修正的\texttt{2HDMCP\_EFT}的信号模型~\cite{MG5-HH-LO}，在\MGMCatNLO 中产生。其中重标量粒子X，即共振态粒子，被假设具有远小于实验精度的衰变宽度；
 在实际模拟中，其宽度设为10 MeV，并考虑四个质量点，分别为260 GeV, 300 GeV, 400 GeV和500 GeV。此过程产生截面假设为1 pb。 
 \end{enumerate}
+
 两个希格斯粒子均要求衰变到$W$玻色子对，随后，其中两个$W^{+}(W^{-})$衰变到轻子（包括$\tau$），而另两个$W^{-}(W^{+})$则到强子对。这一系列衰变通过\Herwigpp~\cite{herwigpp}实现，也包括随后的部分子簇射和强子化过程，其衰变分支比为$BR(hh\rightarrow 4W \rightarrow \ell^{\pm}\nu\ell^{\pm}qqqq)=4.4\times10^{-3}$。两种模式的信号样本的产生情况总结如表~\ref{tab:dsid_hh}所示。
 \input{tables/hh_DSID.tex}
 

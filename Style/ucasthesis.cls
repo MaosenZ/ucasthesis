@@ -210,7 +210,7 @@
         \begin{tabular}{lc}
             \ucas@label@ch@author & \ulenhance[1.2pt]{\ulextend{\ucas@value@ch@author}}\\
             \ucas@label@ch@advisor & \ulenhance[1.2pt]{\ulextend{\ucas@value@ch@advisor}}\\
-            & \ulenhance[1.2pt]{\ulextend{\ucas@value@ch@advisors}}\\
+%            & \ulenhance[1.2pt]{\ulextend{\ucas@value@ch@advisors}}\\--maosen
             \ucas@label@ch@degree & \ulenhance[1.2pt]{\ulextend{\ucas@value@ch@degreetype\ucas@value@ch@degree}}\\
             \ucas@label@ch@major & \ulenhance[1.2pt]{\ulextend{\ucas@value@ch@major}}\\
             \ucas@label@ch@institute & \ulenhance[1.2pt]{\ulextend{\ucas@value@ch@institute}}\\
@@ -250,6 +250,8 @@
 %-
 \def\ucas@value@en@title{}
 \newcommand{\TITLE}[1]{\def\ucas@value@en@title{#1}}
+\def\ucas@value@en@titles{}
+\newcommand{\TITLES}[1]{\def\ucas@value@en@titles{#1}}
 \def\ucas@value@en@author{}
 \newcommand{\AUTHOR}[1]{\def\ucas@value@en@author{#1}}
 \def\ucas@value@en@advisor{}
@@ -278,8 +280,8 @@
 
         \vspace*{50pt}
 
-        {\zihao{-3}\bfseries \ulenhance[1.5pt]{\ \ucas@value@en@title\ }}
-
+        {\zihao{-3}\bfseries \ulenhance[1.5pt]{\ \ucas@value@en@title\ }}\\
+        {\zihao{-3}\bfseries \ulenhance[1.5pt]{\ \ucas@value@en@titles\ }}
         \vspace*{\stretch{2}}
 
         {\ucas@label@en@statement}

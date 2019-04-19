@@ -83,8 +83,9 @@ $\mu$电荷误判率非常低（一般低于10$^{-5}$）
 \begin{itemize}
   \item 当电子穿过探测器材料时，出射一个光子（韧致辐射）；而后这个光子转换成一对正负电子，然而在随后的径迹重建中，带相反电荷的电子被重建，从而导致电荷误判。
 韧致辐射依赖于探测器材料密度，而探测器材料密度随着\abseta 变化，所以电子的电荷误判率也依赖于\abseta。 
-  \item 第二种贡献相对来讲比较小，主要是因为测量精度不够，当电子径迹的曲率很小或者内部探测器径迹与量能器的簇射匹配错误时，得到完全相反曲率的
-径迹，从而导致电荷误判。所以，当电子具有高横动量时这个效应比较明显，那么误判率也依赖于\pt。
+  \item 是因为测量精度有限, 当电子径迹的曲率很小或者内部探测器径迹与量能器的簇射匹配错误时，得到完全相反曲率的
+径迹，从而导致电荷误判。当电子具有高横动量时这个效应比较明显，误判率也依赖于\pt。
+ 这种贡献相对来讲比较小。
 \end{itemize}
 %\\
 \subsubsection{似然函数方法}
@@ -98,7 +99,8 @@ $\eta-\pt$区域总共分为28个小区域，其$\abseta$和$\pt$的分界线分
 [10, 60, 90, 130, 1000] GeV。随后，为了得到电子电荷误判率，需按照以下过程进行：
 \begin{enumerate}
  \item 按照$Z$玻色子过程筛选双轻子数据，其中轻子质量要求应与章节\ref{subsec:4w_obj_def}所述一致。
- \item 在所选数据中通过高斯函数拟合$Z$不变质量谱，得到$Z$不变质量拟合值$\kappa$和标准偏差$\sigma$。而后分为如下三个区间，
+ \item 在所选数据中通过高斯函数拟合$Z$不变质量谱，得到$Z$不变质量拟合值$\kappa$和标准偏差$\sigma$。
+而后分为表\ref{tab:QmisID_Z_contro}所示的三个区间。
 \begin{table}[h]
 \centering
 \begin{tabular}{cccc}
@@ -107,6 +109,7 @@ $\eta-\pt$区域总共分为28个小区域，其$\abseta$和$\pt$的分界线分
 ($\kappa-8\sigma$, $\kappa - 4\sigma$)  & ($\kappa \pm 4\sigma$)  & ($\kappa+4\sigma$, $\kappa + 8\sigma$) \\
 \hline
 \end{tabular}
+\label{tab:QmisID_Z_control}
 \end{table}
 
  \item 为了进一步提高$Z$玻色子纯度，剩余本底会被减去，即$N_Z=n_B-\frac{n_A+n_C}{2}$。
@@ -159,7 +162,7 @@ N_{e\mu}^{\text{QmisID}}=\frac{\varepsilon}{1-\varepsilon}N^{\text{OS}}
 \clearpage
 \subsection{Fakes估计}
 误鉴别粒子是一项非常重要的本底，因为对其形成机制理解不够准确，MC并不能很好地描述，所以有必要使用data-driven的方法
-去估计该项本底。在该分析中，我们使用fake factor的方法。
+去估计该项本底。在该分析中，我们使用误判系数(fake factor)的方法。
 
 \subsubsection{Fake factor方法}
 在4W分析中，Fake factor方法的假设是fake factor不依赖于jet数，其定义是具有两个\texttt{tight} SS轻子的事例数与具有
@@ -231,7 +234,7 @@ isolation &isolationFixedCutTightTrackOnly  &fail isolationFixedCutTightTrackOnl
 \label{tab:summary_CRs_ff}
 \end{center}
 \end{table}
-接下来，作为例子，我们将只展示高质量点的fakes的计算方式。之前提过，本底包括fakes, QmisID, $V\gamma$和promptSS，
+接下来，作为例子，我们将只展示高质量点的fakes的计算方式。本底包括fakes, QmisID, $V\gamma$和promptSS，
 为了不重复考虑这些本底，实际计算fake factor时应当减去这些本底，如公式\ref{eq:fake_factor_ele_cal}和\ref{eq:fake_factor_cal}所示。
 \begin{equation}
 \theta_{e}(1\leq N_{\text{jet}}\leq 2)=\frac{N_{ee}^{\text{data}}-N_{ee}^{\text{promptSS}}-N_{ee}^{V\gamma}-N_{ee}^{\text{QmisID}}}{N_{e\cancel{e}}^{\text{data}}-N_{e\cancel{e}}^{\text{promptSS}}-N_{e\cancel{e}}^{V\gamma}-N_{e\cancel{e}}^{\text{QmisID MC}}}(1\leq N_{\text{jet}}\leq 2)
@@ -318,7 +321,7 @@ factor的结果，它们的理论误差会传递到fake factor的误差中，其
 
 \subsubsection{总预期本底估计}
 表~\ref{tab:event_yield_low_Njet_CR}和表~\ref{tab:event_yield_high_Njet_CR}分别总结在
-$N_{\text{jet}}\geq2$和$N_{\text{jet}}\geq3$时，经过初步筛选之后，的各项本底的估计值与观测数据数；表内的误差考虑了fakes的统计误差和fake factor的系统误差，
+$N_{\text{jet}}\geq2$和$N_{\text{jet}}\geq3$时，经过初步筛选之后的各项本底的估计值与观测数据数；表内的误差考虑了fakes的统计误差和fake factor的系统误差，
 假设它们相互独立，总的误差为$\sqrt{({\theta_{\ell}^{\text{sys.}}\times N^{\text{median}}_{\text{jet fakes}}})^2+\theta_{\ell}\times N^{\text{median}}_{\text{jet fakes}}}$，其中$\theta_{\ell}^{\text{sys.}}$是fake factor系统误差值，
 $N^{\text{median}}_{\text{jet fakes}}$是fakes预期值。在三个轻子道中，fakes都占有比较大的比例，都高于
 30\%，尤其在$ee$中，fakes作为最大的本底成分，高达44\%。
