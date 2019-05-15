@@ -47,12 +47,12 @@ ATLAS Phase-II升级之后的硅微条探测器传感器覆盖165 m$^2$，桶部
  \item 最后粘合电源控制模块到传感器上，最后进行wire-bonding。
 \end{enumerate}
 其实际对应过程可见图片\ref{fig:strip_moduel_assembly}\footnote{过程中的具体粘合方法，所使用的器械以及工艺等，一直在进行优化，不同组装地点也可能使用不同的方法。}。
-组装的挑战在于各个部分的接触面大小，胶水厚度以及位置的精确控制，一般要求控制到$\mathcal{O(10)}~\mu\text{m}$水平，比如芯片与hybrid的胶水粘合面应当保证至少50\%的接触面，
-以便传导芯片工作时产生的大量热量，而固化的胶水应当保持在300 $\mu\text{m}$厚度。
+组装的挑战在于各个部分的接触面大小，胶水厚度以及位置的精确控制，一般要求控制到$\mathcal{O}(10)~\mu\text{m}$水平，比如芯片与hybrid的胶水粘合面应当保证至少50\%的接触面，
+以便传导芯片工作时产生的大量热量，而固化的胶水应当保持在120$\pm40~\mu\text{m}$厚度。
 \begin{figure}[h]
 \centering
  \includegraphics[width=0.85\textwidth]{fig/strips_module_assembly.png}
- \caption{ITk (short-strip)模块实际组装过程，粘合芯片的胶水需要紫外线照射固化。}
+ \caption{ITk (short-strip)模块实际组装过程（省略wire-bonding过程），粘合芯片的胶水需要紫外线照射固化。}
  \label{fig:strip_moduel_assembly}
 \end{figure}
 组装完成的模块需要进行电子学测试，以保证模块工作性能达到预期。测试时，模块应当处于干燥且低温的环境中，其测试系统如图\ref{fig:strips_testing_setup}所示。
@@ -68,8 +68,10 @@ ATLAS Phase-II升级之后的硅微条探测器传感器覆盖165 m$^2$，桶部
 \end{figure}
 \begin{figure}[h]
 \centering
- \includegraphics[width=0.65\textwidth, angle=-90]{fig/LH_noise.pdf}
- \caption{Strips模块输入噪声，点线为粘合PB之前，'+'为粘合PB之后，底部为粘合PB之后与之前的噪声之比。}
+ \includegraphics[width=0.65\textwidth, angle=-90]{fig/LH_noise.pdf} \\
+  \includegraphics[width=0.65\textwidth, angle=-90]{fig/RH_noise.pdf} 
+ \caption{Strips模块输入噪声，上图对应左手Hybrid (LH)，下图对应右手Hybrid (RH), 点线为粘合PB之前，'+'为粘合PB之后，每图底部为粘合PB之后与之前的噪声之比。
+ 总体上比例在1附近，但因为每次实际测试时，环境参数并不一致，所以不能够表明粘合PB之后噪声一定增加或者减少了。}
  \label{fig:strips_testing_noise}
 \end{figure}
 \begin{figure}[h]
@@ -89,7 +91,7 @@ ATLAS Phase-II升级之后的硅微条探测器传感器覆盖165 m$^2$，桶部
 \end{figure}
 
 \subsection{ITk预期寻迹性能}
-相比目前的内部径迹探测器，ITk具有更少的材料消耗\footnote{目前研究显示材料预算在TDR被低估，这些预期结果也许过于乐观，全新的估计正在进行。}，其具有更高的寻迹效率和分辨。
+相比目前的内部径迹探测器，ITk具有更低的物质量\footnote{目前研究显示材料预算在TDR被低估，这些预期结果也许过于乐观，全新的估计正在进行。}，其具有更高的寻迹效率和分辨。
 径迹重建从种子(seed)开始，所谓的seed是三个空间点。
 在ITk的前期研究中，只考虑了两种seed，全部由Pixel着火点组成的PPP，全部由Strips着火点组成的SSS。
 图\ref{fig:ITk_seeds}展示seeds随\abseta 分布，整体而言，PPP比SSS数目高一个量级。

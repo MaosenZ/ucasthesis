@@ -32,14 +32,14 @@ HLT\_e26\_lhtight\_nod0\_ivarloose || HLT\_e60\_lhmedium\_nod0.\\
   \item 至少三个喷注，其中至少一个是\btagged 的。
 \end{itemize}
 
-\subsection{Fakes本底估计}
-虽然利用多变量学习方法构建的$\tauhad$ ID能够过滤掉大部分假$\tauhad$，但是在\ltwotau 的主要本底仍然是假$\tauhad$。
-另外，通过检查所选轻子的来源，发现接近99\%是真实的。所以，只需估计假$\tauhad$即可。通过检查MC可以对假$\tauhad$来源有一定的了解，
+\subsection{Fakes本底估计}\label{subsec:fakes_tau}
+虽然利用多变量学习方法构建的$\tauhad$ ID能够过滤掉大部分假$\tauhad$，但是\ltwotau 经过初步事例筛选之后主要本底仍然是假$\tauhad$(90\%)。
+另一方面通过检查所选轻子的来源，发现接近99\%是真实的。所以，只需估计假$\tauhad$即可。通过检查MC可以对假$\tauhad$来源有一定的了解，
 定义来自希格斯玻色子或者矢量玻色子的为真（real）$\tauhad$，来自QCD喷注的为假（fake）$\tauhad$。
 图\ref{Fig:1l2tau.truth}中两$\tauhad$分为fake-fake，fake-real，来自于$H\rightarrow \tau\tau$
-的real-real，以及其他；可以发现$t \bar{t}h$ 的纯度非常高，达到90\%，而主要来源于$t\bar{t}$的本底至少有一个fake。
-图\ref{Fig:1l2tau.truth}也给出假$\tauhad$的来源分布，大部分来源胶子喷注。由图中还可以发现相反电荷与相同电荷具有非常相似的分布，
-这给随后的假$\tauhad$估计方法给予一定的支持。
+的real-real，以及其他；可以发现$t \bar{t}h$ 的real-real比例非常高，达到90\%，而主要来源于$t\bar{t}$的本底至少有一个fake。
+图\ref{Fig:1l2tau.truth}也给出假$\tauhad$的源头(origin)分布，大部分来源胶子喷注，其次为B介子。
+由图中还可以发现相反电荷与相同电荷事例具有非常相似的分布，这给随后的假$\tauhad$估计方法给予一定的支持。
 %其稍微的不同会考虑成假本底的形状误差，通过比较相同电荷与相反电荷的$t\bar{t}$样本得到，这会在章节\ref{sec:1l2tau_sys}中讨论。
 \begin{figure}[htbp]
 \centering
@@ -49,15 +49,61 @@ HLT\_e26\_lhtight\_nod0\_ivarloose || HLT\_e60\_lhmedium\_nod0.\\
   \includegraphics[width=0.45\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_h1l2tauss_truth_signal.pdf}
   \includegraphics[width=0.45\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_h1l2tauss_fakeorig_signal.pdf}
 \end{center}
-\caption{左列展示根据MC真实信息双$\tau_{\text{had}}$事例分为fake-fake, fake-real, real-real和其他的分布，右列展示假$\tau_{\text{had}}$的来源分布，第一行对应SS双$\tau_{\text{had}}$，第二行对应OS双$\tau_{\text{had}}$。}
+\caption{左列展示根据MC真实信息双$\tau_{\text{had}}$事例分为fake-fake, fake-real, real-real和其他的分布，右列展示假$\tau_{\text{had}}$的源头分布，第一行对应SS双$\tau_{\text{had}}$，第二行对应OS双$\tau_{\text{had}}$。}
 %\caption{The original di-tau events are classified based on the Monte Carlo truth as fake-fake, fake-real, real-real from Higgs decay or 
 %anything else, respectively, in left and the origin of the fake taus are shown in right. The top row for OS and the bottom row for SS. The signal is normalized to the total background in each plot.}
 \label{Fig:1l2tau.truth}
 \end{figure}
 
-虽然MC在一定程度上可以帮助对假$\tau_{\text{had}}$的理解，但是它并不能很好描述假$\tau_{\text{had}}$，利用data-driven方法\footnote{data-driven表示利用数据去估计本底的一类方法。}去估计$\tau_{\text{had}}$是非常有必要的。\\
+虽然MC在一定程度上可以帮助了解假$\tau_{\text{had}}$分布，但是考虑到探测器的复杂环境以及误判机制的复杂性，它并不能准确地模拟假$\tau_{\text{had}}$，一个佐证可见图~\ref{fig:dataBkg_1l2tau_allMC}，
+图中利用一系列运动学变量比较了观测数据与全部使用MC的预期本底，它们不能在误差范围内吻合。
+所以利用data-driven方法\footnote{data-driven表示利用数据去估计本底的一类方法。}去估计$\tau_{\text{had}}$是非常有必要的。
+\begin{figure}[htp]
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/OneL2taulowBDTOS/njets_1l2tau_F.pdf}
+ \caption{Njets}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/OneL2taulowBDTOS/nbjets_1l2tau_F.pdf}
+ \caption{Nbjets}
+\end{subfigure}\\
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/OneL2taulowBDTOS/maxeta_F.pdf}
+ \caption{Max. $\tau_{\text{had}}$ $|\eta|$}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/OneL2taulowBDTOS/mtautau_1l2tau_F.pdf}
+ \caption{$M(\tau_{\text{had}}\tau_{\text{had}}$)}
+\end{subfigure}
+\end{figure}
+\begin{figure}[h]\ContinuedFloat
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/OneL2taulowBDTOS/htjets_1l2tau_F.pdf}
+ \caption{HTjets}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/OneL2taulowBDTOS/jjdrmin_1l2tau_F.pdf}
+ \caption{JJdr}
+\end{subfigure}\\
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/OneL2taulowBDTOS/tau_pt_0_F.pdf}
+ \caption{Lead $\tau_{\text{had}}$ \pt}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/OneL2taulowBDTOS/tau_pt_1_F.pdf}
+ \caption{Sub $\tau_{\text{had}}$ \pt}
+\end{subfigure}\\
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/OneL2taulowBDTOS/tau_pt_0_F.pdf}
+ \caption{BDT}
+\end{subfigure}
+\caption{经过\ltwotau 事例初始筛选（以及BDT$<$0.5）之后的观测数据与全部使用MC的预期本底比较，不确定度仅包括MC统计误差。各运动学变量含义将在下一小节说明。}
+\label{fig:dataBkg_1l2tau_allMC}
+\end{figure}
 喷注被误判成$\tau_{\text{had}}$时，其有相同概率被标定成带正电或者负电，所以，假本底中相同电荷（SS）两$\tau_{\text{had}}$和相反电荷（OS）两$\tau_{\text{had}}$事例比例应该相当。
-这样，可以利用SS数据去估计OS信号区的假本底，即：
+所以可以利用SS数据去估计OS信号区的假本底，即：
 \begin{equation}
  \begin{aligned}
   \text{Expected fakes}: \text{OS}_{\text{fake}}=\text{SS}_{\text{data}}-\text{SS}_{\text{truth}}\\
@@ -67,7 +113,7 @@ HLT\_e26\_lhtight\_nod0\_ivarloose || HLT\_e60\_lhmedium\_nod0.\\
 其中，$\text{OS}/\text{SS}_{\text{data}}$是观测到的数据中的OS/SS事例数，$\text{OS}/\text{SS}_{\text{truth}}$则是MC中（包括信号MC）真实$\tau_{\text{had}}$事例数。
 表\ref{Tab:1l2tau.fake}在两个控制区验证此假设，分别是低信号区（$\text{BDT}<0.5$, $\text{njet}>3$）和低喷注区（$\text{njet}<3$），总体而言，总期望值与OS数据是一致的，最大的偏差在低信号区，
 $\text{OS}_{\text{exp}}/\text{OS}_{\text{data}}$为$1.00\pm 0.22$，22\%将作为此假本底估计方法的内禀误差(closure test)。
-
+图\ref{fig:dataBkg_1l2tau_fakes}也显示低信号区的观测数据与预期本底在误差范围内是基本吻合的。
 \begin{table}[htbp]
 \small
 \begin{center}\scalebox{0.8}{
@@ -82,17 +128,105 @@ $\text{njet}\ge3, \text{BDT}<0.5$ & 62$\pm$7.8 & 0.55$\pm$0.07 & 4.69$\pm$0.18 &
 \label{Tab:1l2tau.fake}
 \end{center}
 \end{table}
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/lowBDTOSFakes/njets_1l2tau_F.pdf}
+ \caption{Njets}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/lowBDTOSFakes/nbjets_1l2tau_F.pdf}
+ \caption{Nbjets}
+\end{subfigure}\\
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/lowBDTOSFakes/maxeta_F.pdf}
+ \caption{Max. $\tau_{\text{had}}$ $|\eta|$}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/lowBDTOSFakes/mtautau_1l2tau_F.pdf}
+ \caption{$M(\tau_{\text{had}}\tau_{\text{had}}$)}
+\end{subfigure}\\
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/lowBDTOSFakes/htjets_1l2tau_F.pdf}
+ \caption{HTjets}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/lowBDTOSFakes/jjdrmin_1l2tau_F.pdf}
+ \caption{JJdr}
+\end{subfigure}
+\end{figure}
+\begin{figure}[h]\ContinuedFloat
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/lowBDTOSFakes/tau_pt_0_F.pdf}
+ \caption{Lead $\tau_{\text{had}}$ \pt}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/lowBDTOSFakes/tau_pt_1_F.pdf}
+ \caption{Sub $\tau_{\text{had}}$ \pt}
+\end{subfigure}\\
+\begin{subfigure}[b]{0.45\textwidth}
+ \includegraphics[width=0.95\textwidth,angle=-90]{fig/lowBDTOSFakes/tau_pt_0_F.pdf}
+ \caption{BDT}
+\end{subfigure}
+\caption{经过\ltwotau 事例初始筛选（以及BDT$<$0.5）之后的观测数据与预期本底比较，其中fakes使用data-driven方法估计，其他本底均是truth MC。各运动学变量含义将在下一小节说明。}
+\label{fig:dataBkg_1l2tau_fakes}
+\end{figure}
+\clearpage
+SS数据作为OS信号区的fake $\tau_{\text{had}}$，这有可能引入偏差，可以再次利用MC检查OS与SS的形状，如图\ref{fig:OSvsSS_MC}所示，SS与OS的形状无明显差别，
+可以认为SS数据应用到信号区是可行的。并且此处SS与OS的相对差别将作为fake $\tau_{\text{had}}$的形状误差。
+\begin{figure}[htp]
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.9\textwidth,angle=-90]{fig/OSvsSS_all/njets_1l2tau_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.9\textwidth,angle=-90]{fig/OSvsSS_all/nbjets_1l2tau_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.9\textwidth,angle=-90]{fig/OSvsSS_all/maxeta_F.pdf}
+\end{minipage}\\
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.9\textwidth,angle=-90]{fig/OSvsSS_all/mtautau_1l2tau_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.9\textwidth,angle=-90]{fig/OSvsSS_all/htjets_1l2tau_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.9\textwidth,angle=-90]{fig/OSvsSS_all/jjdrmin_1l2tau_F.pdf}
+\end{minipage}\\
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.9\textwidth,angle=-90]{fig/OSvsSS_all/tau_pt_0_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.9\textwidth,angle=-90]{fig/OSvsSS_all/tau_pt_1_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.9\textwidth,angle=-90]{fig/OSvsSS_all/MVA1l2tau_weight_F.pdf}
+\end{minipage}
+\caption{MC OS与SS形状比较。}
+\label{fig:OSvsSS_MC}
+\end{figure}
 
+\clearpage
 \subsection{MVA研究}
-多变量方法(MVA)可以进一步压低$t\bar{t}$本底，作为训练变量的7个运动学变量如下：
+多变量方法(MVA)可以进一步压低$t\bar{t}$本底，作为训练变量的8个运动学变量如下：
 \begin{itemize}
  \item Njets: 喷注数（若大于5则设为5）；
  \item Nbjets: 标定为$b$的喷注数（若大于3则设为3）；
- \item Htjets: 喷注\pt 的标量和（MeV）；
+ \item HTjets: 喷注\pt 的标量和（MeV）；
  \item LeadPt: 高动量$\tauhad$ \pt （GeV）；
  \item SubPt: 低动量$\tauhad$ \pt （GeV）；
  \item Mtautau: 两$\tauhad$不变质量（GeV）；
- \item Jjdr: 所选喷注的两两组合中的最小$\Delta R$；
+ \item JJdr: 所选喷注的两两组合中的最小$\Delta R$；
  \item Etamax: 两$\tauhad$中的较大$|\eta|$。
 \end{itemize}
 这些变量的分布如图~\ref{Fig:1l2tau.bdtinputs}所示，可以看到每个变量的区分度一般，并不足以支持应用一个简单的筛选条件，所以把这些变量输入BDTG，希望能够充分
@@ -100,10 +234,11 @@ $\text{njet}\ge3, \text{BDT}<0.5$ & 62$\pm$7.8 & 0.55$\pm$0.07 & 4.69$\pm$0.18 &
 在训练中，所选信号的两$\tauhad$均是真实的，而为了增加本底事例数，$t\bar{t}$ MC包括OS和SS，总共有8258个信号事例与1268个本底事例。值得指出的是，根据事例标签，
 信号MC分为奇事例与偶事例，通过奇（偶）事例得到的训练配置在实际使用中会应用到偶（奇）事例中，这样可以避免训练偏差。从图~\ref{Fig:1l2tau.bdt}看到，训练分布与测试
 分布是非常接近的，说明没有过度训练。表\ref{Tab:1l2tau.bdtrank}给出输入变量的重要性排序，Etamax具有最高的重要性。在图~\ref{Fig:1l2tau.bdt}还可以看到本底压低随信号效率变化的曲线。
-那么在该分析，可以直接应用一个简单的BDT筛选或者拟合BDT分布去提高信号显著性，但一般来讲，联合拟合多个信号区会给出更高的信号显著性。所以，根据BDT分为三个信号区域：$0.6<\text{BDT}\le 1.0$，
-$0<\text{BDT}\le 0.6$和$\text{BDT}<0.$，最后的统计分析会联合拟合这三个区域得到最终的信号强度。\\
-值得注意的是，以上多变量训练使用的本底是$t\bar{t}$ MC，而在实际的分析中，主要本底是SS data，图~\ref{Fig:1l2tau.ssbdtvalidation}比较SS data与$t\bar{t}$MC的差异，基本上，输入
-变量以及BDT的分布是非常相似的。最后，表~\ref{Tab:1l2tau.summary}总结了三个信号区的事例数以及预期信号强度。
+在实际应用中，可以直接进行一个简单的BDT筛选或者拟合BDT分布去提高信号显著性，但一般来讲，联合拟合多个信号区会给出更高的信号显著性。所以，根据BDT分为三个信号区域：$0.6<\text{BDT}\le 1.0$，$0<\text{BDT}\le 0.6$和$\text{BDT}<0.$，最后的统计分析会联合拟合这三个区域得到最终的信号强度。
+
+值得注意的是，以上多变量训练使用的本底是$t\bar{t}$ MC，而BDT将应用到章节\ref{subsec:fakes_tau}得到的fake $\tau_{\text{had}}$，即SS data。
+所以图\ref{Fig:1l2tau.ssbdtvalidation}比较了SS data与$t\bar{t}$ MC的形状，输入变量以及BDT的分布是非常相似的，说明此应用是安全的。
+最后，表~\ref{Tab:1l2tau.summary}总结了三个信号区的事例数以及预期信号强度。
 \begin{figure}[htbp]
 \centering
 \begin{center}
@@ -128,27 +263,6 @@ $0<\text{BDT}\le 0.6$和$\text{BDT}<0.$，最后的统计分析会联合拟合�
 \label{Fig:1l2tau.bdt}
 \end{figure}
 
-\begin{figure}[htbp]
-\centering
-\begin{center}
-  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_njets_ssdata_signal.pdf}
-  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_nbjets_ssdata_signal.pdf}
-  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_htjets_ssdata_signal.pdf}
-  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_leadtaupt_ssdata_signal.pdf}
-  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_subtaupt_ssdata_signal.pdf}
-  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_mtautau_ssdata_signal.pdf}
-  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_jjdr_ssdata_signal.pdf}
-  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_etamax_ssdata_signal.pdf}
-  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_bdtT3bins_ssdata_signal.pdf}
-\end{center}
-\caption{SS信号区数据与预期本底比较，第一行: njet, nbjet, Htjets; 第二行: LeadPt, SubPt, Mtautau; 第三行: Jjdr, Etamax, BDT.}
-%\caption{The BDT inputs and output are compared using the SS events in the signal region.
-%Top row: njet, nbjet; Second row: Htjets, leadPt; Third row: subPt, mtautau; Bottom row: Jjdr, Etamax, and BDT.
-%({\bf update from tth fitter including systematics})
-%}
-\label{Fig:1l2tau.ssbdtvalidation}
-\end{figure}
-
 \begin{table}[htbp]
 \begin{center}
 \begin{tabular}{c|c|c}\hline
@@ -167,6 +281,68 @@ Rank & Input variable  & Importance \\ \hline
 \label{Tab:1l2tau.bdtrank}
 \end{center}
 \end{table}
+
+%\begin{figure}[htbp]
+%\centering
+%\begin{center}
+%  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_njets_ssdata_signal.pdf}
+%  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_nbjets_ssdata_signal.pdf}
+%  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_htjets_ssdata_signal.pdf}
+%  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_leadtaupt_ssdata_signal.pdf}
+%  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_subtaupt_ssdata_signal.pdf}
+%  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_mtautau_ssdata_signal.pdf}
+%  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_jjdr_ssdata_signal.pdf}
+%  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_etamax_ssdata_signal.pdf}
+%  \includegraphics[width=0.3\textwidth, keepaspectratio]{fig/OneLepTwoTaus/Plots_Plots_bdtT3bins_ssdata_signal.pdf}
+%\end{center}
+%\caption{SS信号区数据与预期本底比较，第一行: njet, nbjet, Htjets; 第二行: LeadPt, SubPt, Mtautau; 第三行: Jjdr, Etamax, BDT.}
+%%\caption{The BDT inputs and output are compared using the SS events in the signal region.
+%%Top row: njet, nbjet; Second row: Htjets, leadPt; Third row: subPt, mtautau; Bottom row: Jjdr, Etamax, and BDT.
+%%({\bf update from tth fitter including systematics})
+%%}
+%\label{Fig:1l2tau.ssbdtvalidation}
+%\end{figure}
+
+\begin{figure}[htp]
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth,angle=-90]{fig/OneL2tauSSnoBDT_norm/njets_1l2tau_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth,angle=-90]{fig/OneL2tauSSnoBDT_norm/nbjets_1l2tau_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth,angle=-90]{fig/OneL2tauSSnoBDT_norm/maxeta_F.pdf}
+\end{minipage}\\
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth,angle=-90]{fig/OneL2tauSSnoBDT_norm/mtautau_1l2tau_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth,angle=-90]{fig/OneL2tauSSnoBDT_norm/htjets_1l2tau_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth,angle=-90]{fig/OneL2tauSSnoBDT_norm/jjdrmin_1l2tau_F.pdf}
+\end{minipage}\\
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth,angle=-90]{fig/OneL2tauSSnoBDT_norm/tau_pt_0_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth,angle=-90]{fig/OneL2tauSSnoBDT_norm/tau_pt_1_F.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.33\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth,angle=-90]{fig/OneL2tauSSnoBDT_norm/MVA1l2tau_weight_F.pdf}
+\end{minipage}
+\caption{SS数据与$t\bar{t}$ MC形状比较。}
+\label{Fig:1l2tau.ssbdtvalidation}
+\end{figure}
 
 \begin{table}[htbp]
 \begin{center}
@@ -198,9 +374,10 @@ $z_0$ & 0.09 & 0.23 & 0.73 & 0.98\\ \hline
 \label{Tab:1l2tau.summary}
 \end{center}
 \end{table}
-
+\clearpage
 \subsection{系统误差}\label{sec:1l2tau_sys}
-\ltwotau 系统误差来源包括截面计算值，QCD scales，产生子，PDF以及探测器响应等等，并分为两类，一类是只影响归一化，比如截面计算值，另一类是同时影响归一化和BDT形状，比如PDF。
+\ltwotau 系统误差来源包括截面计算值，QCD scales，产生子，PDF以及探测器响应等等。所有系统误差可分为三类，一类是只影响归一化，比如截面计算值；
+第二类只影响形状，比如fake $\tau_{\text{had}}$形状误差；第三类是同时影响归一化和BDT形状，比如产生子。
 %两类系统误差在最大似然函数拟合中都当成冗余参数。
 信号和本底都考虑的系统误差有触发，亮度，粒子鉴别，MC模拟；所有的系统误差如图~\ref{Fig:1l2tau.pruning}所示。
 对于主要本底假$\tauhad$，因为其是利用SS数据模拟，也许跟OS假$\tauhad$的形状有偏差，所以可以把OS $t\bar{t}$与SS $t\bar{t}$的相对差异作为假\tauhad 形状误差，
@@ -208,11 +385,20 @@ $z_0$ & 0.09 & 0.23 & 0.73 & 0.98\\ \hline
 \begin{figure}[htbp]
 \centering
 \begin{center}
-  \includegraphics[width=0.32\textwidth, angle=-90, keepaspectratio]{fig/OneLepTwoTaus/Plots_tth-signal_MCsys.pdf}
-  \includegraphics[width=0.32\textwidth, angle=-90, keepaspectratio]{fig/OneLepTwoTaus/Plots_ttV-signal_MCsys.pdf}
-  \includegraphics[width=0.32\textwidth, angle=-90, keepaspectratio]{fig/OneLepTwoTaus/h1l2tau_Fakes.pdf}
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=0.75\textwidth, angle=-90, keepaspectratio]{fig/h1l2tau_ttH.pdf}
+  \caption{$h\rightarrow \tau\tau$衰变分支比}
+\end{subfigure}
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=0.75\textwidth, angle=-90, keepaspectratio]{fig/OneLepTwoTaus/Plots_ttV-signal_MCsys.pdf}
+  \caption{$t\bar{t}V$ MC产生子}
+\end{subfigure}
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=0.75\textwidth, angle=-90, keepaspectratio]{fig/OneLepTwoTaus/h1l2tau_Fakes.pdf}
+  \caption{Fake \tauhad 形状}
+\end{subfigure}
 \end{center}
-\caption{系统误差举例：$t\bar{t}h$产生子，部分子簇射参数和fakes形状误差。前两者同时影响接收度和形状，fakes形状误差利用$t\bar{t}$ MC估计。}
+\caption{系统误差举例。}
 %\caption{The BDT shape systematic is estimated using different Monte Carlo generators including the SS/OS shape systematic from fakes. 
 %which are compared for tth, ttV, and SS/OS with fakes from Monte Carlo events.
 %({\bf update })
