@@ -1,18 +1,19 @@
 \section{信号优化}\label{sec:signal_optimization}
-在初步筛选之后，为了进一步加强信号显著性，利用动力学性质进行信号优化是有必要的。因为每个信号质量点的动力学性质差别
-较大，所以，每个质量点都会进行信号优化过程，而后通过各自
-动力学选择条件之后的区域才作为每个质量点的最终信号区。
+在初步筛选之后，为了进一步加强信号显著性，利用运动学性质进行信号优化是有必要的。因为各个信号质量点的运动学性质差别
+较大，所以，每个质量点都会进行信号优化过程，而后通过各自运动学优化条件之后的区域才作为每个质量点的最终信号区。
 
 \subsection{优化策略}
-MVA方法用于确定不同运动学变量的分离能力，并考虑所有变量之间的相关性。最终，前五个运动学变量用于形成优化选择，分别是$M(\ell\ell)$，$\Delta R_{min}(\ell_{2}, j)$，$\Delta R_{min}(\ell_{1}, j)$ ，$ M_{\ell_{1} jj}$和$M(all)$，它们具有很强的分离能力，而且相互之间的相关性很低(图~\ref{fig:correlation_check})。通常，$M(\ell\ell)$和$ M_{\ell_{1} jj} $对低质量点敏感，而其余对高质量和非共振信号敏感。
-基于这些知识，$\Delta R_{min}(\ell_{1}, j)$，$M(\ell\ell)$，$ M_{\ell_{1}jj}$和$M(all)$用于在低质量搜索中，而$\Delta R_{min}(\ell_{2}, j)$，$\Delta R_{min}(\ell_{1}, j)$，$M(\ell\ell)$和$M_{\ell_{1}jj}$用于高质量搜索中。它们的相应分布分别见图~\ref{fig:SigOpt_low_kine}和图~\ref{fig:SigOpt_high_kine}。\\
-TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有背景：promptSS，$V\gamma$，QmisID和fakes都包含在训练中。
+MVA方法用于确定不同运动学变量的分离能力，并考虑所有变量之间的相关性。最终，前五个运动学变量用于形成优化选择，分别是$M(\ell\ell)$，$\Delta R_{min}(\ell_{2}, j)$，$\Delta R_{min}(\ell_{1}, j)$ ，$ M_{\ell_{1} jj}$和$M(all)$，它们具有很强的分离能力，而且相互之间的相关性很低(图~\ref{fig:correlation_check})。$M(\ell\ell)$和$ M_{\ell_{1} jj} $对低质量点敏感，而其余对高质量和非共振信号敏感。
+基于这些知识，$\Delta R_{min}(\ell_{1}, j)$，$M(\ell\ell)$，$ M_{\ell_{1}jj}$和$M(all)$用于在低质量搜索中，而$\Delta R_{min}(\ell_{2}, j)$，$\Delta R_{min}(\ell_{1}, j)$，$M(\ell\ell)$和$M_{\ell_{1}jj}$用于高质量搜索中。它们的相应分布分别见图~\ref{fig:SigOpt_low_kine}和图~\ref{fig:SigOpt_high_kine}。
+
+TMVA包(CutsSA选项)~\cite{Hocker:2007ht}用于实现最佳筛选。所有本底: promptSS，$V\gamma$，QmisID和fakes都包含在训练中。
 为了减少对变量筛选顺序的依赖，每次仅训练2个变量。
-在每个信号效率工作点（WP），在测试样本中对每个事例应用对应的选择条件，
-并计算显著性（$S/\sqrt{B}$）。随后，选择具有最高信号显著性的WP，对应该WP的2个变量筛选值即为最佳选择，
-最后再对剩下两个变量重复以上步骤。图~\ref{fig:nonres:SigOpt_mumu}展示SM希格斯粒子对搜寻中$\mu\mu$分析道的效率，各个运动学
-变量的选择上下限以及显著性随信号效率WP的分布。
-对剩余的分析道或者其他质量点重复此操作，即可得到所有质量点的分析道的最佳优化选择条件。值得指出的是，对于$SS$信号优化，因为各个质量点之间的运动学性质比较接近，所以只针对$m_S=135$~GeV, $m_X=300$~GeV （$m_X=340$~GeV, $m_S=145$~GeV）进行优化，而后应用在所有的低（高）质量点。 \\
+对于每个信号效率工作点(WP)，在测试样本中应用对应的选择条件，
+并计算显著性($S/\sqrt{B}$)。随后，选择具有最高信号显著性的WP，对应该WP的2个变量筛选值即为最佳选择，
+最后再对剩下两个变量重复以上步骤。图~\ref{fig:nonres:SigOpt_mumu}展示SM希格斯粒子对搜寻中$\mu\mu$分析道效率变化，各个运动学
+变量的最佳选择上下限以及显著性随信号效率WP的分布。
+对剩余的分析道或者其他质量点重复此操作，即可得到所有质量点的不同味道子类的最佳优化选择条件。值得指出的是，对于$SS$信号优化，因为各个质量点之间的运动学性质比较接近，所以只针对$m_S=135$~GeV, $m_X=300$~GeV ($m_X=340$~GeV, $m_S=145$~GeV)进行优化，而后应用在所有的低（高）质量点。 
+
 最终考虑从低到高（和非共振）质量点筛选值的单调性，一定的选择调整被执行。最终的选择总结在表~\ref{optimization_cuts_lowmass}，表~\ref {optimization_cuts_highmass}和表~\ref{optimization_cuts_HSS}中，分别对应于$hh$低质量，$hh$高质量和$SS$信号寻找。
 
 \begin{figure}[h]
@@ -145,8 +146,7 @@ TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有�
 \includegraphics[width = 0.3\textwidth,angle=-90]{fig/SigOpt/nonres/m_ll_mumu.pdf}
 \includegraphics[width = 0.3\textwidth,angle=-90]{fig/SigOpt/nonres/m_l1jj_mumu.pdf}
 \includegraphics[width = 0.3\textwidth,angle=-90]{fig/SigOpt/nonres/SOverRootB_mumu.pdf}
-\caption{利用CutsSA方法优化SM $hh$~$\mu\mu$信号时显著性随给定效率分布情况。信号与本地均考虑了统计误差，0.72选作SM $hh$~$\mu\mu$的最佳工作点，其相应的运动学变量筛选值则
-用作最终信号优化条件（会进行一定的平滑性选择）。}
+\caption{左上：信号效率和本底效率变化，右下: SM $hh$~$\mu\mu$信号显著性随给定效率分布情况，其他：运动学变化最佳筛选上下限随信号效率变化情况。显著性计算的信号与本底均考虑了统计误差，0.72选作SM $hh$~$\mu\mu$的最佳工作点，其相应的运动学变量筛选值则用作最终信号优化条件（会进行一定的平滑性选择）。}
 %\caption{The significance scan as a function of efficiency for $\mu\mu$ in non-resonant signal search. Statistical uncertainties on the background and the signal are considered. The 0.72 working point is chosen for $\mu\mu$ channel in the non-resonant signal optimizations.}
 \label{fig:nonres:SigOpt_mumu}
 \end{center}
@@ -292,7 +292,7 @@ TMVA包（CutsSA选项）~\cite{Hocker:2007ht}用于实现最佳筛选。所有�
 \subsection{优化结果}
 \label{sec:unblind_results}
 经过所有筛选条件之后，表~\ref{cutflow_ee_nonres}到表~\ref{cutflow_emu_HSS_highmass}展示各个质量点不同分析道中的各种背景，预期信号以及观测事例数的结果。总预期本底的误差包括了所有
-的系统误差，并考虑了非fakes本底的系统误差（syst1）与fakes本底的系统误差(syst2)的反相关性质。
+的系统误差，并考虑了非fakes本底的系统误差(syst1)与fakes本底的系统误差(syst2)的反相关性质。
 图~\ref{fig:SigOpt:nonres_m_l1jj.pdf}到图~\ref{fig:SigOpt:H340_S165_m_l1jj.pdf}展示对应的子类的运动学分布。
 总体而言，所有子类中没有发现明显超出。
 \subsubsection{$hh$搜寻筛选结果}

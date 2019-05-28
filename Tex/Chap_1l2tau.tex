@@ -1,5 +1,5 @@
 \section{\ltwotau 分析}\label{sec:1l2tau}
-\ltwotau 聚焦于通过$ttH\rightarrow \tau^+\tau^-$衰变道寻找$t\bar{t}H$，其分析基本遵循文献~\cite{Aaboud:2017jvq}的方法，但是对于2015-2017年的数据分析，考虑到ATLAS对$\tau$ 的鉴别效率的提升，$\tau$ 的选择条件有一定的加强。
+\ltwotau 聚焦于通过$ttH\rightarrow \tau^+\tau^-$衰变道寻找$t\bar{t}h$，其分析基本遵循文献~\cite{Aaboud:2017jvq}的方法，但是对于2015-2017年的数据分析，考虑到ATLAS对$\tau$ 的鉴别效率的提升，$\tau$ 的选择条件有一定的加强。
 \ltwotau 的基本策略是经过初步的事例筛选之后(pre-MVA)，利用BDTG\cite{Hocker:2007ht}方法进一步区分信号与主要本底，即$t\bar{t}$（其中至少一个$\tauhad$是来源于$b$ 喷注，强子化衰变的$W$玻色子或者部分子簇射）。
 最后$0<\text{BDT}\le 0.6$和$0.6<\text{BDT}\le 1.0$为信号比例较高的区域，$\text{BDT}<0.$为信号比例较低的区域，同时拟合三个区域得到信号强度。
 
@@ -33,9 +33,9 @@ HLT\_e26\_lhtight\_nod0\_ivarloose || HLT\_e60\_lhmedium\_nod0.\\
 \end{itemize}
 
 \subsection{Fakes本底估计}\label{subsec:fakes_tau}
-虽然利用多变量学习方法构建的$\tauhad$ ID能够过滤掉大部分假$\tauhad$，但是\ltwotau 经过初步事例筛选之后主要本底仍然是假$\tauhad$(90\%)。
+虽然利用多变量学习方法构建的$\tauhad$ ID能够过滤掉大部分假$\tauhad$，但是\ltwotau 经过初步事例筛选之后主要本底仍然是假$\tauhad$ (90\%)。
 另一方面通过检查所选轻子的来源，发现接近99\%是真实的。所以，只需估计假$\tauhad$即可。通过检查MC可以对假$\tauhad$来源有一定的了解，
-定义来自希格斯玻色子或者矢量玻色子的为真（real）$\tauhad$，来自QCD喷注的为假（fake）$\tauhad$。
+定义来自希格斯玻色子或者矢量玻色子的为真(real) $\tauhad$，来自QCD喷注的为假(fake) $\tauhad$。
 图\ref{Fig:1l2tau.truth}中两$\tauhad$分为fake-fake，fake-real，来自于$H\rightarrow \tau\tau$
 的real-real，以及其他；可以发现$t \bar{t}h$ 的real-real比例非常高，达到90\%，而主要来源于$t\bar{t}$的本底至少有一个fake。
 图\ref{Fig:1l2tau.truth}也给出假$\tauhad$的源头(origin)分布，大部分来源胶子喷注，其次为B介子。
@@ -102,7 +102,7 @@ HLT\_e26\_lhtight\_nod0\_ivarloose || HLT\_e60\_lhmedium\_nod0.\\
 \caption{经过\ltwotau 事例初始筛选（以及BDT$<$0.5）之后的观测数据与全部使用MC的预期本底比较，不确定度仅包括MC统计误差。各运动学变量含义将在下一小节说明。}
 \label{fig:dataBkg_1l2tau_allMC}
 \end{figure}
-喷注被误判成$\tau_{\text{had}}$时，其有相同概率被标定成带正电或者负电，所以，假本底中相同电荷（SS）两$\tau_{\text{had}}$和相反电荷（OS）两$\tau_{\text{had}}$事例比例应该相当。
+喷注被误判成$\tau_{\text{had}}$时，其有相同概率被标定成带正电或者负电，所以，假本底中相同电荷(SS)两$\tau_{\text{had}}$和相反电荷(OS)两$\tau_{\text{had}}$事例比例应该相当。
 所以可以利用SS数据去估计OS信号区的假本底，即：
 \begin{equation}
  \begin{aligned}
@@ -111,7 +111,7 @@ HLT\_e26\_lhtight\_nod0\_ivarloose || HLT\_e60\_lhmedium\_nod0.\\
  \end{aligned}
 \end{equation}
 其中，$\text{OS}/\text{SS}_{\text{data}}$是观测到的数据中的OS/SS事例数，$\text{OS}/\text{SS}_{\text{truth}}$则是MC中（包括信号MC）真实$\tau_{\text{had}}$事例数。
-表\ref{Tab:1l2tau.fake}在两个控制区验证此假设，分别是低信号区（$\text{BDT}<0.5$, $\text{njet}>3$）和低喷注区（$\text{njet}<3$），总体而言，总期望值与OS数据是一致的，最大的偏差在低信号区，
+表\ref{Tab:1l2tau.fake}在两个控制区验证此假设，分别是低信号区($\text{BDT}<0.5$, $\text{njet}>3$)和低喷注区($\text{njet}<3$)，总体而言，总期望值与OS数据是一致的，最大的偏差在低信号区，
 $\text{OS}_{\text{exp}}/\text{OS}_{\text{data}}$为$1.00\pm 0.22$，22\%将作为此假本底估计方法的内禀误差(closure test)。
 图\ref{fig:dataBkg_1l2tau_fakes}也显示低信号区的观测数据与预期本底在误差范围内是基本吻合的。
 \begin{table}[htbp]

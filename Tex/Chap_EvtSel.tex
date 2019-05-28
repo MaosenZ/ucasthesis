@@ -5,7 +5,7 @@
 \subsection{粒子定义与重叠移除}\label{subsec:4w_obj_def}
 %物理分析首先要明确事例内的各种粒子的定义（鉴别及筛选条件），而后才能进行事例级别的选择。
 %粒子重建及鉴别遵循ATLAS一般流程，如章节\ref{sec:evt_reco}所述。
-与前文\ref{sec:obj_tth}类似，首先须进行粒子定义和重叠移除。4W分析的粒子定义总结在表\ref{tab:4w_obj_def}。通过Baseline筛选的粒子会用来做控制区域或者本底估计的研究，而通过Tight筛选的粒子才会作为信号区的输入。随后的重叠移除总结在表\ref{tab:4w_olr}。
+与前文\ref{sec:obj_tth}类似，首先须进行粒子定义和重叠移除。4W分析的粒子定义总结在表\ref{tab:4w_obj_def}。通过Baseline筛选的粒子会用于控制区域或者本底估计的研究，而通过Tight筛选的粒子才会作为信号区的输入。随后的重叠移除总结在表\ref{tab:4w_olr}。
 \input{tables/4w_obj_def}
 
 %\subsection{重叠移除}
@@ -13,18 +13,18 @@
 %为了消除这种重叠，专门的重叠移除（overlap removal）需要完成\cite{Adams:1743654}。
 %该分析中的重叠移除总结如表\ref{tab:4w_olr}所示。
 \input{tables/4w_olr}
-
+\clearpage
 %\section{事例筛选}
 \subsection{初步筛选}
 完成粒子筛选和重叠移除之后，所选事例应当通过如下初步筛选条件：
 \begin{itemize}
-  \item \textbf{GRL (Good Run List)}，ATLAS定义的物理分析可以使用的数据 \\
+  \item \textbf{GRL (Good Run List)}，ATLAS定义的物理分析可以使用的数据：\\
 	\begin{tabular}{ll}
-    2015 data: & {\tt data15\_13TeV.periodAllYear\_DetStatus-v79-repro20-02} \\
+    2015年数据: & {\tt data15\_13TeV.periodAllYear\_DetStatus-v79-repro20-02} \\
                       & {\tt \_DQDefects-00-02-02\_PHYS\_StandardGRL\_All\_Good\_25ns.xml} \\
     %2016 data: & {\tt data16\_13TeV.periodAllYear\_DetStatus-v83-pro20-15} \\
     %                  & {\tt \_DQDefects-00-02-04\_PHYS\_StandardGRL\_All\_Good\_25ns.xml}
-   2016 data: & {\tt data16\_13TeV.periodAllYear\_DetStatus-v88-pro20-21} \\
+   2016年数据: & {\tt data16\_13TeV.periodAllYear\_DetStatus-v88-pro20-21} \\
                     & {\tt \_DQDefects-00-02-04\_PHYS\_StandardGRL\_All\_Good\_25ns.xml} \\
   \end{tabular}
   \item \textbf{事例清洁(Event cleaning criteria)}: 去除量能器信息不全的事例。%cleaning for Tile corrupted events, LAr noise bursts and corrupted data
@@ -40,25 +40,27 @@
   \begin{itemize}
     \item 单轻子触发: HLT\_mu24\_ivarmedium || HLT\_mu50 || HLT\_e24\_lhtight\_nod0\_ivarloose ||
       HLT\_e60\_lhmedium\_nod0 || HLT\_e140\_lhloose\_nod0  
-    \item 双轻子触发: HLT\_2e17\_lhvloose\_nod0 || HLT\_e17\_lhloose\_nod0\_mu14 || HLT\_mu22\_mu8noL1 
+    \item 双轻子触发: HLT\_2e17\_lhvloose\_nod0 || HLT\_e17\_lhloose\_nod0\_mu14 ||\\
+     HLT\_mu22\_mu8noL1 
   \end{itemize}
  需要指出的是，与数据一样，MC样本也应当满足以上触发条件，其相应的触发效率修正已添加到每个样本事例中。
   \item 选择通过章节~\ref{subsec:4w_obj_def}所述的粒子。
   \item \textbf{轻子数}
 	\begin{itemize}
 	      \item 两个相同电荷的轻子，可有效压低$Z/\gamma^*$和QCD本底。
-	      \item 每个\texttt{tight}电子应当满足\texttt{ChargeIDBDTTight}> 0.067，此变量是用来压低电荷误判电子，如附录~\ref{app:chargeidbdt}所述。
-	      \item 至少有一个轻子应当能匹配以上任一或多个trigger，除此之外，大横动量轻子\pt 应大于30 GeV，小横动量轻子大于20 GeV。
+	      \item 每个\texttt{tight}电子应当满足\texttt{ChargeIDBDTTight}> 0.067，此变量用于压低电荷误判电子。
+	      \item 至少有一个轻子应当能匹配以上任一或多个trigger，除此之外，领头轻子\pt 应大于30 GeV，次领头轻子大于20 GeV。
 	\end{itemize}
   \item 排除掉任何含有\bjet 的事例。
   \item $E_{\text{T}}^{\text{miss,TRK}}$> 10 GeV。
   \item 因为Drell-Yan过程目前并不能被MC很好模拟，所以为了避免此问题，双轻子不变质量应大于15 GeV。
-  \item 为了压低来自于$Z$+jets过程的本底（电荷误判），$|M(\ell\ell)-M(Z)|>$10~GeV条件须通过。
-  \item 喷注数的要求依赖于质量点的选择，低（高）质量点要求至少2（3）个喷注。此项会在~\ref{subsubsec:hh_optimization}深入讨论。
+  \item 为了压低来自于$Z$+jets过程的本底（电荷误判），须满足$|M(\ell\ell)-M(Z)|>$10~GeV条件。
+  \item 喷注数的要求依赖于质量点的选择，低（高）质量点要求至少2 (3)个喷注。此项会在~\ref{subsubsec:hh_optimization}深入讨论。
 \end{itemize}
-以上的事例筛选过程总结在表~\ref{tab:4w_evt_presel}。最后，通过以上筛选条件的事例根据轻子味道分为三个分析道，为$ee$
-$\mu\mu$和$e\mu$。表~\ref{tab:presel_cutflow_smhh}展示了标准模型希格斯对信号经过以上一系列条件时的事例数和效率变化，
-此处对应亮度为36.1 fb$^{-1}$，截面（$gg\rightarrow hh$）为33.4 fb。图~\ref{fig:eff_pre_sel_hh}（图~\ref{fig:eff_pre_sel_SS}）展示所有$hh$（$SS$）信号样本的经过初步筛选之后的效率，可以看到：一是随着$m_X$或者$m_S$的增加，效率相应增加（对于$SS$，在$m_X=340~\text{GeV}, m_S=135~\text{GeV}$质量点的效率下降是因为从此点开始要求至少三个喷注）；二是$e\mu$道具有最高的效率值，$\mu\mu$次之，$ee$最低，这是因为理论上$e\mu$的分支比是其他两个道的两倍，以及$\mu$比$e$具有更好的鉴别效率。
+
+以上的事例筛选过程总结在表~\ref{tab:4w_evt_presel}。最后，通过以上筛选条件的事例根据轻子味道分为三个分析道，为$ee$,
+$\mu\mu$和$e\mu$。表~\ref{tab:presel_cutflow_smhh}展示了标准模型希格斯粒子对信号经过以上一系列条件时的事例数和效率变化，
+此处对应亮度为36.1 fb$^{-1}$，截面($gg\rightarrow hh$)为33.4 fb。图~\ref{fig:eff_pre_sel_hh}（图~\ref{fig:eff_pre_sel_SS}）展示所有$hh$ ($SS$)信号样本经过初步筛选之后的效率，随着$m_X$或者$m_S$的增加，效率相应增加（对于$SS$，在$m_X=340~\text{GeV}, m_S=135~\text{GeV}$质量点的效率下降是因为从此点开始要求至少三个喷注）；$e\mu$道具有最大的效率值，$\mu\mu$次之，$ee$最低，这是因为理论上$e\mu$的分支比是其他两个道的两倍，以及$\mu$比$e$具有更好的鉴别效率。
 \input{tables/4w_presel.tex}
 \input{tables/presel_cutflow_smhh}
 
@@ -78,14 +80,15 @@ $\mu\mu$和$e\mu$。表~\ref{tab:presel_cutflow_smhh}展示了标准模型希格
 \label{fig:eff_pre_sel_SS}
 \end{figure}
 
-\subsection{信号优化}
-\subsubsection{$hh$信号优化}\label{subsubsec:hh_optimization}
+\subsection{喷注数分类}
+\subsubsection{$hh$喷注数分类}\label{subsubsec:hh_optimization}
 本分析中的显著信号是两个相同电荷的轻子。两个希格斯粒子倾向于出射到两个相反的半球，随后，两个希格斯粒子均衰变
-到$W$玻色子，总共四个$W$玻色子中有两个是不在壳的，而不在壳的$W$玻色子会贡献相当部分的低动量的喷注（\pt < 25 GeV）。
-在图~\ref{fig:SigTopo:pt_jet_mH260}到\ref{fig:SigTopo:pt_jet_nonres}中可以看到（此图未通过初步筛选条件），很大一部分的第四条喷注 \pt 是低于25 GeV的，甚至在高质量信号点。
-那么加上基本的筛选条件之后，大部分信号事例只有三条喷注，如图\ref{fig:SigTopo:numOfjet_sig}所示。同时可以发现，对于低质量点，即$m_X$=260 GeV 和$m_X$=300 GeV，其大部分事例最多只有2条喷注。所以，对于不同的质量点，应当应用不同的喷注数条件，对于低质量点，要求$N_\text{jet}\ge$2，而高质量点，$N_\text{jet}\ge$3。为了证实该分类能够给出最高的信号显著性，考虑本底后，
-详细检查可见附录~\ref{app:}。
-最后，为了提高信号显著性，一系列运动学变量被重建，从而用来优化信号，具体优化方法会在章节~\ref{sec:signal_optimization}具体讨论，
+到$W$玻色子，总共四个$W$玻色子中有两个是不在壳的，而不在壳的$W$玻色子会贡献相当部分的低动量的喷注(\pt < 25 GeV)。
+在图~\ref{fig:SigTopo:pt_jet_mH260}到\ref{fig:SigTopo:pt_jet_nonres}中可以看到（此图未通过初步筛选条件），很大一部分的第四条喷注 \pt 是低于25 GeV的，甚至发生在高质量信号点。
+加上基本的筛选条件之后，大部分信号事例只有三条喷注，如图\ref{fig:SigTopo:numOfjet_sig}所示。对于低质量点，即$m_X$=260 GeV 和$m_X$=300 GeV，其大部分事例最多只有2条喷注。
+所以，对于不同的质量点，应当应用不同的喷注数条件，对于低质量点，要求$N_\text{jet}\ge$2，而对于高质量点，要求$N_\text{jet}\ge$3。
+%为了证实该分类能够给出最高的信号显著性，考虑本底后，详细检查可见附录~\ref{app:}。
+最后，一系列运动学变量被重建以用于信号优化（以及本底估计验证），具体优化方法会在章节~\ref{sec:signal_optimization}讨论。
 以下列出一些能够较好区分信号与本底的变量：
 \begin{itemize}
  \item $M(\ell\ell)$, 双轻子的不变质量;
@@ -94,8 +97,8 @@ $\mu\mu$和$e\mu$。表~\ref{tab:presel_cutflow_smhh}展示了标准模型希格
  \item $M(l_1jj)$, 领头轻子与两个距离最近喷注的不变质量；%the invariant mass of leading lepton and two closest jets;
  \item $M(all)$, 所有粒子的不变质量；%the invariant mass of all selected objects;
  \item $M_T$, 所有粒子的横向质量；%the transverse mass of all selected objects;
- \item $\Delta R_{min}(\ell_1, j)$, $\Delta R$ 领头轻子与最近喷注的距离；%distance between leading lepton and the closest jet;
- \item $\Delta R_{min}(\ell_2, j)$, $\Delta R$ 次领头轻子与最近喷注的距离。%distance between sub leading lepton and the closest jet;
+ \item $\Delta R_{min}(\ell_1, j)$, 领头轻子与最近喷注的角距离；%distance between leading lepton and the closest jet;
+ \item $\Delta R_{min}(\ell_2, j)$, 次领头轻子与最近喷注的角距离。%distance between sub leading lepton and the closest jet;
 \end{itemize}
 
 \begin{figure}
@@ -129,10 +132,10 @@ $\mu\mu$和$e\mu$。表~\ref{tab:presel_cutflow_smhh}展示了标准模型希格
 \label{fig:SigTopo:pt_jet}
 \end{figure}
 
-\subsubsection{$SS$信号优化}
+\subsubsection{$SS$喷注数分类}
 $S$标量粒子所取质量从135 GeV到165 GeV，$X$粒子从280 GeV到340 GeV。$SS$与$hh$具有类似的动力学性质，为了尽可能增加信号信号显著性，$N_\text{jet}$分类适用于此，具体如下：
 \begin{itemize}
  \item 固定$m_S=135$~GeV: $m_X=280$~GeV, $m_X=300$~GeV and $m_X=320$~GeV; $N_{\text{jet}}\geq$2。
  \item 固定$m_X=340$~GeV: $m_S=135$~GeV, $m_S=145$~GeV, $m_S=155$~GeV and $m_S=165$~GeV; $N_{\text{jet}}\geq$3。
 \end{itemize}
-前述章节~\ref{subsubsec:hh_optimization}的动力学变量也可用来进一步优化信号显著性。
+前述章节~\ref{subsubsec:hh_optimization}的动力学变量也可用于信号优化。

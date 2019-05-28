@@ -3,7 +3,7 @@
 该软件包基于利用\texttt{RooFit/RooStat}开发的\texttt{HistFactory}\cite{Cranmer:1456844}。下面几小节简要建设本文涉及的统计模型，详情可参见\cite{asym}。
 
 \subsection{似然函数}
-考虑事例中的测量变量$x$(比如BDT)，则N个事例会构建一个直方图$\boldsymbol{n}=(n_1,...,n_N)$，对于每个bin有：
+考虑事例中的测量变量$x$（比如BDT），则N个事例会构建一个直方图$\boldsymbol{n}=(n_1,...,n_N)$，对于每个bin有：
 \begin{equation}
 \begin{aligned}
  E[n_i]=\lambda=\mu s_i+B_i=\mu s_i+\sum_{b\in {\{bkgs\}}}b_i \\
@@ -75,7 +75,7 @@ $\theta_0$为中心值（一般假设为0），$\sigma_{\theta_0}$为误差大�
    % 0 & \quad \text{if $\hat\mu > \mu$}
   \end{cases}
  \end{equation}
- \noindent 其中$\hat{\boldsymbol{\theta}}$表示无条件拟合(conditional fit)，$\hat{\hat{\boldsymbol{\theta}}}$表示有条件拟合(unconditional fit, 即固定$\mu$)。$q_ \mu$越大，观测数据与具有信号强度$\mu$的假设越不吻合。
+ \noindent 其中$\hat{\boldsymbol{\theta}}$表示无条件拟合(unconditional fit)，$\hat{\hat{\boldsymbol{\theta}}}$表示有条件拟合(conditional fit, 即固定$\mu$)。$q_ \mu$越大，观测数据与具有信号强度$\mu$的假设越不吻合。
  
  不吻合度的定量表述为:
  \begin{equation}

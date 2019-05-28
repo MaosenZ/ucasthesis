@@ -16,11 +16,12 @@ w_{i}=\frac{x_1f_{1i}(x_1;Q) x_2f_{2i}(x_2;Q)}{x_1f_{10}(x_1;Q) x_2f_{20}(x_2;Q}
   其中``1''和``2''表示硬散射过程中的两个入射部分子，``0''是PDF的最佳拟合值，即基准值，而$i$对应PDF参数的一次向上或向下变动。
   每项PDF参数变动之后的事例数与使用基准值的事例数差别作为单项误差，
   而总的PDF误差取它们的平方和。对于$SS$样本，PDF误差则是NNPDF23中的100项参数变动带来的误差的平方和，结果大约为6\%。
-   \item QCD重整化和因子化参数同时或者单独加倍（或者减半），然后计算相应变动之后的事例数，最终把与基准值差别最大的一次作为系统误差，对于$hh$（$SS$）可达到10\%（4\%）。
+   \item QCD重整化和因子化参数同时或者单独加倍（或者减半），然后计算相应变动之后的事例数，最终把与基准值差别最大的一次作为系统误差，对于$hh$  ($SS$)可达到10\% (4\%)。
    \item 部分子簇射产生子的选择可影响信号的接收效率。对于$hh$信号，使用\PYTHIAV{8} 作为部分子簇射产生子的信号样本被产生，而后比较其与使用\Herwigpp 的基准信号
    接收效率的差别，此差别将作为部分子簇射产生模型的系统误差，随着$m_X$的增大，其值从40\%到10\%；而对于$SS$，\PYTHIAV{8} 内部的所有部分子簇射模型参数变动带来的差别
    的平方和将作为此项误差，其值大概为10\%。
 \end{itemize}
+
 所有的信号样本的理论误差总结在表~\ref{tab:sig_theory_hh}和表~\ref{tab:sig_theory_SS}中。
 \input{tables/sig_theory_hh.tex}
 \input{tables/sig_theory_SS.tex}
@@ -29,9 +30,9 @@ w_{i}=\frac{x_1f_{1i}(x_1;Q) x_2f_{2i}(x_2;Q)}{x_1f_{10}(x_1;Q) x_2f_{20}(x_2;Q}
 QmisID和fakes本底的误差如章节~\ref{sec:bkg_estimation}所示，值得指出的是QmisID的系统误差对其本身和fakes上具有相反的影响。
 
 \subsection{MC本底预期截面}
-promptSS和$V\gamma$本底利用MC估计，其中主要部分是$WZ$（70\%），根据三轻子分析道的估计，$WZ$的截面误差为25\%。$W^{\pm}W^{\pm}$本底在promptSS占据大约10\%，其误差
-假设为50\%。剩下的$V\gamma$，$tV$，$t\bar{t}V$和$t\bar{t}H$的预期截面误差均假设为50\%，为了支持50\%是一个足够保守的估计，可参见标准模型截面测量实验，$tZ$和$ttW$（$ttZ$）的
-截面测量误差分别为15\%~\cite{xsection_WZ}和53.3\%（33\%）~\cite{xsection_ttV}。
+promptSS和$V\gamma$本底利用MC估计，其中主要部分是$WZ$ (70\%)，根据三轻子分析道的估计，$WZ$的截面误差为25\%。$W^{\pm}W^{\pm}$本底在promptSS占据大约10\%，其误差
+假设为50\%。剩下的$V\gamma$，$tV$，$t\bar{t}V$和$t\bar{t}h$的预期截面误差均假设为50\%，为了支持50\%是一个足够保守的估计，可参见标准模型截面测量实验，$tZ$和$ttW$ ($ttZ$)的
+截面测量误差分别为15\%~\cite{xsection_WZ}和53.3\% (33\%)~\cite{xsection_ttV}。
 
 \subsection{实验相关}
 实验相关误差主要有以下几项：
@@ -40,7 +41,7 @@ promptSS和$V\gamma$本底利用MC估计，其中主要部分是$WZ$（70\%）�
    \begin{itemize}
      \item 电子沉积能量测量和分辨率
      \item 受低动量径迹影响的\met 重建误差
-     \item Jet能量测量及分辨误差
+     \item 喷注能量测量及分辨误差
    \end{itemize}
    \item 末态粒子重建及选择带来的效率修正误差
     \begin{itemize}
@@ -50,7 +51,7 @@ promptSS和$V\gamma$本底利用MC估计，其中主要部分是$WZ$（70\%）�
       \item \btag 效率
     \end{itemize}
 \end{itemize}
-信号MC，promptSS和$V\gamma$同时考虑了这些误差，但在实际操作中，每个分析道每个信号区各自舍弃掉整体影响低于0.5\%的系统误差。表~\ref{tab:summary_syst_ee_nonres}总结了在$hh$搜寻中$e\mu$分析道的系统误差大小。
+信号MC，promptSS和$V\gamma$同时考虑了这些误差，但在实际操作中，每个分析道每个信号区各自舍弃掉整体影响低于0.5\%的系统误差。作为一个例子，表~\ref{tab:summary_syst_ee_nonres}总结了在$hh$搜寻中$e\mu$分析道的系统误差大小。
 \begin{table}[h]
 \begin{center}
 %\scriptsize

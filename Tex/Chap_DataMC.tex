@@ -22,13 +22,13 @@
 %\subsection{蒙特卡罗样本}
 
 \subsection{信号样本}
-信号样本包含两种模型，分别为希格斯粒子对（$pp\rightarrow (X) \rightarrow hh$）和类希格斯粒子对($gg \rightarrow X \rightarrow SS$)\cite{ExoticHiggsTheory}。
+信号样本包含两种模型，分别为希格斯粒子对($pp\rightarrow (X) \rightarrow hh$)和类希格斯粒子对($gg \rightarrow X \rightarrow SS$)\cite{ExoticHiggsTheory}。
 %\subsubsection{$gg\rightarrow (X) \rightarrow hh$}
 \begin{enumerate}
     \item SM 信号（非共振态模式）目前只考虑胶子融合过程，即$gg\rightarrow hh$，利用包含NLO修正的双希格斯粒子模型~\cite{Frederix:2014hta}，
     在\MGMCatNLO~\cite{madgraph5amcnlo,syscalc}中产生。
 %其产生截面为33.4 fb~\cite{eftreweight,HiggsXSec}，考虑了NNLO QCD修正和including resummation of soft-gluon emission at next-to-next-to-leading-logarithmic (NNLL) accuracy for $m_{H} = 125.09$~GeV。 
-    \item 共振态模式（$gg\rightarrow X\rightarrow  hh$）利用包含NLO修正的\texttt{2HDMCP\_EFT}的信号模型~\cite{MG5-HH-LO}，在\MGMCatNLO 中产生。其中重标量粒子X，即共振态粒子，被假设具有远小于实验精度的衰变宽度；
+    \item 共振态模式($gg\rightarrow X\rightarrow  hh$)利用包含NLO修正的\texttt{2HDMCP\_EFT}的信号模型~\cite{MG5-HH-LO}，在\MGMCatNLO 中产生。其中重标量粒子X，即共振态粒子，被假设具有远小于实验精度的衰变宽度；
 在实际模拟中，其宽度设为10 MeV，并考虑四个质量点，分别为260 GeV, 300 GeV, 400 GeV和500 GeV。此过程产生截面假设为1 pb。 
 \end{enumerate}
 
@@ -41,5 +41,5 @@ $gg \rightarrow X \rightarrow SS$利用\PYTHIAV{8}~\cite{pythia8}在LO阶产生�
 \input{tables/SS_DSID.tex}
 
 \subsection{背景样本}
-多玻色子（VV/VVV）和$V\gamma$样本通过\SHERPAV{2.1}~\cite{sherpa}在NLO阶产生；$V+jets$则通过\SHERPAV{2.2}在NLO阶产生，此两种过程均采用CT10 PDF。$VH$利用\PYTHIAV{8}在LO阶产生，采用NNPDF2.3LO PDF。$t\bar{t}$通过\POWHEGBOXV{2.0}~\cite{powhegbox}在NLO阶产生，而后传递到\PYTHIAV{8}进行部分子簇射和强子化模拟，采用PDF为NNPDF2.3LO。单顶夸克过程（$t+X$）同样通过\POWHEGBOXV{2.0}在NLO阶产生，但传递到\PYTHIAV{6.4}~\cite{pythia6}进行后续模拟，采用PDF则为CT10。$t\bar{t}V$样本则在NLO阶通过\MGMCatNLO+\PYTHIAV{8}产生，采用PDF为NNPDF2.3LO。$t\bar{t}H$样本通过\MGMCatNLO+\Herwigpp 产生，PDF为NNPDF3.0~\cite{PDF:NNPDF30}。更多关于这些背景过程的产生及模拟过程可参考文献~\cite{ATL-PHYS-PUB-2016-004,ATL-PHYS-PUB-2016-005,ATL-PHYS-PUB-2016-002}。
+多玻色子(VV/VVV)和$V\gamma$样本通过\SHERPAV{2.1}~\cite{sherpa}在NLO阶产生；$V+jets$则通过\SHERPAV{2.2}在NLO阶产生，此两种过程均采用CT10 PDF。$VH$利用\PYTHIAV{8}在LO阶产生，采用NNPDF2.3LO PDF。$t\bar{t}$通过\POWHEGBOXV{2.0}~\cite{powhegbox}在NLO阶产生，而后传递到\PYTHIAV{8}进行部分子簇射和强子化模拟，采用PDF为NNPDF2.3LO。单顶夸克过程（$t+X$）同样通过\POWHEGBOXV{2.0}在NLO阶产生，但传递到\PYTHIAV{6.4}~\cite{pythia6}进行后续模拟，采用PDF则为CT10。$t\bar{t}V$样本则在NLO阶通过\MGMCatNLO+\PYTHIAV{8}产生，采用PDF为NNPDF2.3LO。$t\bar{t}h$样本通过\MGMCatNLO+\Herwigpp 产生，PDF为NNPDF3.0~\cite{PDF:NNPDF30}。更多关于这些背景过程的产生及模拟过程可参考文献~\cite{ATL-PHYS-PUB-2016-004,ATL-PHYS-PUB-2016-005,ATL-PHYS-PUB-2016-002}。
 
